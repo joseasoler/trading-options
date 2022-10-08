@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-	<TO_SilverStockOrbital>Silver stock of orbital traders: {0}%</TO_SilverStockOrbital>
-	<TO_SilverStockOrbitalTooltip>Allows to adjust the total amount of silver that orbital traders will have in stock when they arrive. Orbital traders which were already in range when the setting is changed will not be affected.</TO_SilverStockOrbitalTooltip>
-	<TO_SilverStockSettlement>Silver stock of settlements: {0}%</TO_SilverStockSettlement>
-	<TO_SilverStockSettlementTooltip>Allows to adjust the total amount of silver that settlements will have in stock. Changes will only apply when settlements restock.</TO_SilverStockSettlementTooltip>
-	<TO_SilverStockCaravan>Silver stock of caravans: {0}%</TO_SilverStockCaravan>
-	<TO_SilverStockCaravanTooltip>Allows to adjust the total amount of silver that caravans will have in stock when they arrive. Caravans which were already in the map when the setting is changed will not be affected.</TO_SilverStockCaravanTooltip>
-	<TO_SilverStockVisitor>Silver stock of visitors: {0}%</TO_SilverStockVisitor>
-	<TO_SilverStockVisitorTooltip>Allows to adjust the total amount of silver that visitors will have in stock when they arrive. Visitors which were already in the map when the setting is changed will not be affected.</TO_SilverStockVisitorTooltip>
-	<TO_ResetSettings>Reset</TO_ResetSettings>
+	<TO_CategoryCaravan>Caravans</TO_CategoryCaravan>
+	<TO_CategoryOrbital>Orbital</TO_CategoryOrbital>
+	<TO_CategorySettlement>Settlements</TO_CategorySettlement>
+	<TO_CategoryVisitor>Visitors</TO_CategoryVisitor>
+	<TO_CategoryNone>All</TO_CategoryNone>
+	<TO_ResetSettings>Reset all</TO_ResetSettings>
 	<TO_ResetSettingsTooltip>Reset all Trading Options to their default values.</TO_ResetSettingsTooltip>
+	<TO_SilverStock>Silver stock: {0}%</TO_SilverStock>
+	<TO_SilverStockCaravanTooltip>Allows to adjust the total amount of silver that caravans will have in stock when they arrive. Caravans which were already in the map when the setting is changed will not be affected.</TO_SilverStockCaravanTooltip>
+	<TO_SilverStockOrbitalTooltip>Allows to adjust the total amount of silver that orbital traders will have in stock when they arrive. Orbital traders which were already in range when the setting is changed will not be affected.</TO_SilverStockOrbitalTooltip>
+	<TO_SilverStockSettlementTooltip>Allows to adjust the total amount of silver that settlements will have in stock. Changes will only apply when settlements restock.</TO_SilverStockSettlementTooltip>
+	<TO_SilverStockVisitorTooltip>Allows to adjust the total amount of silver that visitors will have in stock when they arrive. Visitors which were already in the map when the setting is changed will not be affected.</TO_SilverStockVisitorTooltip>
 </LanguageData>
