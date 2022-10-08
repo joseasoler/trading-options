@@ -1,0 +1,13 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{164F8848-D88B-487A-BD40-001B98C74EE4}") = "TradingOptions", "TradingOptions.csproj", "{164F8848-D88B-487A-BD40-001B98C74EE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		1.4|x64 = 1.4|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{164F8848-D88B-487A-BD40-001B98C74EE4}.1.4|x64.ActiveCfg = 1.4|x64
+		{164F8848-D88B-487A-BD40-001B98C74EE4}.1.4|x64.Build.0 = 1.4|x64
+	EndGlobalSection
+EndGlobal

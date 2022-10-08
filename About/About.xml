@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Trading Options</name>
+	<author>José Ángel Soler Ortiz</author>
+	<supportedVersions>
+		<li>1.4</li>
+	</supportedVersions>
+	<url>https://gitlab.com/joseasoler/trading-options</url>
+	<packageId>joseasoler.TradingOptions</packageId>
+	<description><![CDATA[Customize your RimWorld trading experience to your liking! You can change these settings independently for orbital traders, caravans, visitors and settlements:
+
+• How frequently these traders will visit the colony.
+
+• Base amount of silver traders have in stock.
+
+• Traders bring more silver to rich colonies.
+
+• Traders bring more stock to richer colonies.
+
+These settings affect all traders:
+
+• Slaver traders appear regardless of your colony population.
+
+• Amount of silver carried by each trader category.
+
+It is safe to add Trading Options to an existing savegame. You can safely modify any of the settings at any point during the game. Changes will only apply to new traders, and to settlements after they restock.
+
+Trading Options is compatible with all mods that change the stock of a trader. Trading Options is probably incompatible with any mod that changes trader frequency. 
+]]></description>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>brrainz.harmony</li>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>Ludeon.RimWorld.Ideology</li>
+	</loadAfter>
+</ModMetaData>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<ProjectGuid>{164F8848-D88B-487A-BD40-001B98C74EE4}</ProjectGuid>
+		<RootNamespace>TO</RootNamespace>
+		<AssemblyName>TradingOptions</AssemblyName>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net472</TargetFramework>
+		<TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+		<PlatformTarget>x64</PlatformTarget>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<DebugSymbols>false</DebugSymbols>
+		<Optimize>true</Optimize>
+		<WarningLevel>4</WarningLevel>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<Deterministic>true</Deterministic>
+		<OutputPath>..\$(Configuration)\Assemblies\</OutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="Harmony\StockGeneratorCount.cs" />
+		<Compile Include="Mod\Settings.cs" />
+		<Compile Include="Mod\Mod.cs" />
+		<Compile Include="TraderKindCategory.cs" />
+		<Compile Include="Harmony\HarmonyInitialization.cs" />
+		<Compile Include="Properties\AssemblyInfo.cs" />
+		<Compile Include="Category.cs" />
+		<Reference Include="System" />
+		<PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime" />
+	</ItemGroup>
+	<ItemGroup Condition="$(Configuration) == '1.4'">
+		<PackageReference Include="Krafs.Rimworld.Ref" Version="1.4.*-*" />
+	</ItemGroup>
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
