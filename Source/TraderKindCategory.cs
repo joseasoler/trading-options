@@ -5,10 +5,10 @@
 	/// </summary>
 	public enum TraderKindCategory
 	{
-		None,
 		Caravan,
 		Orbital,
 		Settlement,
-		Visitor
+		Visitor,
+		None
 	}
 }

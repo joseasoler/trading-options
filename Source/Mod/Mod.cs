@@ -13,7 +13,7 @@ namespace TO.Mod
 	/// </summary>
 	public class Mod : Verse.Mod
 	{
-		private TraderKindCategory _selected = TraderKindCategory.None;
+		private TraderKindCategory _selected = TraderKindCategory.Caravan;
 
 		/// <summary>
 		/// Reads and initializes mod settings.

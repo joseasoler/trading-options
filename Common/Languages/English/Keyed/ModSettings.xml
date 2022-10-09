@@ -5,7 +5,7 @@
 	<TO_CategoryOrbital>Orbital</TO_CategoryOrbital>
 	<TO_CategorySettlement>Settlements</TO_CategorySettlement>
 	<TO_CategoryVisitor>Visitors</TO_CategoryVisitor>
-	<TO_CategoryNone>All</TO_CategoryNone>
+	<TO_CategoryNone>Other options</TO_CategoryNone>
 	<!-- Reset all settings -->
 	<TO_ResetSettings>Reset all</TO_ResetSettings>
 	<TO_ResetSettingsTooltip>Reset all Trading Options to their default values.</TO_ResetSettingsTooltip>
