@@ -1,15 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+	<!-- Setting tabs -->
 	<TO_CategoryCaravan>Caravans</TO_CategoryCaravan>
 	<TO_CategoryOrbital>Orbital</TO_CategoryOrbital>
 	<TO_CategorySettlement>Settlements</TO_CategorySettlement>
 	<TO_CategoryVisitor>Visitors</TO_CategoryVisitor>
 	<TO_CategoryNone>All</TO_CategoryNone>
+	<!-- Reset all settings -->
 	<TO_ResetSettings>Reset all</TO_ResetSettings>
 	<TO_ResetSettingsTooltip>Reset all Trading Options to their default values.</TO_ResetSettingsTooltip>
+	<!-- Silver stock feature. -->
 	<TO_SilverStock>Silver stock: {0}%</TO_SilverStock>
 	<TO_SilverStockCaravanTooltip>Allows to adjust the total amount of silver that caravans will have in stock when they arrive. Caravans which were already in the map when the setting is changed will not be affected.</TO_SilverStockCaravanTooltip>
 	<TO_SilverStockOrbitalTooltip>Allows to adjust the total amount of silver that orbital traders will have in stock when they arrive. Orbital traders which were already in range when the setting is changed will not be affected.</TO_SilverStockOrbitalTooltip>
 	<TO_SilverStockSettlementTooltip>Allows to adjust the total amount of silver that settlements will have in stock. Changes will only apply when settlements restock.</TO_SilverStockSettlementTooltip>
 	<TO_SilverStockVisitorTooltip>Allows to adjust the total amount of silver that visitors will have in stock when they arrive. Visitors which were already in the map when the setting is changed will not be affected.</TO_SilverStockVisitorTooltip>
+	<!-- Trader frequency feature. -->
+	<TO_FrequencyTitle>Arrival frequency</TO_FrequencyTitle>
+	<TO_NonRandom>{0} {1} {2} {3}</TO_NonRandom>
+	<TO_MinimumIsUnchanged>Set the sliders to the minimum to let storytellers use their default value.</TO_MinimumIsUnchanged>
+	<TO_HowToAdjust>Adjust the sliders to modify arrival frequency.</TO_HowToAdjust>
+	<TO_CaravanFrequencyAmount>Non-random storytellers such as Cassandra Classic or Phoebe Chillax will send {0} caravans per year.</TO_CaravanFrequencyAmount>
+	<TO_CaravanFrequencyAmountDefault>Non-random storytellers such as Cassandra Classic or Phoebe Chillax will send the default amount of caravans per year.</TO_CaravanFrequencyAmountDefault>
+	<TO_CaravanFrequencyTime>They will wait {0} days before sending another caravan.</TO_CaravanFrequencyTime>
+	<TO_CaravanFrequencyTimeDefault>They will wait the default amount of days before sending another caravan.</TO_CaravanFrequencyTimeDefault>
+	<TO_CaravanFrequencyVanilla>By default, vanilla storytellers send 4 caravans per year and 6 days must pass between their arrivals.</TO_CaravanFrequencyVanilla>
+	<TO_CaravanFrequencyAmountLabel>Caravans per year</TO_CaravanFrequencyAmountLabel>
+	<TO_CaravanFrequencyTimeLabel>Days between caravans</TO_CaravanFrequencyTimeLabel>
+	<TO_CaravanFrequencyChanceFactor>Random storytellers such as Randy Random will have {0}% times their normal chance of sending a caravan or visitor. The same value is used for both caravans and visitors. {1}</TO_CaravanFrequencyChanceFactor>
+	<TO_CaravanFrequencyChanceFactorDefault>Random storytellers such as Randy Random will use their default random chance of sending a caravan or visitor. The same value is used for both caravans and visitors. {0}</TO_CaravanFrequencyChanceFactorDefault>
+	<TO_OrbitalFrequencyAmount>Non-random storytellers such as Cassandra Classic or Phoebe Chillax will send {0} orbital traders per period.</TO_OrbitalFrequencyAmount>
+	<TO_OrbitalFrequencyAmountDefault>Non-random storytellers such as Cassandra Classic or Phoebe Chillax will send the default amount of orbital traders per period.</TO_OrbitalFrequencyAmountDefault>
+	<TO_OrbitalFrequencyTime>They will use a period for sending orbital traders of {0} days.</TO_OrbitalFrequencyTime>
+	<TO_OrbitalFrequencyTimeDefault>They will use their default period for sending orbital traders.</TO_OrbitalFrequencyTimeDefault>
+	<TO_OrbitalFrequencyVanilla>By default, vanilla storytellers send just one ship every 15 days in average.</TO_OrbitalFrequencyVanilla>
+	<TO_OrbitalFrequencyAmountLabel>Orbital traders per period</TO_OrbitalFrequencyAmountLabel>
+	<TO_OrbitalFrequencyTimeLabel>Period</TO_OrbitalFrequencyTimeLabel>
+	<TO_OrbitalFrequencyChanceFactor>Random storytellers such as Randy Random will have {0}% times their normal chance of sending an orbital trader. {1}</TO_OrbitalFrequencyChanceFactor>
+	<TO_OrbitalFrequencyChanceFactorDefault>Random storytellers such as Randy Random will use their default random chance of sending an orbital trader. {0}</TO_OrbitalFrequencyChanceFactorDefault>
+	<TO_VisitorFrequencyAmount>Non-random storytellers such as Cassandra Classic or Phoebe Chillax will send {0} visitors per year.</TO_VisitorFrequencyAmount>
+	<TO_VisitorFrequencyAmountDefault>Non-random storytellers such as Cassandra Classic or Phoebe Chillax will send the default amount of visitors per year.</TO_VisitorFrequencyAmountDefault>
+	<TO_VisitorFrequencyTime>They will wait {0} days before sending another visitor.</TO_VisitorFrequencyTime>
+	<TO_VisitorFrequencyTimeDefault>They will wait the default amount of days before sending another visitor.</TO_VisitorFrequencyTimeDefault>
+	<TO_VisitorFrequencyVanilla>By default, vanilla storytellers send 4 visitors per year and 5 days must pass between their arrivals.</TO_VisitorFrequencyVanilla>
+	<TO_VisitorFrequencyAmountLabel>Visitors per year</TO_VisitorFrequencyAmountLabel>
+	<TO_VisitorFrequencyTimeLabel>Days between visitors</TO_VisitorFrequencyTimeLabel>
+	<TO_VisitorFrequencyChanceFactor>Random storytellers such as Randy Random will have {0}% times their normal chance of sending a caravan or visitor. The same value is used for both caravans and visitors. {1}</TO_VisitorFrequencyChanceFactor>
+	<TO_VisitorFrequencyChanceFactorDefault>Random storytellers such as Randy Random will use their default random chance of sending a caravan or visitor. The same value is used for both caravans and visitors. {0}</TO_VisitorFrequencyChanceFactorDefault>
 </LanguageData>
