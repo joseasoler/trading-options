@@ -14,13 +14,9 @@ namespace TO.Harmony
 		[HarmonyPatch(typeof(StockGenerator), "RandomCountOf")]
 		private static void ModifyGeneratedAmounts(ref StockGenerator __instance, ref int __result, ThingDef def)
 		{
-			if (def != ThingDefOf.Silver)
-			{
-				return;
-			}
-
 			var category = Category.Get(__instance.trader);
-			__result = (int) (Settings.GetSilverScaling(category) * __result / 100.0f);
+			var scaling = def == ThingDefOf.Silver ? Settings.GetSilverScaling(category) : Settings.GetStockScaling(category);
+			__result = (int) (scaling * __result / 100.0f);
 		}
 	}
 }
