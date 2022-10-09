@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using RimWorld;
 using TO.Mod;
-using UnityEngine;
 using Verse;
 
 namespace TO
@@ -151,9 +150,10 @@ namespace TO
 					onOffComp.numIncidentsRange);
 			}
 
-			onOffComp.onDays = newValue.onDays;
-			onOffComp.offDays = newValue.offDays;
-			onOffComp.numIncidentsRange = newValue.numIncidentsRange;
+			var backupValue = OrbitalBackup[def.shortHash];
+			onOffComp.onDays = time > 0 ? newValue.onDays : backupValue.onDays;
+			onOffComp.offDays = time > 0 ? newValue.offDays : backupValue.offDays;
+			onOffComp.numIncidentsRange = amount > 0 ? newValue.numIncidentsRange : backupValue.numIncidentsRange;
 		}
 
 		private static void PatchFactionInteraction(StorytellerDef def, StorytellerCompProperties comp,
@@ -166,7 +166,7 @@ namespace TO
 			var time = Settings.GetFrequencyTime(category);
 			var amount = Settings.GetFrequencyAmount(category);
 			var shouldPatch = time > 0 && amount > 0;
-			var hasBackup = backup.Count != 0;
+			var hasBackup = backup.ContainsKey(def.shortHash);
 
 			if (!shouldPatch && !hasBackup)
 			{
@@ -185,7 +185,6 @@ namespace TO
 					Log.ErrorOnce(errorLog, errorLog.GetHashCode());
 					return;
 				}
-
 				newValue = backup[def.shortHash];
 			}
 			else if (!hasBackup)
@@ -194,10 +193,9 @@ namespace TO
 				backup[def.shortHash] = new FactionInteraction(factionComp.minSpacingDays, factionComp.baseIncidentsPerYear);
 			}
 
-			// ToDo remove
-			factionComp.minDaysPassed = 0;
-			factionComp.minSpacingDays = newValue.minSpacingDays;
-			factionComp.baseIncidentsPerYear = newValue.baseIncidentsPerYear;
+			var backupValue = backup[def.shortHash];
+			factionComp.minSpacingDays = time > 0 ? newValue.minSpacingDays : backupValue.minSpacingDays;
+			factionComp.baseIncidentsPerYear = amount > 0 ? newValue.baseIncidentsPerYear : backupValue.baseIncidentsPerYear;
 		}
 
 		public static void Patch()

@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
-using UnityEngine.Assertions;
 using Verse;
 using Verse.Sound;
 
@@ -41,18 +39,6 @@ namespace TO.Mod
 			StorytellerCompPatcher.Patch();
 		}
 
-		private static int LabelAndSlider(Listing_Standard listing, string label, int value, int minValue,
-			int maxValue, string tooltip)
-		{
-			var tooltipRect = listing.Label(label);
-			var result = listing.Slider(value, minValue, maxValue);
-
-			tooltipRect.width = listing.ColumnWidth;
-			tooltipRect.height += 22.0f; // Height of an slider.
-			TooltipHandler.TipRegion(tooltipRect, tooltip);
-			return (int) result;
-		}
-
 		private static void DrawTraderFrequency(Listing_Standard listing, TraderKindCategory category, string categoryName)
 		{
 			if (category == TraderKindCategory.Settlement || category == TraderKindCategory.None)
@@ -79,8 +65,8 @@ namespace TO.Mod
 			var nonRandomLabel = "TO_NonRandom".Translate(amountLabel, timeLabel,
 				$"TO_{categoryName}FrequencyVanilla".Translate(),
 				nonRandomPostfix.Translate());
-
 			listing.Label(nonRandomLabel);
+
 			var sliderLabelsRect = listing.GetRect(22.0f);
 			const float splitPart = 0.48f;
 			Text.Anchor = TextAnchor.MiddleCenter;
@@ -115,15 +101,61 @@ namespace TO.Mod
 			Settings.SetFrequencyChanceFactor(category, newChance);
 		}
 
-		private static void DrawSilverStockAdjustment(Listing_Standard listing, TraderKindCategory category,
+		private static void DrawStockAdjustments(Listing_Standard listing, TraderKindCategory category,
 			string categoryName)
 		{
-			var prevValue = Settings.GetSilverScaling(category);
-			var label = "TO_SilverStock".Translate(prevValue);
-			var tooltip = $"TO_SilverStock{categoryName}Tooltip".Translate();
-			var value = LabelAndSlider(listing, label, prevValue, Settings.MinSilverScaling,
-				Settings.MaxSilverScaling, tooltip);
-			Settings.SetSilverScaling(category, value);
+			Text.Font = GameFont.Medium;
+			listing.Label("TO_StockTitle".Translate());
+			listing.Gap();
+
+			Text.Font = GameFont.Small;
+			var silverScaling = Settings.GetSilverScaling(category);
+			var stockScaling = Settings.GetStockScaling(category);
+			var wealthScaling = Settings.GetWealthScaling(category);
+
+			var prefixLabel = $"TO_{categoryName}StockPrefix".Translate();
+			var silverLabel = silverScaling > Settings.MinStockScaling
+				? "TO_StockSilverLabel".Translate(silverScaling)
+				: "TO_StockSilverLabelDefault".Translate();
+			var stockLabel = stockScaling > Settings.MinStockScaling
+				? "TO_StockStockLabel".Translate(stockScaling)
+				: "TO_StockStockLabelDefault".Translate();
+			var postfixLabel = (silverScaling > Settings.MinStockScaling || stockScaling > Settings.MinStockScaling)
+				? "TO_StockMinimumIsUnchanged".Translate()
+				: "TO_StockHowToAdjust".Translate();
+
+			var label = wealthScaling
+				? "TO_StockWithWealth".Translate(prefixLabel, silverLabel, stockLabel, "TO_StockWealth".Translate(),
+					postfixLabel)
+				: "TO_StockWithoutWealth".Translate(prefixLabel, silverLabel, stockLabel, postfixLabel);
+			listing.Label(label);
+
+			var sliderLabelsRect = listing.GetRect(22.0f);
+			const float splitPart = 0.48f;
+			Text.Anchor = TextAnchor.MiddleCenter;
+			Text.Font = GameFont.Tiny;
+			GUI.color = Color.grey;
+			Widgets.Label(sliderLabelsRect.LeftPart(splitPart), "TO_StockSilverSlider".Translate());
+			Widgets.Label(sliderLabelsRect.RightPart(splitPart), "TO_StockStockSlider".Translate());
+			GUI.color = Color.white;
+			Text.Anchor = TextAnchor.UpperLeft;
+			Text.Font = GameFont.Small;
+			var slidersRect = listing.GetRect(22.0f);
+			var newSilverScaling = (int) Widgets.HorizontalSlider(slidersRect.LeftPart(splitPart), silverScaling,
+				Settings.MinStockScaling, Settings.MaxStockScaling);
+			var newStockScaling = (int) Widgets.HorizontalSlider(slidersRect.RightPart(splitPart), stockScaling,
+				Settings.MinStockScaling, Settings.MaxStockScaling);
+			if (newSilverScaling != silverScaling || newStockScaling != stockScaling)
+			{
+				SoundDefOf.DragSlider.PlayOneShotOnCamera();
+			}
+
+			Settings.SetSilverScaling(category, newSilverScaling);
+			Settings.SetStockScaling(category, newStockScaling);
+			listing.Gap();
+
+			listing.CheckboxLabeled("TO_StockWealthCheckbox".Translate(), ref wealthScaling);
+			Settings.SetWealthScaling(category, wealthScaling);
 		}
 
 		private static void DrawSettings(TraderKindCategory category, Rect settingsArea)
@@ -135,9 +167,8 @@ namespace TO.Mod
 				var categoryName = Enum.GetName(typeof(TraderKindCategory), category);
 
 				DrawTraderFrequency(listing, category, categoryName);
-				listing.GapLine(listing.verticalSpacing);
 				listing.Gap();
-				DrawSilverStockAdjustment(listing, category, categoryName);
+				DrawStockAdjustments(listing, category, categoryName);
 			}
 
 			var resetButtonWidth = settingsArea.width / 5.0f;

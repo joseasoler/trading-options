@@ -9,13 +9,7 @@
 	<!-- Reset all settings -->
 	<TO_ResetSettings>Reset all</TO_ResetSettings>
 	<TO_ResetSettingsTooltip>Reset all Trading Options to their default values.</TO_ResetSettingsTooltip>
-	<!-- Silver stock feature. -->
-	<TO_SilverStock>Silver stock: {0}%</TO_SilverStock>
-	<TO_SilverStockCaravanTooltip>Allows to adjust the total amount of silver that caravans will have in stock when they arrive. Caravans which were already in the map when the setting is changed will not be affected.</TO_SilverStockCaravanTooltip>
-	<TO_SilverStockOrbitalTooltip>Allows to adjust the total amount of silver that orbital traders will have in stock when they arrive. Orbital traders which were already in range when the setting is changed will not be affected.</TO_SilverStockOrbitalTooltip>
-	<TO_SilverStockSettlementTooltip>Allows to adjust the total amount of silver that settlements will have in stock. Changes will only apply when settlements restock.</TO_SilverStockSettlementTooltip>
-	<TO_SilverStockVisitorTooltip>Allows to adjust the total amount of silver that visitors will have in stock when they arrive. Visitors which were already in the map when the setting is changed will not be affected.</TO_SilverStockVisitorTooltip>
-	<!-- Trader frequency feature. -->
+	<!-- Trader frequency features. -->
 	<TO_FrequencyTitle>Arrival frequency</TO_FrequencyTitle>
 	<TO_NonRandom>{0} {1} {2} {3}</TO_NonRandom>
 	<TO_MinimumIsUnchanged>Set the sliders to the minimum to let storytellers use their default value.</TO_MinimumIsUnchanged>
@@ -47,4 +41,22 @@
 	<TO_VisitorFrequencyTimeLabel>Days between visitors</TO_VisitorFrequencyTimeLabel>
 	<TO_VisitorFrequencyChanceFactor>Random storytellers such as Randy Random will have {0}% times their normal chance of sending a caravan or visitor. The same value is used for both caravans and visitors. {1}</TO_VisitorFrequencyChanceFactor>
 	<TO_VisitorFrequencyChanceFactorDefault>Random storytellers such as Randy Random will use their default random chance of sending a caravan or visitor. The same value is used for both caravans and visitors. {0}</TO_VisitorFrequencyChanceFactorDefault>
+	<!-- Stock features. -->
+	<TO_StockTitle>Stock</TO_StockTitle>
+	<TO_StockWithoutWealth>{0} {1} {2} {3}</TO_StockWithoutWealth>
+	<TO_StockWithWealth>{0} {1} {2} {3} {4}</TO_StockWithWealth>
+	<TO_CaravanStockPrefix>New caravans</TO_CaravanStockPrefix>
+	<TO_OrbitalStockPrefix>New orbital traders</TO_OrbitalStockPrefix>
+	<TO_SettlementStockPrefix>After restocking, settlements</TO_SettlementStockPrefix>
+	<TO_VisitorStockPrefix>New visitors</TO_VisitorStockPrefix>
+	<TO_StockSilverLabel>will have {0}% of their normal amount of silver in stock.</TO_StockSilverLabel>
+	<TO_StockSilverLabelDefault>will have the normal amount of silver in stock.</TO_StockSilverLabelDefault>
+	<TO_StockStockLabel>Their total stock of other wares will be {0}% of the normal amount.</TO_StockStockLabel>
+	<TO_StockStockLabelDefault>Their total stock of other wares will be the normal amount.</TO_StockStockLabelDefault>
+	<TO_StockWealth>In addition, both silver and stock amounts will scale with your colony wealth with diminishing returns.</TO_StockWealth>
+	<TO_StockMinimumIsUnchanged>Set the sliders to the minimum to use default values.</TO_StockMinimumIsUnchanged>
+	<TO_StockHowToAdjust>Adjust the sliders to modify trader stock.</TO_StockHowToAdjust>
+	<TO_StockSilverSlider>Silver stock</TO_StockSilverSlider>
+	<TO_StockStockSlider>Other stock</TO_StockStockSlider>
+	<TO_StockWealthCheckbox>Scale stock by colony wealth</TO_StockWealthCheckbox>
 </LanguageData>

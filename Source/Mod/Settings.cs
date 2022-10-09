@@ -3,7 +3,7 @@ using Verse;
 
 namespace TO.Mod
 {
-	public class SettingValues
+	internal class SettingValues
 	{
 		/// <summary>
 		/// Time value for changing trader frequency. The meaning of this value depends on each trader.
@@ -36,16 +36,40 @@ namespace TO.Mod
 			{TraderKindCategory.Orbital, 100},
 			{TraderKindCategory.Caravan, 100}
 		};
-		
+
+		public const int MinScaling = 24;
+
 		/// <summary>
 		/// Silver stock of each trader category in %.
 		/// </summary>
 		public Dictionary<TraderKindCategory, int> SilverScaling = new Dictionary<TraderKindCategory, int>
 		{
-			{TraderKindCategory.Orbital, 100},
-			{TraderKindCategory.Settlement, 100},
-			{TraderKindCategory.Caravan, 100},
-			{TraderKindCategory.Visitor, 100}
+			{TraderKindCategory.Orbital, MinScaling},
+			{TraderKindCategory.Settlement, MinScaling},
+			{TraderKindCategory.Caravan, MinScaling},
+			{TraderKindCategory.Visitor, MinScaling}
+		};
+
+		/// <summary>
+		/// Other stock of each trader category in %.
+		/// </summary>
+		public Dictionary<TraderKindCategory, int> StockScaling = new Dictionary<TraderKindCategory, int>
+		{
+			{TraderKindCategory.Orbital, MinScaling},
+			{TraderKindCategory.Settlement, MinScaling},
+			{TraderKindCategory.Caravan, MinScaling},
+			{TraderKindCategory.Visitor, MinScaling}
+		};
+
+		/// <summary>
+		/// Scale trader stock by colony wealth
+		/// </summary>
+		public Dictionary<TraderKindCategory, bool> WealthScaling = new Dictionary<TraderKindCategory, bool>
+		{
+			{TraderKindCategory.Orbital, false},
+			{TraderKindCategory.Settlement, false},
+			{TraderKindCategory.Caravan, false},
+			{TraderKindCategory.Visitor, false}
 		};
 	}
 
@@ -108,15 +132,35 @@ namespace TO.Mod
 			_values.SilverScaling[category] = value;
 		}
 
-		/// <summary>
-		/// Minimum allowed value for SilverScaling settings in %.
-		/// </summary>
-		public const int MinSilverScaling = 5;
+		public static int GetStockScaling(TraderKindCategory category)
+		{
+			return _values.StockScaling[category];
+		}
+
+		public static void SetStockScaling(TraderKindCategory category, int value)
+		{
+			_values.StockScaling[category] = value;
+		}
 
 		/// <summary>
-		/// Maximum allowed value for SilverScaling settings in %.
+		/// Minimum allowed value for StockScaling and SilverScaling settings in %.
 		/// </summary>
-		public const int MaxSilverScaling = 1000;
+		public const int MinStockScaling = SettingValues.MinScaling;
+
+		/// <summary>
+		/// Maximum allowed value for StockScaling and SilverScaling settings in %.
+		/// </summary>
+		public const int MaxStockScaling = 500;
+
+		public static bool GetWealthScaling(TraderKindCategory category)
+		{
+			return _values.WealthScaling[category];
+		}
+
+		public static void SetWealthScaling(TraderKindCategory category, bool value)
+		{
+			_values.WealthScaling[category] = value;
+		}
 
 		public static void Reset()
 		{
@@ -129,10 +173,12 @@ namespace TO.Mod
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Collections.Look(ref _values.SilverScaling, "SilverScaling");
 			Scribe_Collections.Look(ref _values.FrequencyTime, "FrequencyTime");
 			Scribe_Collections.Look(ref _values.FrequencyAmount, "FrequencyAmount");
 			Scribe_Collections.Look(ref _values.FrequencyChanceFactor, "FrequencyChanceFactor");
+			Scribe_Collections.Look(ref _values.SilverScaling, "SilverScaling");
+			Scribe_Collections.Look(ref _values.StockScaling, "StockScaling");
+			Scribe_Collections.Look(ref _values.WealthScaling, "WealthScaling");
 		}
 	}
 }
