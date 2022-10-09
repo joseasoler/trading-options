@@ -38,8 +38,7 @@ namespace TO.Mod
 		public override void WriteSettings()
 		{
 			base.WriteSettings();
-			// ToDo
-			// DefPatcher.Patch();
+			StorytellerCompPatcher.Patch();
 		}
 
 		private static int LabelAndSlider(Listing_Standard listing, string label, int value, int minValue,
@@ -58,8 +57,6 @@ namespace TO.Mod
 		{
 			if (category == TraderKindCategory.Settlement || category == TraderKindCategory.None)
 			{
-				var logError = $"[TO] Invalid category {categoryName} in DrawTraderFrequency";
-				Log.ErrorOnce(logError, logError.GetHashCode());
 				return;
 			}
 

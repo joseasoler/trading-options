@@ -22,6 +22,7 @@
 		<Compile Include="Harmony\StockGeneratorCount.cs" />
 		<Compile Include="Mod\Settings.cs" />
 		<Compile Include="Mod\Mod.cs" />
+		<Compile Include="StorytellerCompPatcher.cs" />
 		<Compile Include="TraderKindCategory.cs" />
 		<Compile Include="Harmony\HarmonyInitialization.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
