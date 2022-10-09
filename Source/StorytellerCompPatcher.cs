@@ -45,6 +45,7 @@ namespace TO
 		/// When the period is exactly one, onDays is 1 and offDays is 0 instead.
 		/// </summary>
 		/// <param name="periodOrbital">Total days of the period between orbital trader arrivals.</param>
+		/// <param name="traderAmount">Number of orbital traders during that period.</param>
 		public OrbitalTraderOnOffCycle(int periodOrbital, int traderAmount)
 		{
 			if (periodOrbital <= 1)
