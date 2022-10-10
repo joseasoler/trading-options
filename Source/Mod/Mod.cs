@@ -155,8 +155,34 @@ namespace TO.Mod
 			Settings.SetStockScaling(category, newStockScaling);
 			listing.Gap();
 
-			listing.CheckboxLabeled("TO_StockWealthCheckbox".Translate(), ref wealthScaling);
-			Settings.SetWealthScaling(category, wealthScaling);
+			var wealthLabelRect = listing.GetRect(22.0f);
+			Text.Anchor = TextAnchor.MiddleCenter;
+			Text.Font = GameFont.Tiny;
+			GUI.color = Color.grey;
+			Widgets.Label(wealthLabelRect.LeftPart(splitPart), "TO_StockWealthSlider".Translate());
+			GUI.color = Color.white;
+			Text.Anchor = TextAnchor.UpperLeft;
+			Text.Font = GameFont.Small;
+			var wealthSliderRect = listing.GetRect(22.0f);
+			var newWealthScaling = (int) Widgets.HorizontalSlider(wealthSliderRect.LeftPart(splitPart), silverScaling,
+				Settings.MinStockScaling, Settings.MaxStockScaling);
+			Log.Warning($"{newWealthScaling}");
+
+			var stockGraphArea = wealthLabelRect.RightPart(splitPart);
+			stockGraphArea.height += wealthSliderRect.height;
+
+			var stockGraphButtonWidth = listing.ColumnWidth / 5.0f;
+			const float stockGraphButtonHeight = 30.0f;
+
+			var stockGraphButtonRect = new Rect(stockGraphArea.x + stockGraphArea.width / 2.0f - stockGraphButtonWidth / 2.0f,
+				stockGraphArea.y + stockGraphArea.height / 2.0f - stockGraphButtonHeight / 2.0f, stockGraphButtonWidth,
+				stockGraphButtonHeight);
+			if (Widgets.ButtonText(stockGraphButtonRect, "TO_StockGraph".Translate()))
+			{
+			}
+
+
+			// Settings.SetWealthScaling(category, wealthScaling);
 		}
 
 		private static void DrawSettings(TraderKindCategory category, Rect settingsArea)

@@ -58,5 +58,6 @@
 	<TO_StockHowToAdjust>Adjust the sliders to modify trader stock.</TO_StockHowToAdjust>
 	<TO_StockSilverSlider>Silver stock</TO_StockSilverSlider>
 	<TO_StockStockSlider>Other stock</TO_StockStockSlider>
-	<TO_StockWealthCheckbox>Scale stock by colony wealth</TO_StockWealthCheckbox>
+	<TO_StockWealthSlider>Scale stock and silver by colony wealth</TO_StockWealthSlider>
+	<TO_StockGraph>Show graph</TO_StockGraph>
 </LanguageData>
