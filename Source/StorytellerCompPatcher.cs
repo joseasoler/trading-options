@@ -94,7 +94,6 @@ namespace TO
 	/// <summary>
 	/// Responsible for patching StorytellerDefs after settings are changed.
 	/// </summary>
-	[StaticConstructorOnStartup]
 	public static class StorytellerCompPatcher
 	{
 		private static readonly Dictionary<ushort, FactionInteraction> CaravanBackup =
@@ -105,11 +104,6 @@ namespace TO
 
 		private static readonly Dictionary<ushort, FactionInteraction> VisitorBackup =
 			new Dictionary<ushort, FactionInteraction>();
-
-		static StorytellerCompPatcher()
-		{
-			Patch();
-		}
 
 		private static void PatchCompOnOffCycle(StorytellerDef def, StorytellerCompProperties comp)
 		{

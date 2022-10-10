@@ -22,6 +22,7 @@ namespace TO.Mod
 		public Mod(ModContentPack content) : base(content)
 		{
 			GetSettings<Settings>();
+			LongEventHandler.ExecuteWhenFinished(StorytellerCompPatcher.Patch);
 		}
 
 		/// <summary>

@@ -1,7 +1,5 @@
-﻿using System;
-using HarmonyLib;
+﻿using HarmonyLib;
 using RimWorld;
-using TO.Mod;
 using Verse;
 
 namespace TO.Harmony
