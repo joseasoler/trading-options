@@ -25,6 +25,7 @@
 		<Compile Include="StockScaling.cs" />
 		<Compile Include="StorytellerCompPatcher.cs" />
 		<Compile Include="TraderKindCategory.cs" />
+		<Compile Include="WealthScalingOption.cs" />
 		<Compile Include="Harmony\HarmonyInitialization.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
 		<Compile Include="Category.cs" />

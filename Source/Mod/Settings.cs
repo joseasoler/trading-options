@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -64,13 +65,14 @@ namespace TO.Mod
 		/// <summary>
 		/// Scale trader stock by colony wealth
 		/// </summary>
-		public Dictionary<TraderKindCategory, bool> WealthScaling = new Dictionary<TraderKindCategory, bool>
-		{
-			{TraderKindCategory.Orbital, false},
-			{TraderKindCategory.Settlement, false},
-			{TraderKindCategory.Caravan, false},
-			{TraderKindCategory.Visitor, false}
-		};
+		public Dictionary<TraderKindCategory, WealthScalingOption> WealthScaling =
+			new Dictionary<TraderKindCategory, WealthScalingOption>
+			{
+				{TraderKindCategory.Orbital, WealthScalingOption.None},
+				{TraderKindCategory.Settlement, WealthScalingOption.None},
+				{TraderKindCategory.Caravan, WealthScalingOption.None},
+				{TraderKindCategory.Visitor, WealthScalingOption.None}
+			};
 	}
 
 	/// <summary>
@@ -152,14 +154,33 @@ namespace TO.Mod
 		/// </summary>
 		public const int MaxStockScaling = 500;
 
-		public static bool GetWealthScaling(TraderKindCategory category)
+		public static WealthScalingOption GetWealthScalingOption(TraderKindCategory category)
 		{
 			return _values.WealthScaling[category];
 		}
 
-		public static void SetWealthScaling(TraderKindCategory category, bool value)
+		public static void SetWealthScalingOption(TraderKindCategory category, WealthScalingOption value)
 		{
 			_values.WealthScaling[category] = value;
+		}
+
+		public static double GetWealthScaling(TraderKindCategory category)
+		{
+			switch (_values.WealthScaling[category])
+			{
+				case WealthScalingOption.None:
+					return 0.0;
+				case WealthScalingOption.Poor:
+					return 1000.0;
+				case WealthScalingOption.Rich:
+					return 100.0;
+				case WealthScalingOption.Opulent:
+					return 10.0;
+				case WealthScalingOption.Loaded:
+					return Math.E;
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
 		}
 
 		public static void Reset()

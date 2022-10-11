@@ -49,7 +49,7 @@ namespace TO.Mod
 
 			Text.Font = GameFont.Medium;
 			listing.Label("TO_FrequencyTitle".Translate());
-			listing.Gap();
+			listing.Gap(6f);
 
 			Text.Font = GameFont.Small;
 			var amount = Settings.GetFrequencyAmount(category);
@@ -91,7 +91,7 @@ namespace TO.Mod
 
 			Settings.SetFrequencyAmount(category, newAmount);
 			Settings.SetFrequencyTime(category, newTime);
-			listing.Gap();
+			listing.Gap(6f);
 
 			var chance = Settings.GetFrequencyChanceFactor(category);
 			string chanceLabel = chance > 0
@@ -107,12 +107,11 @@ namespace TO.Mod
 		{
 			Text.Font = GameFont.Medium;
 			listing.Label("TO_StockTitle".Translate());
-			listing.Gap();
-
+			listing.Gap(6f);
 			Text.Font = GameFont.Small;
+
 			var silverScaling = Settings.GetSilverScaling(category);
 			var stockScaling = Settings.GetStockScaling(category);
-			var wealthScaling = Settings.GetWealthScaling(category);
 
 			var prefixLabel = $"TO_{categoryName}StockPrefix".Translate();
 			var silverLabel = silverScaling > Settings.MinStockScaling
@@ -125,10 +124,7 @@ namespace TO.Mod
 				? "TO_StockMinimumIsUnchanged".Translate()
 				: "TO_StockHowToAdjust".Translate();
 
-			var label = wealthScaling
-				? "TO_StockWithWealth".Translate(prefixLabel, silverLabel, stockLabel, "TO_StockWealth".Translate(),
-					postfixLabel)
-				: "TO_StockWithoutWealth".Translate(prefixLabel, silverLabel, stockLabel, postfixLabel);
+			var label = "TO_StockLabel".Translate(prefixLabel, silverLabel, stockLabel, postfixLabel);
 			listing.Label(label);
 
 			var sliderLabelsRect = listing.GetRect(22.0f);
@@ -153,36 +149,39 @@ namespace TO.Mod
 
 			Settings.SetSilverScaling(category, newSilverScaling);
 			Settings.SetStockScaling(category, newStockScaling);
-			listing.Gap();
+		}
 
-			var wealthLabelRect = listing.GetRect(22.0f);
+		private static void DrawWealthAdjustments(Listing_Standard listing, TraderKindCategory category,
+			string categoryName)
+		{
+			Text.Font = GameFont.Medium;
+			listing.Label("TO_WealthTitle".Translate());
+			listing.Gap(6f);
+			Text.Font = GameFont.Small;
+
+			var wealthScalingSetting = Settings.GetWealthScalingOption(category);
+			var isDefault = wealthScalingSetting == WealthScalingOption.None;
+			var prefixLabel = $"TO_{categoryName}StockPrefix".Translate();
+			var descriptionLabel = isDefault
+				? "TO_WealthDescriptionDefault".Translate()
+				: "TO_WealthDescription".Translate();
+
+			var label = "TO_WealthLabel".Translate(prefixLabel, descriptionLabel);
+			listing.Label(label);
+
 			Text.Anchor = TextAnchor.MiddleCenter;
 			Text.Font = GameFont.Tiny;
 			GUI.color = Color.grey;
-			Widgets.Label(wealthLabelRect.LeftPart(splitPart), "TO_StockWealthSlider".Translate());
+			listing.Label("TO_WealthSlider".Translate(
+				$"TO_WealthValue{Enum.GetName(typeof(WealthScalingOption), wealthScalingSetting)}".Translate()));
 			GUI.color = Color.white;
 			Text.Anchor = TextAnchor.UpperLeft;
 			Text.Font = GameFont.Small;
-			var wealthSliderRect = listing.GetRect(22.0f);
-			var newWealthScaling = (int) Widgets.HorizontalSlider(wealthSliderRect.LeftPart(splitPart), silverScaling,
-				Settings.MinStockScaling, Settings.MaxStockScaling);
-			Log.Warning($"{newWealthScaling}");
 
-			var stockGraphArea = wealthLabelRect.RightPart(splitPart);
-			stockGraphArea.height += wealthSliderRect.height;
-
-			var stockGraphButtonWidth = listing.ColumnWidth / 5.0f;
-			const float stockGraphButtonHeight = 30.0f;
-
-			var stockGraphButtonRect = new Rect(stockGraphArea.x + stockGraphArea.width / 2.0f - stockGraphButtonWidth / 2.0f,
-				stockGraphArea.y + stockGraphArea.height / 2.0f - stockGraphButtonHeight / 2.0f, stockGraphButtonWidth,
-				stockGraphButtonHeight);
-			if (Widgets.ButtonText(stockGraphButtonRect, "TO_StockGraph".Translate()))
-			{
-			}
-
-
-			// Settings.SetWealthScaling(category, wealthScaling);
+			var result = listing.Slider((int) wealthScalingSetting, (int) WealthScalingOption.None,
+				(int) WealthScalingOption.Loaded);
+			// Log.Error($"Logging: {result}, {Enum.GetName(typeof(WealthScalingOption), (WealthScalingOption) result)}");
+			Settings.SetWealthScalingOption(category, (WealthScalingOption) result);
 		}
 
 		private static void DrawSettings(TraderKindCategory category, Rect settingsArea)
@@ -194,8 +193,10 @@ namespace TO.Mod
 				var categoryName = Enum.GetName(typeof(TraderKindCategory), category);
 
 				DrawTraderFrequency(listing, category, categoryName);
-				listing.Gap();
+				listing.Gap(9f);
 				DrawStockAdjustments(listing, category, categoryName);
+				listing.Gap(9f);
+				DrawWealthAdjustments(listing, category, categoryName);
 			}
 
 			var resetButtonWidth = settingsArea.width / 5.0f;

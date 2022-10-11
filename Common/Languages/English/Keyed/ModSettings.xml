@@ -43,8 +43,7 @@
 	<TO_VisitorFrequencyChanceFactorDefault>Random storytellers such as Randy Random will use their default random chance of sending a caravan or visitor. The same value is used for both caravans and visitors. {0}</TO_VisitorFrequencyChanceFactorDefault>
 	<!-- Stock features. -->
 	<TO_StockTitle>Stock</TO_StockTitle>
-	<TO_StockWithoutWealth>{0} {1} {2} {3}</TO_StockWithoutWealth>
-	<TO_StockWithWealth>{0} {1} {2} {3} {4}</TO_StockWithWealth>
+	<TO_StockLabel>{0} {1} {2} {3}</TO_StockLabel>
 	<TO_CaravanStockPrefix>New caravans</TO_CaravanStockPrefix>
 	<TO_OrbitalStockPrefix>New orbital traders</TO_OrbitalStockPrefix>
 	<TO_SettlementStockPrefix>After restocking, settlements</TO_SettlementStockPrefix>
@@ -53,11 +52,21 @@
 	<TO_StockSilverLabelDefault>will have the normal amount of silver in stock.</TO_StockSilverLabelDefault>
 	<TO_StockStockLabel>Their total stock of other wares will be {0}% of the normal amount.</TO_StockStockLabel>
 	<TO_StockStockLabelDefault>Their total stock of other wares will be the normal amount.</TO_StockStockLabelDefault>
-	<TO_StockWealth>In addition, both silver and stock amounts will scale with your colony wealth with diminishing returns.</TO_StockWealth>
 	<TO_StockMinimumIsUnchanged>Set the sliders to the minimum to use default values.</TO_StockMinimumIsUnchanged>
 	<TO_StockHowToAdjust>Adjust the sliders to modify trader stock.</TO_StockHowToAdjust>
 	<TO_StockSilverSlider>Silver stock</TO_StockSilverSlider>
 	<TO_StockStockSlider>Other stock</TO_StockStockSlider>
-	<TO_StockWealthSlider>Scale stock and silver by colony wealth</TO_StockWealthSlider>
-	<TO_StockGraph>Show graph</TO_StockGraph>
+	<!-- Wealth features. -->
+	<TO_WealthTitle>Wealth</TO_WealthTitle>
+	<TO_WealthLabel>{0} {1}</TO_WealthLabel>
+	<TO_WealthDescription>will bring additional goods and silver to trade when they visit wealthy colonies. Adjust the slider to adjust how much stock they bring to wealty colonies. Check the table below to see the effects.</TO_WealthDescription>
+	<TO_WealthDescriptionDefault>will not bring additional goods and silver to trade when they visit wealthy colonies. Set the slider to the minimum to disable this feature.</TO_WealthDescriptionDefault>
+	<TO_WealthSlider>Wealth scaling: {0}</TO_WealthSlider>
+	<TO_WealthValueNone>None</TO_WealthValueNone>
+	<TO_WealthValuePoor>Poor</TO_WealthValuePoor>
+	<TO_WealthValueRich>Rich</TO_WealthValueRich>
+	<TO_WealthValueOpulent>Opulent</TO_WealthValueOpulent>
+	<TO_WealthValueLoaded>Loaded</TO_WealthValueLoaded>
+	<TO_WealthTable>The following values show how goods and silver amounts scale with colony wealth. This also takes into account the settings from the Stock section.</TO_WealthTable>
+	<TO_WealthTableEntry>Wealth {0}: Silver: {1}%, Goods: {2}%</TO_WealthTableEntry>
 </LanguageData>

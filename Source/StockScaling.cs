@@ -18,14 +18,13 @@ namespace TO
 			}
 
 			var linearScaling = linearSetting / 100.0;
-			
-			if (!Settings.GetWealthScaling(category)) return linearScaling;
-			const double logBase = 100.0;
-			var wealthScale = logBase + Find.World.PlayerWealthForStoryteller;
-			var logWealthScale = Math.Log(wealthScale, logBase);
-			// Make wealth scaling close to 1 with the starting wealth of the vanilla crashlanded / tribal scenarios.
-			var adjustedLogWealthScale = 0.5 * logWealthScale;
-			return linearScaling * adjustedLogWealthScale;
+
+			var wealthScaling = Settings.GetWealthScaling(category);
+			if (wealthScaling <= 0.0) return linearScaling;
+			var wealthScale = wealthScaling + Find.World.PlayerWealthForStoryteller;
+			var logWealthScale = Math.Log(wealthScale, wealthScaling);
+			// ToDo adjustment
+			return linearScaling * logWealthScale;
 		}
 	}
 }
