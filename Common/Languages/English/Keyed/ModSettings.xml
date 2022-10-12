@@ -6,41 +6,42 @@
 	<TO_CategorySettlement>Settlements</TO_CategorySettlement>
 	<TO_CategoryVisitor>Visitors</TO_CategoryVisitor>
 	<TO_CategoryNone>Other options</TO_CategoryNone>
+
 	<!-- Reset all settings -->
 	<TO_ResetSettings>Reset all</TO_ResetSettings>
 	<TO_ResetSettingsTooltip>Reset all Trading Options to their default values.</TO_ResetSettingsTooltip>
-	<!-- Trader frequency features. -->
+
+	<!-- Trader frequency. -->
 	<TO_FrequencyTitle>Arrival frequency</TO_FrequencyTitle>
-	<TO_NonRandom>{0} {1} {2} {3}</TO_NonRandom>
-	<TO_MinimumIsUnchanged>Set the sliders to the minimum to let storytellers use their default value.</TO_MinimumIsUnchanged>
-	<TO_HowToAdjust>Adjust the sliders to modify arrival frequency.</TO_HowToAdjust>
-	<TO_CaravanFrequencyAmount>Non-random storytellers such as Cassandra Classic or Phoebe Chillax will send {0} caravans per year.</TO_CaravanFrequencyAmount>
-	<TO_CaravanFrequencyAmountDefault>Non-random storytellers such as Cassandra Classic or Phoebe Chillax will send the default amount of caravans per year.</TO_CaravanFrequencyAmountDefault>
-	<TO_CaravanFrequencyTime>They will wait {0} days before sending another caravan.</TO_CaravanFrequencyTime>
-	<TO_CaravanFrequencyTimeDefault>They will wait the default amount of days before sending another caravan.</TO_CaravanFrequencyTimeDefault>
-	<TO_CaravanFrequencyVanilla>By default, vanilla storytellers send 4 caravans per year and 6 days must pass between their arrivals.</TO_CaravanFrequencyVanilla>
-	<TO_CaravanFrequencyAmountLabel>Caravans per year</TO_CaravanFrequencyAmountLabel>
-	<TO_CaravanFrequencyTimeLabel>Days between caravans</TO_CaravanFrequencyTimeLabel>
-	<TO_CaravanFrequencyChanceFactor>Random storytellers such as Randy Random will have {0}% times their normal chance of sending a caravan or visitor. The same value is used for both caravans and visitors. {1}</TO_CaravanFrequencyChanceFactor>
-	<TO_CaravanFrequencyChanceFactorDefault>Random storytellers such as Randy Random will use their default random chance of sending a caravan or visitor. The same value is used for both caravans and visitors. {0}</TO_CaravanFrequencyChanceFactorDefault>
-	<TO_OrbitalFrequencyAmount>Non-random storytellers such as Cassandra Classic or Phoebe Chillax will send {0} orbital traders per period.</TO_OrbitalFrequencyAmount>
-	<TO_OrbitalFrequencyAmountDefault>Non-random storytellers such as Cassandra Classic or Phoebe Chillax will send the default amount of orbital traders per period.</TO_OrbitalFrequencyAmountDefault>
-	<TO_OrbitalFrequencyTime>They will use a period for sending orbital traders of {0} days.</TO_OrbitalFrequencyTime>
-	<TO_OrbitalFrequencyTimeDefault>They will use their default period for sending orbital traders.</TO_OrbitalFrequencyTimeDefault>
-	<TO_OrbitalFrequencyVanilla>By default, vanilla storytellers send just one ship every 15 days in average.</TO_OrbitalFrequencyVanilla>
-	<TO_OrbitalFrequencyAmountLabel>Orbital traders per period</TO_OrbitalFrequencyAmountLabel>
-	<TO_OrbitalFrequencyTimeLabel>Period</TO_OrbitalFrequencyTimeLabel>
-	<TO_OrbitalFrequencyChanceFactor>Random storytellers such as Randy Random will have {0}% times their normal chance of sending an orbital trader. {1}</TO_OrbitalFrequencyChanceFactor>
-	<TO_OrbitalFrequencyChanceFactorDefault>Random storytellers such as Randy Random will use their default random chance of sending an orbital trader. {0}</TO_OrbitalFrequencyChanceFactorDefault>
-	<TO_VisitorFrequencyAmount>Non-random storytellers such as Cassandra Classic or Phoebe Chillax will send {0} visitors per year.</TO_VisitorFrequencyAmount>
-	<TO_VisitorFrequencyAmountDefault>Non-random storytellers such as Cassandra Classic or Phoebe Chillax will send the default amount of visitors per year.</TO_VisitorFrequencyAmountDefault>
-	<TO_VisitorFrequencyTime>They will wait {0} days before sending another visitor.</TO_VisitorFrequencyTime>
-	<TO_VisitorFrequencyTimeDefault>They will wait the default amount of days before sending another visitor.</TO_VisitorFrequencyTimeDefault>
-	<TO_VisitorFrequencyVanilla>By default, vanilla storytellers send 4 visitors per year and 5 days must pass between their arrivals.</TO_VisitorFrequencyVanilla>
-	<TO_VisitorFrequencyAmountLabel>Visitors per year</TO_VisitorFrequencyAmountLabel>
-	<TO_VisitorFrequencyTimeLabel>Days between visitors</TO_VisitorFrequencyTimeLabel>
-	<TO_VisitorFrequencyChanceFactor>Random storytellers such as Randy Random will have {0}% times their normal chance of sending a caravan or visitor. The same value is used for both caravans and visitors. {1}</TO_VisitorFrequencyChanceFactor>
-	<TO_VisitorFrequencyChanceFactorDefault>Random storytellers such as Randy Random will use their default random chance of sending a caravan or visitor. The same value is used for both caravans and visitors. {0}</TO_VisitorFrequencyChanceFactorDefault>
+	<TO_FrequencyUnchanged>Change default arrival frequency values by adjusting the sliders.</TO_FrequencyUnchanged>
+	<TO_FrequencyChanged>Set the sliders to the minimum to let storytellers use their default value.</TO_FrequencyChanged>
+	<!-- Caravan-specific description. -->
+	<TO_CaravanAmount>Non-random storytellers such as Cassandra will send {0} caravans per year.</TO_CaravanAmount>
+	<TO_CaravanAmountDefault>By default, non-random storytellers such as Cassandra will send 4 caravans per year.</TO_CaravanAmountDefault>
+	<TO_CaravanTime>They will also wait {0} days before sending another caravan.</TO_CaravanTime>
+	<TO_CaravanTimeDefault>By default, they will wait 6 days before sending another caravan.</TO_CaravanTimeDefault>
+	<TO_CaravanChance>Random storytellers such as Randy will have {0}% times their normal chance of sending a caravan or visitor. The same value is used for both caravans and visitors.</TO_CaravanChance>
+	<TO_CaravanChanceDefault>Random storytellers such as Randy will use the default random chance of sending a caravan or visitor.</TO_CaravanChanceDefault>
+	<!-- Orbital-specific description. -->
+	<TO_OrbitalAmount>Non-random storytellers such as Cassandra will send {0} orbital traders per period.</TO_OrbitalAmount>
+	<TO_OrbitalAmountDefault>Non-random storytellers such as Cassandra will send the default amount of orbital traders per period.</TO_OrbitalAmountDefault>
+	<TO_OrbitalTime>They will use a period for sending orbital traders of {0} days.</TO_OrbitalTime>
+	<TO_OrbitalTimeDefault>By default, the period for sending orbital traders is of 15 days.</TO_OrbitalTimeDefault>
+	<TO_OrbitalChance>Random storytellers such as Randy will have {0}% times their normal chance of sending an orbital trader.</TO_OrbitalChance>
+	<TO_OrbitalChanceDefault>Random storytellers such as Randy will use the default random chance of sending an orbital trader.</TO_OrbitalChanceDefault>
+	<!-- Visitor-specific description. -->
+	<TO_VisitorAmount>Non-random storytellers such as Cassandra will send {0} visitors per year.</TO_VisitorAmount>
+	<TO_VisitorAmountDefault>Non-random storytellers such as Cassandra will send the default amount of visitors per year.</TO_VisitorAmountDefault>
+	<TO_VisitorTime>They will also wait {0} days before sending another visitor.</TO_VisitorTime>
+	<TO_VisitorTimeDefault>By default, they will wait 5 days before sending another caravan.</TO_VisitorTimeDefault>
+	<TO_VisitorChance>Random storytellers such as Randy will have {0}% times their normal chance of sending a caravan or visitor. The same value is used for both caravans and visitors.</TO_VisitorChance>
+	<TO_VisitorChanceDefault>Random storytellers such as Randy will use the default random chance of sending a caravan or visitor.</TO_VisitorChanceDefault>
+	<!-- Slider labels. -->
+	<TO_ChanceSlider>Random chance increase</TO_ChanceSlider>
+	<!-- Caravan slider labels. -->
+	<TO_CaravanAmountSlider>Caravans per year</TO_CaravanAmountSlider>
+	<TO_CaravanTimeSlider>Days between caravans</TO_CaravanTimeSlider>
+
 	<!-- Stock features. -->
 	<TO_StockTitle>Stock</TO_StockTitle>
 	<TO_StockLabel>{0} {1} {2} {3}</TO_StockLabel>
@@ -56,6 +57,7 @@
 	<TO_StockHowToAdjust>Adjust the sliders to modify trader stock.</TO_StockHowToAdjust>
 	<TO_StockSilverSlider>Silver stock</TO_StockSilverSlider>
 	<TO_StockStockSlider>Other stock</TO_StockStockSlider>
+
 	<!-- Wealth features. -->
 	<TO_WealthTitle>Wealth</TO_WealthTitle>
 	<TO_WealthLabel>{0} {1}</TO_WealthLabel>

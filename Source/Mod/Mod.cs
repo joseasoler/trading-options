@@ -40,66 +40,128 @@ namespace TO.Mod
 			StorytellerCompPatcher.Patch();
 		}
 
-		private static void DrawTraderFrequency(Listing_Standard listing, TraderKindCategory category, string categoryName)
+		class TripleSliderData
 		{
-			if (category == TraderKindCategory.Settlement || category == TraderKindCategory.None)
-			{
-				return;
-			}
+			public TaggedString Title;
+			public TaggedString Description;
+			public TaggedString LeftLabel;
+			public TaggedString CenterLabel;
+			public TaggedString RightLabel;
+			public float LeftValue;
+			public float LeftMin;
+			public float LeftMax;
+			public float CenterValue;
+			public float CenterMin;
+			public float CenterMax;
+			public float RightValue;
+			public float RightMin;
+			public float RightMax;
+		}
 
+		class TripleSliderResult
+		{
+			public float Left;
+			public float Center;
+			public float Right;
+		}
+
+		private static TripleSliderResult TripleSlider(Listing_Standard listing, TripleSliderData data)
+		{
 			Text.Font = GameFont.Medium;
-			listing.Label("TO_FrequencyTitle".Translate());
+			listing.Label(data.Title);
 			listing.Gap(6f);
 
 			Text.Font = GameFont.Small;
-			var amount = Settings.GetFrequencyAmount(category);
-			string amountLabel = amount > 0
-				? $"TO_{categoryName}FrequencyAmount".Translate(amount)
-				: $"TO_{categoryName}FrequencyAmountDefault".Translate();
+			listing.Label(data.Description);
 
-			var time = Settings.GetFrequencyTime(category);
-			string timeLabel = time > 0
-				? $"TO_{categoryName}FrequencyTime".Translate(time)
-				: $"TO_{categoryName}FrequencyTimeDefault".Translate();
+			const float marginProportion = 0.02f;
+			const float widthProportion = (1.0f - marginProportion * 2.0f) / 3.0f;
 
-			var nonRandomPostfix = amount > 0 || time > 0 ? "TO_MinimumIsUnchanged" : "TO_HowToAdjust";
-			var nonRandomLabel = "TO_NonRandom".Translate(amountLabel, timeLabel,
-				$"TO_{categoryName}FrequencyVanilla".Translate(),
-				nonRandomPostfix.Translate());
-			listing.Label(nonRandomLabel);
-
-			var sliderLabelsRect = listing.GetRect(22.0f);
-			const float splitPart = 0.48f;
+			var labelsRect = listing.GetRect(22.0f);
+			var margin = labelsRect.width * marginProportion;
+			var width = labelsRect.width * widthProportion;
+			var leftRect = new Rect(labelsRect.x, labelsRect.y, width, labelsRect.height);
+			var centerRect = new Rect(leftRect.x + width + margin, leftRect.y, width, leftRect.height);
+			var rightRect = new Rect(centerRect.x + width + margin, centerRect.y, width, centerRect.height);
 			Text.Anchor = TextAnchor.MiddleCenter;
 			Text.Font = GameFont.Tiny;
 			GUI.color = Color.grey;
-			Widgets.Label(sliderLabelsRect.LeftPart(splitPart), $"TO_{categoryName}FrequencyAmountLabel".Translate());
-			Widgets.Label(sliderLabelsRect.RightPart(splitPart), $"TO_{categoryName}FrequencyTimeLabel".Translate());
+			Widgets.Label(leftRect, data.LeftLabel);
+			Widgets.Label(centerRect, data.CenterLabel);
+			Widgets.Label(rightRect, data.RightLabel);
 			GUI.color = Color.white;
 			Text.Anchor = TextAnchor.UpperLeft;
 			Text.Font = GameFont.Small;
+
 			var slidersRect = listing.GetRect(22.0f);
-			const int maxAmountOrbital = 4;
-			const int maxAmountOthers = 15;
-			var maxAmount = category == TraderKindCategory.Orbital ? maxAmountOrbital : maxAmountOthers;
-			var newAmount = (int) Widgets.HorizontalSlider(slidersRect.LeftPart(splitPart), amount, 0, maxAmount);
-			var newTime = (int) Widgets.HorizontalSlider(slidersRect.RightPart(splitPart), time, 0, 20);
-			if (newAmount != amount || newTime != time)
+			leftRect.y += slidersRect.height;
+			centerRect.y += slidersRect.height;
+			rightRect.y += slidersRect.height;
+			var leftNew = Widgets.HorizontalSlider(leftRect, data.LeftValue, data.LeftMin, data.LeftMax);
+			var centerNew = Widgets.HorizontalSlider(centerRect, data.CenterValue, data.CenterMin, data.CenterMax);
+			var rightNew = Widgets.HorizontalSlider(rightRect, data.RightValue, data.RightMin, data.RightMax);
+
+			if (leftNew != data.LeftValue || centerNew != data.CenterValue || rightNew != data.RightValue)
 			{
 				SoundDefOf.DragSlider.PlayOneShotOnCamera();
 			}
 
-			Settings.SetFrequencyAmount(category, newAmount);
-			Settings.SetFrequencyTime(category, newTime);
-			listing.Gap(6f);
+			return new TripleSliderResult
+			{
+				Left = leftNew,
+				Center = centerNew,
+				Right = rightNew
+			};
+		}
 
-			var chance = Settings.GetFrequencyChanceFactor(category);
-			string chanceLabel = chance > 0
-				? $"TO_{categoryName}FrequencyChanceFactor".Translate(chance, "TO_MinimumIsUnchanged".Translate())
-				: $"TO_{categoryName}FrequencyChanceFactorDefault".Translate("TO_HowToAdjust".Translate());
-			listing.Label(chanceLabel);
-			var newChance = (int) listing.Slider(chance, 0, 500);
-			Settings.SetFrequencyChanceFactor(category, newChance);
+		private static void DrawTraderFrequency(Listing_Standard listing, TraderKindCategory cat, string catName)
+		{
+			if (cat == TraderKindCategory.Settlement || cat == TraderKindCategory.None)
+			{
+				return;
+			}
+
+			var amount = Settings.GetFrequencyAmount(cat);
+			var time = Settings.GetFrequencyTime(cat);
+			var chance = Settings.GetFrequencyChanceFactor(cat);
+
+			var amountChanged = amount > 0;
+			var timeChanged = time > 0;
+			var chanceChanged = chance > 0;
+
+			var description =
+				amountChanged ? $"TO_{catName}Amount".Translate(amount) : $"TO_{catName}AmountDefault".Translate();
+			description +=
+				' ' + (timeChanged ? $"TO_{catName}Time".Translate(time) : $"TO_{catName}TimeDefault".Translate());
+			description += ' ' +
+			               (chanceChanged
+				               ? $"TO_{catName}Chance".Translate(chance)
+				               : $"TO_{catName}ChanceDefault".Translate());
+			description += ' ' + (amountChanged || timeChanged || chanceChanged
+				? "TO_FrequencyUnchanged".Translate()
+				: "TO_FrequencyChanged".Translate());
+
+			var result = TripleSlider(listing, new TripleSliderData
+			{
+				Title = "TO_FrequencyTitle".Translate(),
+				Description = description,
+				LeftLabel = $"TO_{catName}AmountSlider".Translate(),
+				CenterLabel = $"TO_{catName}TimeSlider".Translate(),
+				RightLabel = "TO_ChanceSlider".Translate(),
+				LeftValue = amount,
+				LeftMin = 0.0f,
+				LeftMax = cat == TraderKindCategory.Orbital ? 4 : 15,
+				CenterValue = time,
+				CenterMin = 0.0f,
+				CenterMax = 20.0f,
+				RightValue = chance,
+				RightMin = 0.0f,
+				RightMax = 500.0f
+			});
+
+			Settings.SetFrequencyAmount(cat, (int) result.Left);
+			Settings.SetFrequencyTime(cat, (int) result.Center);
+			Settings.SetFrequencyChanceFactor(cat, (int) result.Right);
 		}
 
 		private static void DrawStockAdjustments(Listing_Standard listing, TraderKindCategory category,
