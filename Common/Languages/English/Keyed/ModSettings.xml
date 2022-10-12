@@ -71,6 +71,9 @@
 	<TO_WealthOpulent>Opulent</TO_WealthOpulent>
 	<TO_WealthLoaded>Loaded!</TO_WealthLoaded>
 
-	<!-- Stock table. -->
-	<TO_WealthTableEntry>Wealth {0}: Silver: {1}%, Goods: {2}%</TO_WealthTableEntry>
+	<!-- Stock info. -->
+	<TO_InfoTitle>Stock adjustments calculator</TO_InfoTitle>
+	<TO_InfoDescription>Type a colony wealth level to calculate the silver and stock adjustments of traders with the current settings.</TO_InfoDescription>
+	<TO_InfoSilver>Silver: {0}%</TO_InfoSilver>
+	<TO_InfoStock>Stock: {0}%</TO_InfoStock>
 </LanguageData>

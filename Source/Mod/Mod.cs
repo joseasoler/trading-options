@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -13,7 +14,13 @@ namespace TO.Mod
 	/// </summary>
 	public class Mod : Verse.Mod
 	{
+		private const float MarginProportion = 0.02f;
+		private const float WidthProportion = (1.0f - MarginProportion * 2.0f) / 3.0f;
+
 		private TraderKindCategory _selected = TraderKindCategory.Caravan;
+		private const float MinWealth = 10000f;
+		private float _wealth = MinWealth;
+		private string _wealthBuffer = ((int) MinWealth).ToString();
 
 		/// <summary>
 		/// Reads and initializes mod settings.
@@ -74,12 +81,9 @@ namespace TO.Mod
 			Text.Font = GameFont.Small;
 			listing.Label(data.Description);
 
-			const float marginProportion = 0.02f;
-			const float widthProportion = (1.0f - marginProportion * 2.0f) / 3.0f;
-
 			var labelsRect = listing.GetRect(22.0f);
-			var margin = labelsRect.width * marginProportion;
-			var width = labelsRect.width * widthProportion;
+			var margin = labelsRect.width * MarginProportion;
+			var width = labelsRect.width * WidthProportion;
 			var leftRect = new Rect(labelsRect.x, labelsRect.y, width, labelsRect.height);
 			var centerRect = new Rect(leftRect.x + width + margin, leftRect.y, width, leftRect.height);
 			var rightRect = new Rect(centerRect.x + width + margin, centerRect.y, width, centerRect.height);
@@ -222,18 +226,36 @@ namespace TO.Mod
 			return result;
 		}
 
-		private static void DrawStockInfo(Listing_Standard listing, TraderKindCategory category)
+		private void DrawStockInfo(Listing_Standard listing, TraderKindCategory category)
 		{
-			var wealthPoints = WealthPoints(category, 5);
-			Text.Font = GameFont.Tiny;
-			foreach (var wealthPoint in wealthPoints)
-			{
-				listing.Label("TO_WealthTableEntry".Translate((int) wealthPoint.x, (int) (wealthPoint.y * 100f),
-					(int) (wealthPoint.z * 100f)));
-			}
+			Text.Font = GameFont.Medium;
+			listing.Label("TO_InfoTitle".Translate());
+			listing.Gap(6f);
+
+			Text.Font = GameFont.Small;
+			listing.Label("TO_InfoDescription".Translate());
+			listing.Gap(6f);
+
+			var labelsRect = listing.GetRect(Text.LineHeight);
+			var margin = labelsRect.width * MarginProportion;
+			var width = labelsRect.width * WidthProportion;
+
+			var leftRect = new Rect(labelsRect.x, labelsRect.y, width, labelsRect.height);
+			var centerRect = new Rect(leftRect.x + width + margin, leftRect.y, width, leftRect.height);
+			var rightRect = new Rect(centerRect.x + width + margin, centerRect.y, width, centerRect.height);
+
+			var anchor = Text.Anchor;
+			Text.Anchor = TextAnchor.MiddleCenter;
+			Widgets.TextFieldNumeric(leftRect, ref _wealth, ref _wealthBuffer, MinWealth, float.MaxValue);
+
+			var silver = (int) (100.0 * StockScaling.Calculate(category, ThingDefOf.Silver, _wealth));
+			Widgets.Label(centerRect, "TO_InfoSilver".Translate(silver));
+			var stock = (int) (100.0 * StockScaling.Calculate(category, null, _wealth));
+			Widgets.Label(rightRect, "TO_InfoStock".Translate(stock));
+			Text.Anchor = anchor;
 		}
 
-		private static void DrawSettings(TraderKindCategory category, Rect settingsArea)
+		private void DrawSettings(TraderKindCategory category, Rect settingsArea)
 		{
 			var listing = new Listing_Standard();
 			listing.Begin(settingsArea);
