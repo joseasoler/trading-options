@@ -3,21 +3,17 @@ Trading Options
 
 [![RimWorld](https://img.shields.io/badge/RimWorld-1.4-informational)](https://rimworldgame.com/) [![Steam Downloads](https://img.shields.io/steam/downloads/ToDo)](https://steamcommunity.com/sharedfiles/filedetails/?id=2813426619) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-[Trading Options](https://steamcommunity.com/sharedfiles/filedetails/?id=ToDo) is a [RimWorld](https://rimworldgame.com/) mod which lets you customize your trading experience to your liking! You can change these settings independently for orbital traders, caravans, visitors and settlements:
+[Trading Options](https://steamcommunity.com/sharedfiles/filedetails/?id=ToDo) is a [RimWorld](https://rimworldgame.com/) mod which lets you customize your trading experience to your liking! You can easily change:
 
-• How frequently these traders will visit the colony.
+• How frequently caravans, orbital traders or visitors will arrive at the colony.
 
-• Base amount of silver traders have in stock.
+• Amount of silver in stock for any trader type.
 
-• Traders bring more silver to rich colonies.
+• Amount of other stock for any trader type.
 
-• Traders bring more stock to richer colonies.
-
-These settings affect all traders:
+• Traders will have more items in stock if your colony is wealthy.
 
 • Slaver traders appear regardless of your colony population.
-
-• Amount of silver carried by each trader category.
 
 It is safe to add Trading Options to an existing savegame. You can safely modify any of the settings at any point during the game. Changes will only apply to new traders, and to settlements after they restock.
 
