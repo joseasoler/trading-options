@@ -12,7 +12,7 @@ namespace TO.Harmony
 		private static void ModifyGeneratedAmounts(ref StockGenerator __instance, ref int __result, ThingDef def)
 		{
 			var category = Category.Get(__instance.trader);
-			var scaling = StockScaling.Calculate(category, def);
+			var scaling = StockScaling.Calculate(category, def, Find.World.PlayerWealthForStoryteller);
 			__result = (int) (scaling * __result);
 		}
 	}

@@ -164,14 +164,14 @@ namespace TO.Mod
 			Settings.SetFrequencyChanceFactor(cat, (int) result.Right);
 		}
 
-		private static bool DrawStockAdjustments(Listing_Standard listing, TraderKindCategory cat, string catName)
+		private static void DrawStockAdjustments(Listing_Standard listing, TraderKindCategory cat, string catName)
 		{
 			var silver = Settings.GetSilverScaling(cat);
 			var stock = Settings.GetStockScaling(cat);
 			var wealth = Settings.GetWealthScalingOption(cat);
 
-			var silverChanged = silver > 0;
-			var stockChanged = stock > 0;
+			var silverChanged = silver > Settings.MinStockScaling;
+			var stockChanged = stock > Settings.MinStockScaling;
 			var wealthChanged = wealth != WealthScalingOption.None;
 			var anyChanges = silverChanged || stockChanged || wealthChanged;
 
@@ -189,7 +189,7 @@ namespace TO.Mod
 				Title = "TO_StockTitle".Translate(),
 				Description = description,
 				LeftLabel = "TO_SilverSlider".Translate(),
-				CenterLabel = "TO_SilverSlider".Translate(),
+				CenterLabel = "TO_StockSlider".Translate(),
 				RightLabel =
 					"TO_WealthSlider".Translate($"TO_Wealth{Enum.GetName(typeof(WealthScalingOption), wealth)}".Translate()),
 				LeftValue = silver,
@@ -206,12 +206,32 @@ namespace TO.Mod
 			Settings.SetSilverScaling(cat, (int) result.Left);
 			Settings.SetStockScaling(cat, (int) result.Center);
 			Settings.SetWealthScalingOption(cat, (WealthScalingOption) result.Right);
+		}
 
-			return anyChanges;
+		private static List<Vector3> WealthPoints(TraderKindCategory category, float wealthMin, float wealthMax, uint count)
+		{
+			var result = new List<Vector3>();
+			var wealthInterval = (wealthMax - wealthMin) / count;
+			for (var wealth = wealthMin; wealth < wealthMax; wealth += wealthInterval)
+			{
+				result.Add(new Vector3(wealth, (float) StockScaling.Calculate(category, ThingDefOf.Silver, wealth),
+					(float) StockScaling.Calculate(category, null, wealth)));
+				//var str = $"{wealth}, {result.Last().y}, {result.Last().z}";
+				//Log.ErrorOnce(str, str.GetHashCode());
+			}
+
+			return result;
 		}
 
 		private static void DrawStockInfo(Listing_Standard listing, TraderKindCategory category)
 		{
+			var wealthPoints = WealthPoints(category, 11000f, 1000000f, 5);
+			Text.Font = GameFont.Tiny;
+			foreach (var wealthPoint in wealthPoints)
+			{
+				listing.Label("TO_WealthTableEntry".Translate((int) wealthPoint.x, (int) (wealthPoint.y * 100f),
+					(int) (wealthPoint.z * 100f)));
+			}
 		}
 
 		private static void DrawSettings(TraderKindCategory category, Rect settingsArea)
@@ -224,8 +244,8 @@ namespace TO.Mod
 
 				DrawTraderFrequency(listing, category, categoryName);
 				listing.Gap(9f);
-				var anyChanges = DrawStockAdjustments(listing, category, categoryName);
-				if (anyChanges)
+				DrawStockAdjustments(listing, category, categoryName);
+				if (Settings.GetWealthScalingOption(category) != WealthScalingOption.None)
 				{
 					listing.Gap(9f);
 					DrawStockInfo(listing, category);

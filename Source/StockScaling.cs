@@ -7,7 +7,7 @@ namespace TO
 {
 	public static class StockScaling
 	{
-		public static double Calculate(TraderKindCategory category, ThingDef def)
+		public static double Calculate(TraderKindCategory category, ThingDef def, float? wealth)
 		{
 			var linearSetting = def == ThingDefOf.Silver
 				? Settings.GetSilverScaling(category)
@@ -20,8 +20,8 @@ namespace TO
 			var linearScaling = linearSetting / 100.0;
 
 			var wealthScaling = Settings.GetWealthScaling(category);
-			if (wealthScaling <= 0.0) return linearScaling;
-			var wealthScale = wealthScaling + Find.World.PlayerWealthForStoryteller;
+			if (wealthScaling <= 0.0 || wealth == null) return linearScaling;
+			var wealthScale = wealthScaling + wealth.Value;
 			var logWealthScale = Math.Log(wealthScale, wealthScaling);
 			// ToDo adjustment
 			return linearScaling * logWealthScale;
