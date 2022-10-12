@@ -13,8 +13,6 @@
 
 	<!-- Trader frequency. -->
 	<TO_FrequencyTitle>Arrival frequency</TO_FrequencyTitle>
-	<TO_FrequencyUnchanged>Change default arrival frequency values by adjusting the sliders.</TO_FrequencyUnchanged>
-	<TO_FrequencyChanged>Set the sliders to the minimum to let storytellers use their default value.</TO_FrequencyChanged>
 	<!-- Caravan-specific description. -->
 	<TO_CaravanAmount>Non-random storytellers such as Cassandra will send {0} caravans per year.</TO_CaravanAmount>
 	<TO_CaravanAmountDefault>By default, non-random storytellers such as Cassandra will send 4 caravans per year.</TO_CaravanAmountDefault>
@@ -36,39 +34,43 @@
 	<TO_VisitorTimeDefault>By default, they will wait 5 days before sending another caravan.</TO_VisitorTimeDefault>
 	<TO_VisitorChance>Random storytellers such as Randy will have {0}% times their normal chance of sending a caravan or visitor. The same value is used for both caravans and visitors.</TO_VisitorChance>
 	<TO_VisitorChanceDefault>Random storytellers such as Randy will use the default random chance of sending a caravan or visitor.</TO_VisitorChanceDefault>
+	<!-- Description postfix -->
+	<TO_FrequencyUnchanged>Change default arrival frequency values by adjusting the sliders.</TO_FrequencyUnchanged>
+	<TO_FrequencyChanged>Set the sliders to the minimum to let storytellers use their default value.</TO_FrequencyChanged>
 	<!-- Slider labels. -->
 	<TO_ChanceSlider>Random chance increase</TO_ChanceSlider>
 	<!-- Caravan slider labels. -->
 	<TO_CaravanAmountSlider>Caravans per year</TO_CaravanAmountSlider>
 	<TO_CaravanTimeSlider>Days between caravans</TO_CaravanTimeSlider>
+	<TO_OrbitalAmountSlider>Orbital traders per period</TO_OrbitalAmountSlider>
+	<TO_OrbitalTimeSlider>Period between orbital trader arrivals</TO_OrbitalTimeSlider>
+	<TO_VisitorAmountSlider>Visitors per year</TO_VisitorAmountSlider>
+	<TO_VisitorTimeSlider>Days between visitors</TO_VisitorTimeSlider>
 
 	<!-- Stock features. -->
-	<TO_StockTitle>Stock</TO_StockTitle>
-	<TO_StockLabel>{0} {1} {2} {3}</TO_StockLabel>
+	<TO_StockTitle>Stock amount</TO_StockTitle>
 	<TO_CaravanStockPrefix>New caravans</TO_CaravanStockPrefix>
 	<TO_OrbitalStockPrefix>New orbital traders</TO_OrbitalStockPrefix>
 	<TO_SettlementStockPrefix>After restocking, settlements</TO_SettlementStockPrefix>
 	<TO_VisitorStockPrefix>New visitors</TO_VisitorStockPrefix>
-	<TO_StockSilverLabel>will have {0}% of their normal amount of silver in stock.</TO_StockSilverLabel>
-	<TO_StockSilverLabelDefault>will have the normal amount of silver in stock.</TO_StockSilverLabelDefault>
-	<TO_StockStockLabel>Their total stock of other wares will be {0}% of the normal amount.</TO_StockStockLabel>
-	<TO_StockStockLabelDefault>Their total stock of other wares will be the normal amount.</TO_StockStockLabelDefault>
-	<TO_StockMinimumIsUnchanged>Set the sliders to the minimum to use default values.</TO_StockMinimumIsUnchanged>
-	<TO_StockHowToAdjust>Adjust the sliders to modify trader stock.</TO_StockHowToAdjust>
-	<TO_StockSilverSlider>Silver stock</TO_StockSilverSlider>
-	<TO_StockStockSlider>Other stock</TO_StockStockSlider>
-
-	<!-- Wealth features. -->
-	<TO_WealthTitle>Wealth</TO_WealthTitle>
-	<TO_WealthLabel>{0} {1}</TO_WealthLabel>
-	<TO_WealthDescription>will bring additional goods and silver to trade when they visit wealthy colonies. Adjust the slider to adjust how much stock they bring to wealty colonies. Check the table below to see the effects.</TO_WealthDescription>
-	<TO_WealthDescriptionDefault>will not bring additional goods and silver to trade when they visit wealthy colonies. Set the slider to the minimum to disable this feature.</TO_WealthDescriptionDefault>
+	<TO_StockSilver>start with {0}% of their normal silver stock.</TO_StockSilver>
+	<TO_StockSilverDefault>start with their normal silver stock.</TO_StockSilverDefault>
+	<TO_StockStock>They start with {0}% of their stock in other wares.</TO_StockStock>
+	<TO_StockStockDefault>They start with their normal stock in other wares</TO_StockStockDefault>
+	<TO_StockWealth>These starting stock amounts are increased depending on colony wealth, with diminishing results.</TO_StockWealth>
+	<TO_StockWealthDefault>These starting amounts values are not adjusted for wealthy colonies.</TO_StockWealthDefault>
+	<TO_StockUnchanged>Set the sliders to the minimum to use default values.</TO_StockUnchanged>
+	<TO_StockChanged>Adjust the sliders to modify trader stock amounts.</TO_StockChanged>
+	<!-- Slider labels. -->
+	<TO_SilverSlider>Silver stock</TO_SilverSlider>
+	<TO_StockSlider>Other stock</TO_StockSlider>
 	<TO_WealthSlider>Wealth scaling: {0}</TO_WealthSlider>
-	<TO_WealthValueNone>None</TO_WealthValueNone>
-	<TO_WealthValuePoor>Poor</TO_WealthValuePoor>
-	<TO_WealthValueRich>Rich</TO_WealthValueRich>
-	<TO_WealthValueOpulent>Opulent</TO_WealthValueOpulent>
-	<TO_WealthValueLoaded>Loaded</TO_WealthValueLoaded>
-	<TO_WealthTable>The following values show how goods and silver amounts scale with colony wealth. This also takes into account the settings from the Stock section.</TO_WealthTable>
+	<TO_WealthNone>None</TO_WealthNone>
+	<TO_WealthPoor>Poor</TO_WealthPoor>
+	<TO_WealthRich>Rich</TO_WealthRich>
+	<TO_WealthOpulent>Opulent</TO_WealthOpulent>
+	<TO_WealthLoaded>Loaded!</TO_WealthLoaded>
+
+	<!-- Stock table. -->
 	<TO_WealthTableEntry>Wealth {0}: Silver: {1}%, Goods: {2}%</TO_WealthTableEntry>
 </LanguageData>

@@ -138,8 +138,8 @@ namespace TO.Mod
 				               ? $"TO_{catName}Chance".Translate(chance)
 				               : $"TO_{catName}ChanceDefault".Translate());
 			description += ' ' + (amountChanged || timeChanged || chanceChanged
-				? "TO_FrequencyUnchanged".Translate()
-				: "TO_FrequencyChanged".Translate());
+				? "TO_FrequencyChanged".Translate()
+				: "TO_FrequencyUnchanged".Translate());
 
 			var result = TripleSlider(listing, new TripleSliderData
 			{
@@ -164,86 +164,54 @@ namespace TO.Mod
 			Settings.SetFrequencyChanceFactor(cat, (int) result.Right);
 		}
 
-		private static void DrawStockAdjustments(Listing_Standard listing, TraderKindCategory category,
-			string categoryName)
+		private static void DrawStockAdjustments(Listing_Standard listing, TraderKindCategory cat, string catName)
 		{
-			Text.Font = GameFont.Medium;
-			listing.Label("TO_StockTitle".Translate());
-			listing.Gap(6f);
-			Text.Font = GameFont.Small;
+			var silver = Settings.GetSilverScaling(cat);
+			var stock = Settings.GetStockScaling(cat);
+			var wealth = Settings.GetWealthScalingOption(cat);
 
-			var silverScaling = Settings.GetSilverScaling(category);
-			var stockScaling = Settings.GetStockScaling(category);
+			var silverChanged = silver > 0;
+			var stockChanged = stock > 0;
+			var wealthChanged = wealth != WealthScalingOption.None;
 
-			var prefixLabel = $"TO_{categoryName}StockPrefix".Translate();
-			var silverLabel = silverScaling > Settings.MinStockScaling
-				? "TO_StockSilverLabel".Translate(silverScaling)
-				: "TO_StockSilverLabelDefault".Translate();
-			var stockLabel = stockScaling > Settings.MinStockScaling
-				? "TO_StockStockLabel".Translate(stockScaling)
-				: "TO_StockStockLabelDefault".Translate();
-			var postfixLabel = (silverScaling > Settings.MinStockScaling || stockScaling > Settings.MinStockScaling)
-				? "TO_StockMinimumIsUnchanged".Translate()
-				: "TO_StockHowToAdjust".Translate();
+			var description = $"TO_{catName}StockPrefix".Translate();
+			description +=
+				' ' + (silverChanged ? "TO_StockSilver".Translate(silver) : "TO_StockSilverDefault".Translate());
+			description +=
+				' ' + (stockChanged ? "TO_StockStock".Translate(stock) : "TO_StockStockDefault".Translate());
+			description +=
+				' ' + (wealthChanged ? "TO_StockWealth".Translate() : "TO_StockWealthDefault".Translate());
+			description += ' ' + (silverChanged || stockChanged || wealthChanged
+				? "TO_StockChanged".Translate()
+				: "TO_StockUnchanged".Translate());
 
-			var label = "TO_StockLabel".Translate(prefixLabel, silverLabel, stockLabel, postfixLabel);
-			listing.Label(label);
-
-			var sliderLabelsRect = listing.GetRect(22.0f);
-			const float splitPart = 0.48f;
-			Text.Anchor = TextAnchor.MiddleCenter;
-			Text.Font = GameFont.Tiny;
-			GUI.color = Color.grey;
-			Widgets.Label(sliderLabelsRect.LeftPart(splitPart), "TO_StockSilverSlider".Translate());
-			Widgets.Label(sliderLabelsRect.RightPart(splitPart), "TO_StockStockSlider".Translate());
-			GUI.color = Color.white;
-			Text.Anchor = TextAnchor.UpperLeft;
-			Text.Font = GameFont.Small;
-			var slidersRect = listing.GetRect(22.0f);
-			var newSilverScaling = (int) Widgets.HorizontalSlider(slidersRect.LeftPart(splitPart), silverScaling,
-				Settings.MinStockScaling, Settings.MaxStockScaling);
-			var newStockScaling = (int) Widgets.HorizontalSlider(slidersRect.RightPart(splitPart), stockScaling,
-				Settings.MinStockScaling, Settings.MaxStockScaling);
-			if (newSilverScaling != silverScaling || newStockScaling != stockScaling)
+			var result = TripleSlider(listing, new TripleSliderData
 			{
-				SoundDefOf.DragSlider.PlayOneShotOnCamera();
-			}
+				Title = "TO_StockTitle".Translate(),
+				Description = description,
+				LeftLabel = "TO_SilverSlider".Translate(),
+				CenterLabel = "TO_SilverSlider".Translate(),
+				RightLabel =
+					"TO_WealthSlider".Translate($"TO_Wealth{Enum.GetName(typeof(WealthScalingOption), wealth)}".Translate()),
+				LeftValue = silver,
+				LeftMin = Settings.MinStockScaling,
+				LeftMax = Settings.MaxStockScaling,
+				CenterValue = stock,
+				CenterMin = Settings.MinStockScaling,
+				CenterMax = Settings.MaxStockScaling,
+				RightValue = (float) wealth,
+				RightMin = (float) WealthScalingOption.None,
+				RightMax = (float) WealthScalingOption.Loaded
+			});
 
-			Settings.SetSilverScaling(category, newSilverScaling);
-			Settings.SetStockScaling(category, newStockScaling);
+			Settings.SetSilverScaling(cat, (int) result.Left);
+			Settings.SetStockScaling(cat, (int) result.Center);
+			Settings.SetWealthScalingOption(cat, (WealthScalingOption) result.Right);
 		}
 
 		private static void DrawWealthAdjustments(Listing_Standard listing, TraderKindCategory category,
 			string categoryName)
 		{
-			Text.Font = GameFont.Medium;
-			listing.Label("TO_WealthTitle".Translate());
-			listing.Gap(6f);
-			Text.Font = GameFont.Small;
-
-			var wealthScalingSetting = Settings.GetWealthScalingOption(category);
-			var isDefault = wealthScalingSetting == WealthScalingOption.None;
-			var prefixLabel = $"TO_{categoryName}StockPrefix".Translate();
-			var descriptionLabel = isDefault
-				? "TO_WealthDescriptionDefault".Translate()
-				: "TO_WealthDescription".Translate();
-
-			var label = "TO_WealthLabel".Translate(prefixLabel, descriptionLabel);
-			listing.Label(label);
-
-			Text.Anchor = TextAnchor.MiddleCenter;
-			Text.Font = GameFont.Tiny;
-			GUI.color = Color.grey;
-			listing.Label("TO_WealthSlider".Translate(
-				$"TO_WealthValue{Enum.GetName(typeof(WealthScalingOption), wealthScalingSetting)}".Translate()));
-			GUI.color = Color.white;
-			Text.Anchor = TextAnchor.UpperLeft;
-			Text.Font = GameFont.Small;
-
-			var result = listing.Slider((int) wealthScalingSetting, (int) WealthScalingOption.None,
-				(int) WealthScalingOption.Loaded);
-			// Log.Error($"Logging: {result}, {Enum.GetName(typeof(WealthScalingOption), (WealthScalingOption) result)}");
-			Settings.SetWealthScalingOption(category, (WealthScalingOption) result);
 		}
 
 		private static void DrawSettings(TraderKindCategory category, Rect settingsArea)
