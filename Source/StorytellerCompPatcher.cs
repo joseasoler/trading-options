@@ -105,91 +105,51 @@ namespace TO
 		private static readonly Dictionary<ushort, FactionInteraction> VisitorBackup =
 			new Dictionary<ushort, FactionInteraction>();
 
-		private static void PatchCompOnOffCycle(StorytellerDef def, StorytellerCompProperties comp)
+		private static void PatchCompOnOffCycle(StorytellerDef def, StorytellerCompProperties_OnOffCycle onOffComp)
 		{
-			var onOffComp = (StorytellerCompProperties_OnOffCycle) comp;
-			if (onOffComp.incident != IncidentDefOf.OrbitalTraderArrival)
-			{
-				return;
-			}
-
 			var time = Settings.GetFrequencyTime(TraderKindCategory.Orbital);
 			var amount = Settings.GetFrequencyAmount(TraderKindCategory.Orbital);
-			var shouldPatch = time > 0 && amount > 0;
-			var hasBackup = OrbitalBackup.Count != 0;
 
-			if (!shouldPatch && !hasBackup)
+			if (!OrbitalBackup.ContainsKey(def.shortHash))
 			{
-				return;
-			}
-
-			var newValue = new OrbitalOnOffCycle(time, amount);
-
-			if (!shouldPatch)
-			{
-				// When orbital traders are set to default, restore the backup if there is one.
-				if (!OrbitalBackup.ContainsKey(def.shortHash))
-				{
-					var errorLog = $"Could not revert orbital trader arrival changes for {def.defName}";
-					Log.ErrorOnce(errorLog, errorLog.GetHashCode());
-					return;
-				}
-
-				newValue = OrbitalBackup[def.shortHash];
-			}
-			else if (!hasBackup)
-			{
-				// Store a backup in case that settings get reverted later.
 				OrbitalBackup[def.shortHash] = new OrbitalOnOffCycle(onOffComp.onDays, onOffComp.offDays,
 					onOffComp.numIncidentsRange);
 			}
 
+			var newValue = new OrbitalOnOffCycle(time, amount);
 			var backupValue = OrbitalBackup[def.shortHash];
 			onOffComp.onDays = time > 0 ? newValue.onDays : backupValue.onDays;
 			onOffComp.offDays = time > 0 ? newValue.offDays : backupValue.offDays;
 			onOffComp.numIncidentsRange = amount > 0 ? newValue.numIncidentsRange : backupValue.numIncidentsRange;
 		}
 
-		private static void PatchFactionInteraction(StorytellerDef def, StorytellerCompProperties comp,
+		private static void PatchFactionInteraction(StorytellerDef def,
+			StorytellerCompProperties_FactionInteraction factionComp,
 			TraderKindCategory category)
 		{
-			var factionComp = (StorytellerCompProperties_FactionInteraction) comp;
-
 			var backup = category == TraderKindCategory.Caravan ? CaravanBackup : VisitorBackup;
 
 			var time = Settings.GetFrequencyTime(category);
 			var amount = Settings.GetFrequencyAmount(category);
-			var shouldPatch = time > 0 && amount > 0;
-			var hasBackup = backup.ContainsKey(def.shortHash);
 
-			if (!shouldPatch && !hasBackup)
+			if (!backup.ContainsKey(def.shortHash))
 			{
-				return;
-			}
-
-			var newValue = new FactionInteraction(time, amount);
-
-			if (!shouldPatch)
-			{
-				// When orbital traders are set to default, restore the backup if there is one.
-				if (!backup.ContainsKey(def.shortHash))
-				{
-					var errorLog =
-						$"Could not revert {Enum.GetName(typeof(TraderKindCategory), category)} changes for {def.defName}";
-					Log.ErrorOnce(errorLog, errorLog.GetHashCode());
-					return;
-				}
-				newValue = backup[def.shortHash];
-			}
-			else if (!hasBackup)
-			{
-				// Store a backup in case that settings get reverted later.
 				backup[def.shortHash] = new FactionInteraction(factionComp.minSpacingDays, factionComp.baseIncidentsPerYear);
 			}
 
+			var newValue = new FactionInteraction(time, amount);
 			var backupValue = backup[def.shortHash];
+			if (category == TraderKindCategory.Caravan)
+			{
+				Log.Error($"Patching in caravan: {factionComp.minSpacingDays} -> {factionComp.baseIncidentsPerYear}...");
+			}
+
 			factionComp.minSpacingDays = time > 0 ? newValue.minSpacingDays : backupValue.minSpacingDays;
 			factionComp.baseIncidentsPerYear = amount > 0 ? newValue.baseIncidentsPerYear : backupValue.baseIncidentsPerYear;
+			if (category == TraderKindCategory.Caravan)
+			{
+				Log.Error($"... becomes {factionComp.minSpacingDays} -> {factionComp.baseIncidentsPerYear}");
+			}
 		}
 
 		public static void Patch()
@@ -200,18 +160,22 @@ namespace TO
 				{
 					if (comp.GetType() == typeof(StorytellerCompProperties_OnOffCycle))
 					{
-						PatchCompOnOffCycle(def, comp);
+						var onOffComp = (StorytellerCompProperties_OnOffCycle) comp;
+						if (onOffComp.incident == IncidentDefOf.OrbitalTraderArrival)
+						{
+							PatchCompOnOffCycle(def, onOffComp);
+						}
 					}
 					else if (comp.GetType() == typeof(StorytellerCompProperties_FactionInteraction))
 					{
 						var factionInteractionComp = (StorytellerCompProperties_FactionInteraction) comp;
 						if (factionInteractionComp.incident == IncidentDefOf.TraderCaravanArrival)
 						{
-							PatchFactionInteraction(def, comp, TraderKindCategory.Caravan);
+							PatchFactionInteraction(def, factionInteractionComp, TraderKindCategory.Caravan);
 						}
 						else if (factionInteractionComp.incident == IncidentDefOf.VisitorGroup)
 						{
-							PatchFactionInteraction(def, comp, TraderKindCategory.Visitor);
+							PatchFactionInteraction(def, factionInteractionComp, TraderKindCategory.Visitor);
 						}
 					}
 				}
