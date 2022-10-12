@@ -208,16 +208,15 @@ namespace TO.Mod
 			Settings.SetWealthScalingOption(cat, (WealthScalingOption) result.Right);
 		}
 
-		private static List<Vector3> WealthPoints(TraderKindCategory category, float wealthMin, float wealthMax, uint count)
+		private static List<Vector3> WealthPoints(TraderKindCategory category, uint count)
 		{
 			var result = new List<Vector3>();
-			var wealthInterval = (wealthMax - wealthMin) / count;
-			for (var wealth = wealthMin; wealth < wealthMax; wealth += wealthInterval)
+			var wealth = 10000f;
+			for (var index = 0U; index < count; ++index)
 			{
 				result.Add(new Vector3(wealth, (float) StockScaling.Calculate(category, ThingDefOf.Silver, wealth),
 					(float) StockScaling.Calculate(category, null, wealth)));
-				//var str = $"{wealth}, {result.Last().y}, {result.Last().z}";
-				//Log.ErrorOnce(str, str.GetHashCode());
+				wealth *= (float) Math.Sqrt(10);
 			}
 
 			return result;
@@ -225,7 +224,7 @@ namespace TO.Mod
 
 		private static void DrawStockInfo(Listing_Standard listing, TraderKindCategory category)
 		{
-			var wealthPoints = WealthPoints(category, 11000f, 1000000f, 5);
+			var wealthPoints = WealthPoints(category, 5);
 			Text.Font = GameFont.Tiny;
 			foreach (var wealthPoint in wealthPoints)
 			{

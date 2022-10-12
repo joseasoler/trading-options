@@ -18,13 +18,14 @@ namespace TO
 			}
 
 			var linearScaling = linearSetting / 100.0;
-
 			var wealthScaling = Settings.GetWealthScaling(category);
 			if (wealthScaling <= 0.0 || wealth == null) return linearScaling;
+
 			var wealthScale = wealthScaling + wealth.Value;
 			var logWealthScale = Math.Log(wealthScale, wealthScaling);
-			// ToDo adjustment
-			return linearScaling * logWealthScale;
+			var wealthScaleAdjustment = Math.Log(wealthScaling + 10000f, wealthScaling);
+			var adjustedLogWealthScale = Math.Max(1.0, 1.0 + logWealthScale - wealthScaleAdjustment);
+			return linearScaling * adjustedLogWealthScale;
 		}
 	}
 }
