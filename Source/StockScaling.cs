@@ -38,7 +38,7 @@ namespace TO
 
 			if (Math.Abs(wealth.Value - _lastWealth) < 0.1f && Math.Abs(wealthScaling - _lastWealthScaling) < 0.000001f)
 			{
-				return _adjustedLogWealthScale;
+				return linearScaling * _adjustedLogWealthScale;
 			}
 
 			_lastWealthScaling = wealthScaling;
