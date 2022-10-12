@@ -272,6 +272,12 @@ namespace TO.Mod
 					DrawStockInfo(listing, category);
 				}
 			}
+			else
+			{
+				var slaverNormalCommonality = Settings.GetSlaverNormalCommonality();
+				listing.CheckboxLabeled("TO_SlaverCommonality".Translate(), ref slaverNormalCommonality);
+				Settings.SetSlaverNormalCommonality(slaverNormalCommonality);
+			}
 
 			var resetButtonWidth = settingsArea.width / 5.0f;
 			const float resetButtonHeight = 30.0f;

@@ -73,6 +73,8 @@ namespace TO.Mod
 				{TraderKindCategory.Caravan, WealthScalingOption.None},
 				{TraderKindCategory.Visitor, WealthScalingOption.None}
 			};
+
+		public bool SlaverNormalCommonality = false;
 	}
 
 	/// <summary>
@@ -183,6 +185,16 @@ namespace TO.Mod
 			}
 		}
 
+		public static bool GetSlaverNormalCommonality()
+		{
+			return _values.SlaverNormalCommonality;
+		}
+
+		public static void SetSlaverNormalCommonality(bool value)
+		{
+			_values.SlaverNormalCommonality = value;
+		}
+
 		public static void Reset()
 		{
 			_values = new SettingValues();
@@ -200,6 +212,7 @@ namespace TO.Mod
 			Scribe_Collections.Look(ref _values.SilverScaling, "SilverScaling");
 			Scribe_Collections.Look(ref _values.StockScaling, "StockScaling");
 			Scribe_Collections.Look(ref _values.WealthScaling, "WealthScaling");
+			Scribe_Values.Look(ref _values.SlaverNormalCommonality, "SlaverNormalCommonality");
 		}
 	}
 }

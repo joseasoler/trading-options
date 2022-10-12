@@ -20,6 +20,7 @@
 
 	<ItemGroup>
 		<Compile Include="Harmony\StockGeneratorCount.cs" />
+		<Compile Include="Harmony\TraderKindCommonality.cs" />
 		<Compile Include="Mod\Settings.cs" />
 		<Compile Include="Mod\Mod.cs" />
 		<Compile Include="StockScaling.cs" />
