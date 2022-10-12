@@ -154,7 +154,7 @@ namespace TO.Mod
 				RightLabel = "TO_ChanceSlider".Translate(),
 				LeftValue = amount,
 				LeftMin = 0.0f,
-				LeftMax = cat == TraderKindCategory.Orbital ? 4 : 15,
+				LeftMax = cat == TraderKindCategory.Orbital ? 4 : 30,
 				CenterValue = time,
 				CenterMin = 0.0f,
 				CenterMax = 20.0f,
@@ -163,8 +163,25 @@ namespace TO.Mod
 				RightMax = 500.0f
 			});
 
-			Settings.SetFrequencyAmount(cat, (int) result.Left);
-			Settings.SetFrequencyTime(cat, (int) result.Center);
+			var newAmount = (int) result.Left;
+			var newTime = (int) result.Center;
+			// For caravans and visitors, minSpacingDays must be small enough to fit all caravans in a year.
+			if (cat != TraderKindCategory.Orbital)
+			{
+				var compareTime = newTime;
+				if (compareTime == 0)
+				{
+					compareTime = cat == TraderKindCategory.Caravan ? 6 : 5;
+				}
+
+				if (newAmount + newAmount * compareTime > 60)
+				{
+					newTime = (60 - newAmount) / newAmount;
+				}
+			}
+
+			Settings.SetFrequencyAmount(cat, newAmount);
+			Settings.SetFrequencyTime(cat, newTime);
 			Settings.SetFrequencyChanceFactor(cat, (int) result.Right);
 		}
 

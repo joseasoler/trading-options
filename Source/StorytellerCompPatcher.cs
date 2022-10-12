@@ -139,17 +139,9 @@ namespace TO
 
 			var newValue = new FactionInteraction(time, amount);
 			var backupValue = backup[def.shortHash];
-			if (category == TraderKindCategory.Caravan)
-			{
-				Log.Error($"Patching in caravan: {factionComp.minSpacingDays} -> {factionComp.baseIncidentsPerYear}...");
-			}
 
 			factionComp.minSpacingDays = time > 0 ? newValue.minSpacingDays : backupValue.minSpacingDays;
 			factionComp.baseIncidentsPerYear = amount > 0 ? newValue.baseIncidentsPerYear : backupValue.baseIncidentsPerYear;
-			if (category == TraderKindCategory.Caravan)
-			{
-				Log.Error($"... becomes {factionComp.minSpacingDays} -> {factionComp.baseIncidentsPerYear}");
-			}
 		}
 
 		public static void Patch()
