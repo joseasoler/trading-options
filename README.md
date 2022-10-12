@@ -3,7 +3,11 @@ Trading Options
 
 [![RimWorld](https://img.shields.io/badge/RimWorld-1.4-informational)](https://rimworldgame.com/) [![Steam Downloads](https://img.shields.io/steam/downloads/ToDo)](https://steamcommunity.com/sharedfiles/filedetails/?id=2813426619) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-[Trading Options](https://steamcommunity.com/sharedfiles/filedetails/?id=ToDo) is a [RimWorld](https://rimworldgame.com/) mod which lets you customize your trading experience to your liking! You can easily change:
+[Trading Options](https://steamcommunity.com/sharedfiles/filedetails/?id=ToDo) is a [RimWorld](https://rimworldgame.com/) mod which lets you customize your trading experience to your liking!
+
+![alt text](Preview/ui.png?raw=true)
+
+By using the UI, you can easily change:
 
 • How frequently caravans, orbital traders or visitors will arrive at the colony.
 
