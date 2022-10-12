@@ -164,7 +164,7 @@ namespace TO.Mod
 			Settings.SetFrequencyChanceFactor(cat, (int) result.Right);
 		}
 
-		private static void DrawStockAdjustments(Listing_Standard listing, TraderKindCategory cat, string catName)
+		private static bool DrawStockAdjustments(Listing_Standard listing, TraderKindCategory cat, string catName)
 		{
 			var silver = Settings.GetSilverScaling(cat);
 			var stock = Settings.GetStockScaling(cat);
@@ -173,6 +173,7 @@ namespace TO.Mod
 			var silverChanged = silver > 0;
 			var stockChanged = stock > 0;
 			var wealthChanged = wealth != WealthScalingOption.None;
+			var anyChanges = silverChanged || stockChanged || wealthChanged;
 
 			var description = $"TO_{catName}StockPrefix".Translate();
 			description +=
@@ -181,9 +182,7 @@ namespace TO.Mod
 				' ' + (stockChanged ? "TO_StockStock".Translate(stock) : "TO_StockStockDefault".Translate());
 			description +=
 				' ' + (wealthChanged ? "TO_StockWealth".Translate() : "TO_StockWealthDefault".Translate());
-			description += ' ' + (silverChanged || stockChanged || wealthChanged
-				? "TO_StockChanged".Translate()
-				: "TO_StockUnchanged".Translate());
+			description += ' ' + (anyChanges ? "TO_StockChanged".Translate() : "TO_StockUnchanged".Translate());
 
 			var result = TripleSlider(listing, new TripleSliderData
 			{
@@ -207,10 +206,11 @@ namespace TO.Mod
 			Settings.SetSilverScaling(cat, (int) result.Left);
 			Settings.SetStockScaling(cat, (int) result.Center);
 			Settings.SetWealthScalingOption(cat, (WealthScalingOption) result.Right);
+
+			return anyChanges;
 		}
 
-		private static void DrawWealthAdjustments(Listing_Standard listing, TraderKindCategory category,
-			string categoryName)
+		private static void DrawStockInfo(Listing_Standard listing, TraderKindCategory category)
 		{
 		}
 
@@ -224,9 +224,12 @@ namespace TO.Mod
 
 				DrawTraderFrequency(listing, category, categoryName);
 				listing.Gap(9f);
-				DrawStockAdjustments(listing, category, categoryName);
-				listing.Gap(9f);
-				DrawWealthAdjustments(listing, category, categoryName);
+				var anyChanges = DrawStockAdjustments(listing, category, categoryName);
+				if (anyChanges)
+				{
+					listing.Gap(9f);
+					DrawStockInfo(listing, category);
+				}
 			}
 
 			var resetButtonWidth = settingsArea.width / 5.0f;
