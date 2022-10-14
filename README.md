@@ -3,9 +3,11 @@ Trading Options
 
 [![RimWorld](https://img.shields.io/badge/RimWorld-1.4-informational)](https://rimworldgame.com/) [![Steam Downloads](https://img.shields.io/steam/downloads/ToDo)](https://steamcommunity.com/sharedfiles/filedetails/?id=2813426619) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
+![Mod preview](About/Preview.png)
+
 [Trading Options](https://steamcommunity.com/sharedfiles/filedetails/?id=ToDo) is a [RimWorld](https://rimworldgame.com/) mod which lets you customize your trading experience to your liking!
 
-![alt text](Preview/ui.png?raw=true)
+![Mod settings image](Preview/ui.png?raw=true)
 
 By using the UI, you can easily change:
 
@@ -31,7 +33,9 @@ To compile this mod on Windows, you will need to install the [.NET Framework 4.7
 Contributions
 ---
 
-This project encourages community involvement and contributions. Check the [CONTRIBUTING](CONTRIBUTING.md) file for details. Existing contributors can be checked in the [contributors list](https://gitlab.com/joseasoler/trading-options/-/graphs/main).
+This project encourages community involvement and contributions. Check the [CONTRIBUTING](CONTRIBUTING.md) file for details. Existing contributors can be checked in the [contributors list](https://gitlab.com/joseasoler/trading-options/-/graphs/main). The preview image was designed and created by [Sir Van](https://steamcommunity.com/id/UnVan/myworkshopfiles/?appid=294100).
+
+[![RimWorld Mod Market discord server](https://i.imgur.com/cfoFEMA.png)](url=https://discord.gg/7befJWr9xS)
 
 License
 ---
