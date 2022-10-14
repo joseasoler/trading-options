@@ -9,7 +9,7 @@ Trading Options
 
 ![Mod settings image](Preview/ui.png?raw=true)
 
-By using the UI, you can easily change:
+By tweaking the settings of this mod you can easily change:
 
 • How frequently caravans, orbital traders or visitors will arrive at the colony.
 
@@ -17,7 +17,7 @@ By using the UI, you can easily change:
 
 • Amount of other stock for any trader type.
 
-• Traders will have more items in stock if your colony is wealthy.
+• Make traders have more items in stock if your colony is wealthy.
 
 • Slaver traders appear regardless of your colony population.
 
