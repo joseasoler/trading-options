@@ -23,7 +23,7 @@ By tweaking the settings of this mod you can easily change:
 
 It is safe to add Trading Options to an existing savegame. You can safely modify any of the settings at any point during the game. Changes will only apply to new traders, and to settlements after they restock.
 
-Trading Options is compatible with all mods that change the stock of a trader. Trading Options is probably incompatible with any mod that changes trader frequency.
+Trading Options is compatible with all mods that change the stock of a trader. The changes stack. Trading Options is probably incompatible with any mod that changes trader frequency.
 
 Development
 ---
