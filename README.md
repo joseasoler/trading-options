@@ -5,11 +5,11 @@ Trading Options
 
 ![Mod preview](About/Preview.png)
 
-[Trading Options](https://steamcommunity.com/sharedfiles/filedetails/?id=ToDo) is a [RimWorld](https://rimworldgame.com/) mod which lets you customize your trading experience to your liking!
+[Trading Options](https://steamcommunity.com/sharedfiles/filedetails/?id=ToDo) is a [RimWorld](https://rimworldgame.com/) mod which lets you customize your trading experience!
 
 ![Mod settings image](Preview/ui.png?raw=true)
 
-By tweaking the settings of this mod you can easily change:
+You can easily change:
 
 • How frequently caravans, orbital traders or visitors will arrive at the colony.
 
@@ -21,9 +21,15 @@ By tweaking the settings of this mod you can easily change:
 
 • Slaver traders appear regardless of your colony population.
 
-It is safe to add Trading Options to an existing savegame. You can safely modify any of the settings at any point during the game. Changes will only apply to new traders, and to settlements after they restock.
+### Savegames
 
-Trading Options is compatible with all mods that change the stock of a trader. The changes stack. Trading Options is probably incompatible with any mod that changes trader frequency.
+You can safely add Trading Options to an existing save-game. You can modify any of the settings at any point during the game. The changes will apply immediately, but only new traders will be affected.
+
+### Mod compatibility
+
+Trading Options is compatible with all mods that change the stock of a trader. The changes stack. Trading Options may be incompatible with any mod that changes trader frequency.
+
+**Compatibility with Combat Extended:** Check the official [Supported Third-Party Mods](url=https://github.com/CombatExtended-Continued/CombatExtended/blob/Development/SupportedThirdPartyMods.md) list in the Combat Extended documentation.
 
 Development
 ---
@@ -33,7 +39,13 @@ To compile this mod on Windows, you will need to install the [.NET Framework 4.7
 Contributions
 ---
 
-This project encourages community involvement and contributions. Check the [CONTRIBUTING](CONTRIBUTING.md) file for details. Existing contributors can be checked in the [contributors list](https://gitlab.com/joseasoler/trading-options/-/graphs/main). The preview image was designed and created by [Sir Van](https://steamcommunity.com/id/UnVan/myworkshopfiles/?appid=294100).
+This project encourages community involvement and contributions. Check the [CONTRIBUTING](CONTRIBUTING.md) file for details.
+
+• joseasoler: Programming
+
+• [Sir Van](https://steamcommunity.com/id/UnVan/myworkshopfiles/?appid=294100): Art
+
+Other contributors can be checked in the [contributors list](https://gitlab.com/joseasoler/trading-options/-/graphs/main).
 
 [![RimWorld Mod Market discord server](https://i.imgur.com/cfoFEMA.png)](url=https://discord.gg/7befJWr9xS)
 

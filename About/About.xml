@@ -7,7 +7,7 @@
 	</supportedVersions>
 	<url>https://gitlab.com/joseasoler/trading-options</url>
 	<packageId>joseasoler.TradingOptions</packageId>
-	<description><![CDATA[Customize your RimWorld trading experience to your liking! You can easily change:
+	<description><![CDATA[Customize your RimWorld trading experience! You can easily change:
 
 • How frequently caravans, orbital traders or visitors will arrive at the colony.
 
@@ -19,9 +19,9 @@
 
 • Slaver traders appear regardless of your colony population.
 
-It is safe to add Trading Options to an existing savegame. You can safely modify any of the settings at any point during the game. Changes will only apply to new traders, and to settlements after they restock.
+You can safely add Trading Options to an existing save-game. You can modify any of the settings at any point during the game. The changes will apply immediately, but only new traders will be affected.
 
-Trading Options is compatible with all mods that change the stock of a trader. The changes stack. Trading Options is probably incompatible with any mod that changes trader frequency.
+Trading Options is compatible with all mods that change the stock of a trader. The changes stack. Trading Options may be incompatible with any mod that changes trader frequency.
 ]]></description>
 	<modDependencies>
 		<li>
