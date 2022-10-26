@@ -105,6 +105,10 @@ namespace TO
 		private static readonly Dictionary<ushort, FactionInteraction> VisitorBackup =
 			new Dictionary<ushort, FactionInteraction>();
 
+		private static readonly Dictionary<ushort, float> RandomCaravanBackup = new Dictionary<ushort, float>();
+
+		private static readonly Dictionary<ushort, float> RandomOrbitalBackup = new Dictionary<ushort, float>();
+
 		private static void PatchCompOnOffCycle(StorytellerDef def, StorytellerCompProperties_OnOffCycle onOffComp)
 		{
 			var time = Settings.GetFrequencyTime(TraderKindCategory.Orbital);
@@ -144,6 +148,38 @@ namespace TO
 			factionComp.baseIncidentsPerYear = amount > 0 ? newValue.baseIncidentsPerYear : backupValue.baseIncidentsPerYear;
 		}
 
+		private static void PatchRandomMain(StorytellerDef def, StorytellerCompProperties_RandomMain randomMainComp,
+			TraderKindCategory category)
+		{
+			if (randomMainComp.categoryWeights == null)
+			{
+				return;
+			}
+
+			var categoryDef = category == TraderKindCategory.Orbital
+				? IncidentCategoryDefOf.OrbitalVisitor
+				: IncidentCategoryDefOf.FactionArrival;
+
+			var incidentEntry = randomMainComp.categoryWeights.Find(cat => cat.category == categoryDef);
+			if (incidentEntry.category != categoryDef)
+			{
+				return;
+			}
+
+			var backup = category == TraderKindCategory.Orbital ? RandomOrbitalBackup : RandomCaravanBackup;
+
+
+			if (!backup.ContainsKey(def.shortHash))
+			{
+				backup[def.shortHash] = incidentEntry.weight;
+			}
+
+			var backupValue = backup[def.shortHash];
+			var chanceFactor = Settings.GetFrequencyChanceFactor(category);
+			var newValue = 50 * chanceFactor * backupValue / 100.0f;
+			incidentEntry.weight = chanceFactor > 0 ? newValue : backupValue;
+		}
+
 		public static void Patch()
 		{
 			foreach (var def in DefDatabase<StorytellerDef>.AllDefs)
@@ -169,6 +205,12 @@ namespace TO
 						{
 							PatchFactionInteraction(def, factionInteractionComp, TraderKindCategory.Visitor);
 						}
+					}
+					else if (comp.GetType() == typeof(StorytellerCompProperties_RandomMain))
+					{
+						var randomMainComp = (StorytellerCompProperties_RandomMain) comp;
+						PatchRandomMain(def, randomMainComp, TraderKindCategory.Orbital);
+						PatchRandomMain(def, randomMainComp, TraderKindCategory.Caravan);
 					}
 				}
 			}
