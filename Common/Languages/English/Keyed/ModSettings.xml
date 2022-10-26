@@ -32,7 +32,7 @@
 	<TO_VisitorAmountDefault>Non-random storytellers such as Cassandra will send the default amount of visitors per year.</TO_VisitorAmountDefault>
 	<TO_VisitorTime>They will also wait {0} days before sending another visitor.</TO_VisitorTime>
 	<TO_VisitorTimeDefault>By default, they will wait 5 days before sending another caravan.</TO_VisitorTimeDefault>
-	<TO_VisitorChance>Random storytellers such as Randy will have {0}% times their normal chance of sending a caravan or visitor. The same value is used for both caravans and visitors.</TO_VisitorChance>
+	<TO_VisitorChance>Random storytellers such as Randy will have {0}% times their normal chance of sending a caravan or visitor. The same random chance increase is used for both caravans and visitors.</TO_VisitorChance>
 	<TO_VisitorChanceDefault>Random storytellers such as Randy will use the default random chance of sending a caravan or visitor.</TO_VisitorChanceDefault>
 	<!-- Description postfix -->
 	<TO_FrequencyUnchanged>Change default arrival frequency values by adjusting the sliders.</TO_FrequencyUnchanged>
