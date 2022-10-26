@@ -18,7 +18,7 @@
 	<TO_CaravanAmountDefault>By default, non-random storytellers such as Cassandra will send 4 caravans per year.</TO_CaravanAmountDefault>
 	<TO_CaravanTime>They will also wait {0} days before sending another caravan.</TO_CaravanTime>
 	<TO_CaravanTimeDefault>By default, they will wait 6 days before sending another caravan.</TO_CaravanTimeDefault>
-	<TO_CaravanChance>Random storytellers such as Randy will have {0}% times their normal chance of sending a caravan or visitor. The same value is used for both caravans and visitors.</TO_CaravanChance>
+	<TO_CaravanChance>Random storytellers such as Randy will have {0}% times their normal chance of sending a caravan or visitor. The same random chance increase is used for both caravans and visitors.</TO_CaravanChance>
 	<TO_CaravanChanceDefault>Random storytellers such as Randy will use the default random chance of sending a caravan or visitor.</TO_CaravanChanceDefault>
 	<!-- Orbital-specific description. -->
 	<TO_OrbitalAmount>Non-random storytellers such as Cassandra will send {0} orbital traders per period.</TO_OrbitalAmount>
