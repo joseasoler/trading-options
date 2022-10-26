@@ -36,5 +36,6 @@ Trading Options is compatible with all mods that change the stock of a trader. T
 		<li>Ludeon.RimWorld</li>
 		<li>Ludeon.RimWorld.Royalty</li>
 		<li>Ludeon.RimWorld.Ideology</li>
+		<li>Ludeon.RimWorld.Biotech</li>
 	</loadAfter>
 </ModMetaData>
