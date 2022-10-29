@@ -1,0 +1,37 @@
+Customize your trading experience!
+
+[img]https://i.imgur.com/grdjP2G.png[/img]
+
+You can easily change:
+
+• How frequently caravans, orbital traders or visitors will arrive at the colony.
+
+• Amount of silver in stock for any trader type.
+
+• Amount of other stock for any trader type.
+
+• Make traders have more items in stock if your colony is wealthy.
+
+• Slaver traders appear regardless of your colony population.
+
+You can safely add Trading Options to an existing save-game. You can modify any of the settings at any point during the game. The changes will apply immediately, but only new traders will be affected.
+
+[h2]Mod compatibility[/h2]
+
+Trading Options is compatible with all mods that change the stock of a trader. The changes stack. Trading Options may be incompatible with any mod that changes trader frequency.
+
+[b]Compatibility with Combat Extended:[/b] Check the official [url=https://github.com/CombatExtended-Continued/CombatExtended/blob/Development/SupportedThirdPartyMods.md]Supported Third-Party Mods[/url] list in the Combat Extended documentation.
+
+[h2]Credits[/h2]
+
+[b]Project website:[/b] https://gitlab.com/joseasoler/trading-options
+
+• joseasoler: Programming
+
+• [url=https://steamcommunity.com/id/UnVan/myworkshopfiles/?appid=294100]Sir Van[/url]: Art
+
+[url=https://discord.gg/7befJWr9xS][img]https://i.imgur.com/gh6C5m2.png[/img][/url]
+
+[h2]Acknowledgements[/h2]
+
+Kiame Vivacity and Cookie Wookie: Original idea for scaling stock according to wealth following a logarithmic function. See [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1511375007][KV] Supply and Demand[/url].
