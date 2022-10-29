@@ -20,18 +20,42 @@ You can safely add Trading Options to an existing save-game. You can modify any 
 
 Trading Options is compatible with all mods that change the stock of a trader. The changes stack. Trading Options may be incompatible with any mod that changes trader frequency.
 
-[b]Compatibility with Combat Extended:[/b] Check the official [url=https://github.com/CombatExtended-Continued/CombatExtended/blob/Development/SupportedThirdPartyMods.md]Supported Third-Party Mods[/url] list in the Combat Extended documentation.
+[h2]Frequently Asked Questions[/h2]
+
+[b]Q:[/b] [i]How can I get the same amount of orbital traders provided by [url=https://steamcommunity.com/sharedfiles/filedetails/?id=725465444]More Trade Ships[/url]?[/i]
+
+[b]A:[/b] Set the "Orbital traders per period" slider to 1, and the "Period between orbital traders" slider to 4.
+
+-
+
+[b]Q:[/b] [i]Can I get the wealth same scaling as [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1511375007]Supply and Demand[/url]?[/i]
+
+[b]A:[/b] Yes, set the "Wealth scaling" slider to "Loaded!" for all trader categories.
+
+-
+
+[b]Q:[/b] [i]Is this mod compatible with Combat Extended?[/i]
+
+[b]A:[/b] Read the following pages of the Combat Extended documentation:
+• [url=https://github.com/CombatExtended-Continued/CombatExtended/wiki/Frequently-Asked-Questions#does-mod-work-with-combat-extended-does-it-need-a-patch]Does (Mod) work with Combat Extended? Does it need a patch?[/url].
+• [url=https://github.com/CombatExtended-Continued/CombatExtended/blob/Development/SupportedThirdPartyMods.md]Supported Third-Party Mods[/url].
+
+-
+
+[b]Q:[/b] [i]Is this mod compatible with RimWorld 1.3?[/i]
+
+[b]A:[/b] Trading Options is only compatible with 1.4. In 1.3 you can use [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2813426619]Customizable Silver Stock[/url], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1511375007]Supply and Demand[/url] and [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1369828656]Adjustable Trade Ships[/url] to get almost the same feature set. 
 
 [h2]Credits[/h2]
 
 [b]Project website:[/b] https://gitlab.com/joseasoler/trading-options
 
-• joseasoler: Programming
+• [b]joseasoler[/b]: Programming
 
-• [url=https://steamcommunity.com/id/UnVan/myworkshopfiles/?appid=294100]Sir Van[/url]: Art
+• [b][url=https://steamcommunity.com/id/UnVan/myworkshopfiles/?appid=294100]Sir Van[/url][/b]: Art
 
 [url=https://discord.gg/7befJWr9xS][img]https://i.imgur.com/gh6C5m2.png[/img][/url]
 
 [h2]Acknowledgements[/h2]
 
-Kiame Vivacity and Cookie Wookie: Original idea for scaling stock according to wealth following a logarithmic function. See [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1511375007][KV] Supply and Demand[/url].
+[b]Kiame Vivacity[/b] and [b]Cookie Wookie[/b]: Original idea for scaling stock according to wealth following a logarithmic function. See [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1511375007][KV] Supply and Demand[/url].
