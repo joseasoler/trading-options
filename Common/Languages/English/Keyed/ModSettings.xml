@@ -56,7 +56,7 @@
 	<TO_StockSilver>start with {0}% of their normal silver stock.</TO_StockSilver>
 	<TO_StockSilverDefault>start with their normal silver stock.</TO_StockSilverDefault>
 	<TO_StockStock>They start with {0}% of their stock in other wares.</TO_StockStock>
-	<TO_StockStockDefault>They start with their normal stock in other wares</TO_StockStockDefault>
+	<TO_StockStockDefault>They start with their normal stock in other wares.</TO_StockStockDefault>
 	<TO_StockWealth>These starting stock amounts are increased depending on colony wealth, with diminishing results.</TO_StockWealth>
 	<TO_StockWealthDefault>These starting amounts values are not adjusted for wealthy colonies.</TO_StockWealthDefault>
 	<TO_StockUnchanged>Set the sliders to the minimum to use default values.</TO_StockUnchanged>
