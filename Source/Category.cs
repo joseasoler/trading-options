@@ -16,7 +16,10 @@ namespace TO
 		private static readonly Dictionary<string, TraderKindCategory> HardcodedTraders =
 			new Dictionary<string, TraderKindCategory>
 			{
-				{"Orbital_Rimatomics", TraderKindCategory.Orbital}
+				// Rimatomics
+				{"Orbital_Rimatomics", TraderKindCategory.Orbital},
+				// Udon.ExtendTheCat
+				{"ExC_NormalTrader", TraderKindCategory.Orbital}
 			};
 		
 		/// <summary>
