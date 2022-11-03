@@ -6,16 +6,20 @@ namespace TO.Mod
 {
 	internal class SettingValues
 	{
+		public const int DefaultFrequencyTime = 0;
+
 		/// <summary>
 		/// Time value for changing trader frequency. The meaning of this value depends on each trader.
 		/// Zero always means "let the storyteller decide".
 		/// </summary>
 		public Dictionary<TraderKindCategory, int> FrequencyTime = new Dictionary<TraderKindCategory, int>
 		{
-			{TraderKindCategory.Orbital, 0},
-			{TraderKindCategory.Caravan, 0},
-			{TraderKindCategory.Visitor, 0}
+			{TraderKindCategory.Orbital, DefaultFrequencyTime},
+			{TraderKindCategory.Caravan, DefaultFrequencyTime},
+			{TraderKindCategory.Visitor, DefaultFrequencyTime}
 		};
+
+		public const int DefaultFrequencyAmount = 0;
 
 		/// <summary>
 		/// Amount value for changing trader frequency. The meaning of this value depends on each trader.
@@ -23,10 +27,12 @@ namespace TO.Mod
 		/// </summary>
 		public Dictionary<TraderKindCategory, int> FrequencyAmount = new Dictionary<TraderKindCategory, int>
 		{
-			{TraderKindCategory.Orbital, 0},
-			{TraderKindCategory.Caravan, 0},
-			{TraderKindCategory.Visitor, 0}
+			{TraderKindCategory.Orbital, DefaultFrequencyAmount},
+			{TraderKindCategory.Caravan, DefaultFrequencyAmount},
+			{TraderKindCategory.Visitor, DefaultFrequencyAmount}
 		};
+
+		public const int DefaultFrequencyChanceFactor = 100;
 
 		/// <summary>
 		/// % factor applied to trader frequency chance when using random storytellers. 
@@ -34,8 +40,8 @@ namespace TO.Mod
 		/// </summary>
 		public Dictionary<TraderKindCategory, int> FrequencyChanceFactor = new Dictionary<TraderKindCategory, int>
 		{
-			{TraderKindCategory.Orbital, 100},
-			{TraderKindCategory.Caravan, 100}
+			{TraderKindCategory.Orbital, DefaultFrequencyChanceFactor},
+			{TraderKindCategory.Caravan, DefaultFrequencyChanceFactor}
 		};
 
 		public const int MinScaling = 24;
@@ -89,7 +95,7 @@ namespace TO.Mod
 
 		public static int GetFrequencyTime(TraderKindCategory category)
 		{
-			return _values.FrequencyTime[category];
+			return category == TraderKindCategory.None ? SettingValues.DefaultFrequencyTime : _values.FrequencyTime[category];
 		}
 
 		public static void SetFrequencyTime(TraderKindCategory category, int value)
@@ -99,7 +105,9 @@ namespace TO.Mod
 
 		public static int GetFrequencyAmount(TraderKindCategory category)
 		{
-			return _values.FrequencyAmount[category];
+			return category == TraderKindCategory.None
+				? SettingValues.DefaultFrequencyAmount
+				: _values.FrequencyAmount[category];
 		}
 
 		public static void SetFrequencyAmount(TraderKindCategory category, int value)
@@ -109,9 +117,18 @@ namespace TO.Mod
 
 		public static int GetFrequencyChanceFactor(TraderKindCategory category)
 		{
-			return category == TraderKindCategory.Visitor
-				? _values.FrequencyChanceFactor[TraderKindCategory.Caravan]
-				: _values.FrequencyChanceFactor[category];
+			switch (category)
+			{
+				case TraderKindCategory.None:
+					return SettingValues.DefaultFrequencyChanceFactor;
+				case TraderKindCategory.Visitor:
+					return _values.FrequencyChanceFactor[TraderKindCategory.Caravan];
+				case TraderKindCategory.Caravan:
+				case TraderKindCategory.Orbital:
+				case TraderKindCategory.Settlement:
+				default:
+					return _values.FrequencyChanceFactor[category];
+			}
 		}
 
 		public static void SetFrequencyChanceFactor(TraderKindCategory category, int value)
@@ -128,7 +145,7 @@ namespace TO.Mod
 
 		public static int GetSilverScaling(TraderKindCategory category)
 		{
-			return _values.SilverScaling[category];
+			return category == TraderKindCategory.None ? 100 : _values.SilverScaling[category];
 		}
 
 		public static void SetSilverScaling(TraderKindCategory category, int value)
@@ -138,7 +155,7 @@ namespace TO.Mod
 
 		public static int GetStockScaling(TraderKindCategory category)
 		{
-			return _values.StockScaling[category];
+			return category == TraderKindCategory.None ? 100 : _values.StockScaling[category];
 		}
 
 		public static void SetStockScaling(TraderKindCategory category, int value)
@@ -158,7 +175,7 @@ namespace TO.Mod
 
 		public static WealthScalingOption GetWealthScalingOption(TraderKindCategory category)
 		{
-			return _values.WealthScaling[category];
+			return category == TraderKindCategory.None ? WealthScalingOption.None : _values.WealthScaling[category];
 		}
 
 		public static void SetWealthScalingOption(TraderKindCategory category, WealthScalingOption value)
@@ -168,6 +185,11 @@ namespace TO.Mod
 
 		public static double GetWealthScaling(TraderKindCategory category)
 		{
+			if (category == TraderKindCategory.None)
+			{
+				return 0.0;
+			}
+
 			switch (_values.WealthScaling[category])
 			{
 				case WealthScalingOption.None:
