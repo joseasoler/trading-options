@@ -176,7 +176,7 @@ namespace TO
 
 			var backupValue = backup[def.shortHash];
 			var chanceFactor = Settings.GetFrequencyChanceFactor(category);
-			var newValue = 50 * chanceFactor * backupValue / 100.0f;
+			var newValue = chanceFactor * backupValue / 100.0f;
 			incidentEntry.weight = chanceFactor > 0 ? newValue : backupValue;
 		}
 
