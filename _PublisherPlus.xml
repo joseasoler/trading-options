@@ -6,7 +6,6 @@
     <exclude>CODE_OF_CONDUCT.md</exclude>
     <exclude>CONTRIBUTING.md</exclude>
     <exclude>Preview</exclude>
-    <exclude>README.md</exclude>
     <exclude>Source</exclude>
   </Excluded>
 </Configuration>
