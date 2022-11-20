@@ -34,11 +34,19 @@ Trading Options is compatible with all mods that change the stock of a trader. T
 
 -
 
-[b]Q:[/b] [i]Is this mod compatible with Combat Extended?[/i]
+[b]Q:[/b] [i]Is this mod compatible with [url=https://steamcommunity.com/workshop/filedetails/?id=2890901044]Combat Extended[/url]?[/i]
 
-[b]A:[/b] Read the following pages of the Combat Extended documentation:
+[b]A:[/b] Combat Extended has the following documentation:
 • [url=https://github.com/CombatExtended-Continued/CombatExtended/wiki/Frequently-Asked-Questions#does-mod-work-with-combat-extended-does-it-need-a-patch]Does (Mod) work with Combat Extended? Does it need a patch?[/url].
 • [url=https://github.com/CombatExtended-Continued/CombatExtended/blob/Development/SupportedThirdPartyMods.md]Supported Third-Party Mods[/url].
+
+I do not know enough about Combat Extended changes to guarantee if the mods are compatible or not. 
+
+-
+
+[b]Q:[/b] [i]Is this mod compatible with [url=https://steamcommunity.com/workshop/filedetails/?id=2785616901]Vanilla Trading Expanded[/url]?[/i]
+
+[b]A:[/b] Yes, both mods are fully compatible. Vanilla Trading Expanded can make stock prizes fluctuate, while Trading Options can change the amount of available stock. Both features can be together without any issues.
 
 -
 
