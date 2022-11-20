@@ -9,3 +9,5 @@ obj
 
 # Notepad++ bak files.
 *.bak
+
+*.json
