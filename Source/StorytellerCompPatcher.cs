@@ -161,7 +161,7 @@ namespace TO
 				: IncidentCategoryDefOf.FactionArrival;
 
 			var incidentEntry = randomMainComp.categoryWeights.Find(cat => cat.category == categoryDef);
-			if (incidentEntry.category != categoryDef)
+			if (incidentEntry == null || incidentEntry.category != categoryDef)
 			{
 				return;
 			}
