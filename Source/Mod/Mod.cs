@@ -101,9 +101,9 @@ namespace TO.Mod
 			leftRect.y += slidersRect.height;
 			centerRect.y += slidersRect.height;
 			rightRect.y += slidersRect.height;
-			var leftNew = Widgets.HorizontalSlider(leftRect, data.LeftValue, data.LeftMin, data.LeftMax);
-			var centerNew = Widgets.HorizontalSlider(centerRect, data.CenterValue, data.CenterMin, data.CenterMax);
-			var rightNew = Widgets.HorizontalSlider(rightRect, data.RightValue, data.RightMin, data.RightMax);
+			var leftNew = Widgets.HorizontalSlider_NewTemp(leftRect, data.LeftValue, data.LeftMin, data.LeftMax);
+			var centerNew = Widgets.HorizontalSlider_NewTemp(centerRect, data.CenterValue, data.CenterMin, data.CenterMax);
+			var rightNew = Widgets.HorizontalSlider_NewTemp(rightRect, data.RightValue, data.RightMin, data.RightMax);
 
 			if (leftNew != data.LeftValue || centerNew != data.CenterValue || rightNew != data.RightValue)
 			{
