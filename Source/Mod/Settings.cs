@@ -80,7 +80,15 @@ namespace TO.Mod
 				{TraderKindCategory.Visitor, WealthScalingOption.None}
 			};
 
+		/// <summary>
+		/// Slaver traders will appear regardless of colony population.
+		/// </summary>
 		public bool SlaverNormalCommonality/* = false */;
+
+		/// <summary>
+		/// Exclude animals from stock increases. This may help with performance issues when traders are present.
+		/// </summary>
+		public bool ExcludeAnimals/* = false */;
 	}
 
 	/// <summary>
@@ -219,6 +227,15 @@ namespace TO.Mod
 			_values.SlaverNormalCommonality = value;
 		}
 
+		public static bool GetExcludeAnimals()
+		{
+			return _values.ExcludeAnimals;
+		}
+
+		public static void SetExcludeAnimals(bool value)
+		{
+			_values.ExcludeAnimals = value;
+		}
 		public static void Reset()
 		{
 			_values = new SettingValues();
@@ -237,6 +254,7 @@ namespace TO.Mod
 			Scribe_Collections.Look(ref _values.StockScaling, "StockScaling");
 			Scribe_Collections.Look(ref _values.WealthScaling, "WealthScaling");
 			Scribe_Values.Look(ref _values.SlaverNormalCommonality, "SlaverNormalCommonality");
+			Scribe_Values.Look(ref _values.ExcludeAnimals, "ExcludeAnimals");
 		}
 	}
 }

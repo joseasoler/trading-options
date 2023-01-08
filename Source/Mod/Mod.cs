@@ -281,6 +281,10 @@ namespace TO.Mod
 				var slaverNormalCommonality = Settings.GetSlaverNormalCommonality();
 				listing.CheckboxLabeled("TO_SlaverCommonality".Translate(), ref slaverNormalCommonality);
 				Settings.SetSlaverNormalCommonality(slaverNormalCommonality);
+
+				var excludeAnimals = Settings.GetExcludeAnimals();
+				listing.CheckboxLabeled("TO_ExcludeAnimals".Translate(), ref excludeAnimals);
+				Settings.SetExcludeAnimals(excludeAnimals);
 			}
 
 			var resetButtonWidth = settingsArea.width / 5.0f;

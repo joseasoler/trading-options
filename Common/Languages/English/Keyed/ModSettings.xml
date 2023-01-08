@@ -80,4 +80,5 @@
 
 	<!-- Other settings. -->
 	<TO_SlaverCommonality>Slaver traders will appear regardless of colony population.</TO_SlaverCommonality>
+	<TO_ExcludeAnimals>Exclude animals from stock increases. This may help with performance issues when traders are present.</TO_ExcludeAnimals>
 </LanguageData>
