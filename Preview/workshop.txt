@@ -18,7 +18,7 @@ You can safely add Trading Options to an existing save-game. You can modify any 
 
 [h2]Mod compatibility[/h2]
 
-Trading Options is compatible with all mods that change the stock of a trader. The changes stack. Trading Options may be incompatible with any mod that changes trader frequency.
+Trading Options is compatible with storytellers from all mods. Trading Options is compatible with all mods that change the stock of a trader; the changes stack. Trading Options may be incompatible with any mod that changes trader frequency.
 
 [h2]Frequently Asked Questions[/h2]
 
