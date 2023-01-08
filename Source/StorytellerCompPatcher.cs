@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using RimWorld;
 using TO.Mod;
@@ -14,17 +13,17 @@ namespace TO
 		/// <summary>
 		/// Number of days in which the event may randomly happen.
 		/// </summary>
-		internal readonly float onDays;
+		internal readonly float OnDays;
 
 		/// <summary>
 		/// Number of days in which the event will not happen.
 		/// </summary>
-		internal readonly float offDays;
+		internal readonly float OffDays;
 
 		/// <summary>
 		/// Number of times the event can happen during onDays.
 		/// </summary>
-		internal readonly FloatRange numIncidentsRange;
+		public readonly FloatRange NumIncidentsRange;
 
 		/// <summary>
 		/// Construct the object from existing values to backup the default settings of a storyteller.
@@ -34,9 +33,9 @@ namespace TO
 		/// <param name="range">Number of times the event can happen during onDays.</param>
 		public OrbitalOnOffCycle(float on, float off, FloatRange range)
 		{
-			onDays = on;
-			offDays = off;
-			numIncidentsRange = range;
+			OnDays = on;
+			OffDays = off;
+			NumIncidentsRange = range;
 		}
 
 		/// <summary>
@@ -50,16 +49,16 @@ namespace TO
 		{
 			if (periodOrbital <= 1)
 			{
-				onDays = 1f;
-				offDays = 0f;
+				OnDays = 1f;
+				OffDays = 0f;
 			}
 			else
 			{
-				onDays = periodOrbital / 2.0f;
-				offDays = onDays;
+				OnDays = periodOrbital / 2.0f;
+				OffDays = OnDays;
 			}
 
-			numIncidentsRange = new FloatRange(traderAmount, traderAmount);
+			NumIncidentsRange = new FloatRange(traderAmount, traderAmount);
 		}
 	}
 
@@ -72,12 +71,12 @@ namespace TO
 		/// <summary>
 		/// Minimum number of days between events.
 		/// </summary>
-		internal readonly float minSpacingDays;
+		internal readonly float MinSpacingDays;
 
 		/// <summary>
 		/// Number of times the event happens in a year.
 		/// </summary>
-		internal readonly float baseIncidentsPerYear;
+		internal readonly float BaseIncidentsPerYear;
 
 		/// <summary>
 		/// Construct the object from existing values to backup the default settings of a storyteller.
@@ -86,8 +85,8 @@ namespace TO
 		/// <param name="incidentsPerYear">Number of times the event happens in a year.</param>
 		public FactionInteraction(float spacingDays, float incidentsPerYear)
 		{
-			minSpacingDays = spacingDays;
-			baseIncidentsPerYear = incidentsPerYear;
+			MinSpacingDays = spacingDays;
+			BaseIncidentsPerYear = incidentsPerYear;
 		}
 	}
 
@@ -122,9 +121,9 @@ namespace TO
 
 			var newValue = new OrbitalOnOffCycle(time, amount);
 			var backupValue = OrbitalBackup[def.shortHash];
-			onOffComp.onDays = time > 0 ? newValue.onDays : backupValue.onDays;
-			onOffComp.offDays = time > 0 ? newValue.offDays : backupValue.offDays;
-			onOffComp.numIncidentsRange = amount > 0 ? newValue.numIncidentsRange : backupValue.numIncidentsRange;
+			onOffComp.onDays = time > 0 ? newValue.OnDays : backupValue.OnDays;
+			onOffComp.offDays = time > 0 ? newValue.OffDays : backupValue.OffDays;
+			onOffComp.numIncidentsRange = amount > 0 ? newValue.NumIncidentsRange : backupValue.NumIncidentsRange;
 		}
 
 		private static void PatchFactionInteraction(StorytellerDef def,
@@ -144,8 +143,8 @@ namespace TO
 			var newValue = new FactionInteraction(time, amount);
 			var backupValue = backup[def.shortHash];
 
-			factionComp.minSpacingDays = time > 0 ? newValue.minSpacingDays : backupValue.minSpacingDays;
-			factionComp.baseIncidentsPerYear = amount > 0 ? newValue.baseIncidentsPerYear : backupValue.baseIncidentsPerYear;
+			factionComp.minSpacingDays = time > 0 ? newValue.MinSpacingDays : backupValue.MinSpacingDays;
+			factionComp.baseIncidentsPerYear = amount > 0 ? newValue.BaseIncidentsPerYear : backupValue.BaseIncidentsPerYear;
 		}
 
 		private static void PatchRandomMain(StorytellerDef def, StorytellerCompProperties_RandomMain randomMainComp,

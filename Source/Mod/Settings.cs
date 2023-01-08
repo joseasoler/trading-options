@@ -80,7 +80,7 @@ namespace TO.Mod
 				{TraderKindCategory.Visitor, WealthScalingOption.None}
 			};
 
-		public bool SlaverNormalCommonality = false;
+		public bool SlaverNormalCommonality/* = false */;
 	}
 
 	/// <summary>
