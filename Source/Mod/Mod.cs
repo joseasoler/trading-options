@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -105,7 +104,9 @@ namespace TO.Mod
 			var centerNew = Widgets.HorizontalSlider_NewTemp(centerRect, data.CenterValue, data.CenterMin, data.CenterMax);
 			var rightNew = Widgets.HorizontalSlider_NewTemp(rightRect, data.RightValue, data.RightMin, data.RightMax);
 
-			if (leftNew != data.LeftValue || centerNew != data.CenterValue || rightNew != data.RightValue)
+			const double tolerance = 0.000001f;
+			if (Math.Abs(leftNew - data.LeftValue) > tolerance || Math.Abs(centerNew - data.CenterValue) > tolerance ||
+			    Math.Abs(rightNew - data.RightValue) > tolerance)
 			{
 				SoundDefOf.DragSlider.PlayOneShotOnCamera();
 			}
@@ -227,20 +228,6 @@ namespace TO.Mod
 			Settings.SetSilverScaling(cat, (int) result.Left);
 			Settings.SetStockScaling(cat, (int) result.Center);
 			Settings.SetWealthScalingOption(cat, (WealthScalingOption) result.Right);
-		}
-
-		private static List<Vector3> WealthPoints(TraderKindCategory category, uint count)
-		{
-			var result = new List<Vector3>();
-			var wealth = 10000f;
-			for (var index = 0U; index < count; ++index)
-			{
-				result.Add(new Vector3(wealth, (float) StockScaling.Calculate(category, ThingDefOf.Silver, wealth),
-					(float) StockScaling.Calculate(category, null, wealth)));
-				wealth *= (float) Math.Sqrt(10);
-			}
-
-			return result;
 		}
 
 		private void DrawStockInfo(Listing_Standard listing, TraderKindCategory category)
