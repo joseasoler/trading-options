@@ -186,6 +186,40 @@ namespace TO.Mod
 			Settings.SetFrequencyChanceFactor(cat, (int) result.Right);
 		}
 
+		private static void DrawRestockFrequency(Listing_Standard listing, TraderKindCategory cat, string catName)
+		{
+			if (cat != TraderKindCategory.Settlement)
+			{
+				return;
+			}
+
+			Text.Font = GameFont.Medium;
+			listing.Label("TO_RestockFrequencyTitle".Translate());
+			listing.Gap(6f);
+
+			var restockTime = Settings.GetFrequencyTime(cat);
+			var restockTimeChanged = restockTime > 0;
+			var description =
+				restockTimeChanged ? "TO_RestockFrequency".Translate(restockTime) : "TO_RestockFrequencyDefault".Translate();
+
+			Text.Font = GameFont.Small;
+			listing.Label(description);
+
+			var labelRect = listing.GetRect(22.0f);
+			Text.Anchor = TextAnchor.MiddleCenter;
+			Text.Font = GameFont.Tiny;
+			GUI.color = Color.grey;
+			Widgets.Label(labelRect, "TO_RestockFrequencySlider".Translate());
+			GUI.color = Color.white;
+			Text.Anchor = TextAnchor.UpperLeft;
+			Text.Font = GameFont.Small;
+
+			var slidersRect = listing.GetRect(22.0f);
+			var newRestockTime =
+				(int) Widgets.HorizontalSlider_NewTemp(slidersRect, restockTime, SettingValues.DefaultFrequencyTime, 60);
+			Settings.SetFrequencyTime(cat, newRestockTime);
+		}
+
 		private static void DrawStockAdjustments(Listing_Standard listing, TraderKindCategory cat, string catName)
 		{
 			var silver = Settings.GetSilverScaling(cat);
@@ -268,6 +302,7 @@ namespace TO.Mod
 				var categoryName = Enum.GetName(typeof(TraderKindCategory), category);
 
 				DrawTraderFrequency(listing, category, categoryName);
+				DrawRestockFrequency(listing, category, categoryName);
 				listing.Gap(9f);
 				DrawStockAdjustments(listing, category, categoryName);
 				if (Settings.GetWealthScalingOption(category) != WealthScalingOption.None)

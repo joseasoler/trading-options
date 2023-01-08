@@ -19,6 +19,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Compile Include="Harmony\SettlementRestock.cs" />
 		<Compile Include="Harmony\StockGeneratorCount.cs" />
 		<Compile Include="Harmony\TraderKindCommonality.cs" />
 		<Compile Include="Mod\Settings.cs" />

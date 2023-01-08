@@ -16,6 +16,7 @@ namespace TO.Mod
 		{
 			{TraderKindCategory.Orbital, DefaultFrequencyTime},
 			{TraderKindCategory.Caravan, DefaultFrequencyTime},
+			{TraderKindCategory.Settlement, DefaultFrequencyTime},
 			{TraderKindCategory.Visitor, DefaultFrequencyTime}
 		};
 
@@ -103,6 +104,12 @@ namespace TO.Mod
 
 		public static int GetFrequencyTime(TraderKindCategory category)
 		{
+			// Compatibility code: addition of restock frequency for settlements.
+			if (category == TraderKindCategory.Settlement && !_values.FrequencyTime.ContainsKey(category))
+			{
+				return SettingValues.DefaultFrequencyTime;
+			}
+
 			return category == TraderKindCategory.None ? SettingValues.DefaultFrequencyTime : _values.FrequencyTime[category];
 		}
 

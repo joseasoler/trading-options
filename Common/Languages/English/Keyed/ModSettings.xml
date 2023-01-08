@@ -11,7 +11,7 @@
 	<TO_ResetSettings>Reset all</TO_ResetSettings>
 	<TO_ResetSettingsTooltip>Reset all Trading Options to their default values.</TO_ResetSettingsTooltip>
 
-	<!-- Trader frequency. -->
+	<!-- Arrival frequency. -->
 	<TO_FrequencyTitle>Arrival frequency</TO_FrequencyTitle>
 	<!-- Caravan-specific description. -->
 	<TO_CaravanAmount>Non-random storytellers such as Cassandra will send {0} caravans per year.</TO_CaravanAmount>
@@ -46,6 +46,13 @@
 	<TO_OrbitalTimeSlider>Period between orbital trader arrivals</TO_OrbitalTimeSlider>
 	<TO_VisitorAmountSlider>Visitors per year</TO_VisitorAmountSlider>
 	<TO_VisitorTimeSlider>Days between visitors</TO_VisitorTimeSlider>
+
+	<!-- Restock frequency. -->
+	<TO_RestockFrequencyTitle>Restock frequency</TO_RestockFrequencyTitle>
+	<TO_RestockFrequencyDefault>By default, settlements will restock every 30 days.</TO_RestockFrequencyDefault>
+	<TO_RestockFrequency>Settlements will restock every {0} days. Set the slider to the minimum to use the default value.</TO_RestockFrequency>
+	<!-- Restock slider label. -->
+	<TO_RestockFrequencySlider>Days until restock</TO_RestockFrequencySlider>
 
 	<!-- Stock features. -->
 	<TO_StockTitle>Stock amount</TO_StockTitle>
