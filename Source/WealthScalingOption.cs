@@ -9,6 +9,7 @@ namespace TO
 		Poor,
 		Rich,
 		Opulent,
-		Loaded
+		Loaded,
+		Excessive
 	}
 }

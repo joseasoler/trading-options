@@ -69,7 +69,8 @@
 	<TO_WealthPoor>Poor</TO_WealthPoor>
 	<TO_WealthRich>Rich</TO_WealthRich>
 	<TO_WealthOpulent>Opulent</TO_WealthOpulent>
-	<TO_WealthLoaded>Loaded!</TO_WealthLoaded>
+	<TO_WealthLoaded>Loaded</TO_WealthLoaded>
+	<TO_WealthExcessive>Excessive</TO_WealthExcessive>
 
 	<!-- Stock info. -->
 	<TO_InfoTitle>Stock adjustments calculator</TO_InfoTitle>

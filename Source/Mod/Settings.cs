@@ -202,6 +202,8 @@ namespace TO.Mod
 					return 10.0;
 				case WealthScalingOption.Loaded:
 					return Math.E;
+				case WealthScalingOption.Excessive:
+					return Math.E / 2.0f;
 				default:
 					throw new ArgumentOutOfRangeException();
 			}

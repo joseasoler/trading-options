@@ -30,7 +30,7 @@ Trading Options is compatible with all mods that change the stock of a trader. T
 
 [b]Q:[/b] [i]Can I get the wealth same scaling as [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1511375007]Supply and Demand[/url]?[/i]
 
-[b]A:[/b] Yes, set the "Wealth scaling" slider to "Loaded!" for all trader categories.
+[b]A:[/b] Yes, set the "Wealth scaling" slider to "Loaded" for all trader categories.
 
 -
 

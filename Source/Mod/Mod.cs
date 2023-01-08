@@ -222,7 +222,7 @@ namespace TO.Mod
 				CenterMax = Settings.MaxStockScaling,
 				RightValue = (float) wealth,
 				RightMin = (float) WealthScalingOption.None,
-				RightMax = (float) WealthScalingOption.Loaded
+				RightMax = (float) WealthScalingOption.Excessive
 			});
 
 			Settings.SetSilverScaling(cat, (int) result.Left);
