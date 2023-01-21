@@ -11,17 +11,19 @@
 
 • How frequently caravans, orbital traders or visitors will arrive at the colony.
 
-• Amount of silver in stock for any trader type.
+• Change restock frequency of settlements.
 
-• Amount of other stock for any trader type.
+• Change the departure time of caravans, visitors and orbital traders.
 
-• Make traders have more items in stock if your colony is wealthy.
+• Adjust the amount of silver in stock for any trader category.
 
-• Slaver traders appear regardless of your colony population.
+• Modify the amount of other items in stock for any trader category.
+
+• Make the amount of items and silver that traders have in stock scale with the wealth of your colony.
+
+• Allow slaver traders to appear regardless of your colony population.
 
 You can safely add Trading Options to an existing save-game. You can modify any of the settings at any point during the game. The changes will apply immediately, but only new traders will be affected.
-
-Trading Options is compatible with all mods that change the stock of a trader. The changes stack. Trading Options may be incompatible with any mod that changes trader frequency.
 ]]></description>
 	<modDependencies>
 		<li>
