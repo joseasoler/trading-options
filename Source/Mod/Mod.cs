@@ -75,7 +75,7 @@ namespace TO.Mod
 		{
 			Text.Font = GameFont.Medium;
 			listing.Label(data.Title);
-			listing.Gap(6f);
+			listing.Gap(5.0f);
 
 			Text.Font = GameFont.Small;
 			listing.Label(data.Description);
@@ -195,7 +195,7 @@ namespace TO.Mod
 
 			Text.Font = GameFont.Medium;
 			listing.Label("TO_RestockFrequencyTitle".Translate());
-			listing.Gap(6f);
+			listing.Gap(5.0f);
 
 			var restockTime = Settings.GetFrequencyTime(cat);
 			var restockTimeChanged = restockTime > 0;
@@ -229,7 +229,7 @@ namespace TO.Mod
 
 			Text.Font = GameFont.Medium;
 			listing.Label("TO_DepartureTitle".Translate());
-			listing.Gap(6f);
+			listing.Gap(5.0f);
 
 			var departureTime = Settings.GetDepartureTime(cat);
 			var departureTimeChanged = departureTime > 0;
@@ -305,11 +305,11 @@ namespace TO.Mod
 		{
 			Text.Font = GameFont.Medium;
 			listing.Label("TO_InfoTitle".Translate());
-			listing.Gap(6f);
+			listing.Gap(5.0f);
 
 			Text.Font = GameFont.Small;
 			listing.Label("TO_InfoDescription".Translate());
-			listing.Gap(6f);
+			listing.Gap(5.0f);
 
 			var labelsRect = listing.GetRect(Text.LineHeight);
 			var margin = labelsRect.width * MarginProportion;
@@ -340,13 +340,13 @@ namespace TO.Mod
 
 				DrawTraderFrequency(listing, category, categoryName);
 				DrawRestockFrequency(listing, category, categoryName);
-				listing.Gap(9f);
+				listing.Gap(7.0f);
 				DrawDepartureTime(listing, category, categoryName);
-				listing.Gap(9f);
+				listing.Gap(7.0f);
 				DrawStockAdjustments(listing, category, categoryName);
 				if (Settings.GetWealthScalingOption(category) != WealthScalingOption.None)
 				{
-					listing.Gap(9f);
+					listing.Gap(7.0f);
 					DrawStockInfo(listing, category);
 				}
 			}
