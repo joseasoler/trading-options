@@ -1,18 +1,22 @@
 Customize your trading experience!
 
-[img]https://i.imgur.com/grdjP2G.png[/img]
+[img]https://gitlab.com/joseasoler/trading-options/-/raw/main/Preview/ui.png[/img]
 
 You can easily change:
 
 • How frequently caravans, orbital traders or visitors will arrive at the colony.
 
-• Amount of silver in stock for any trader type.
+• Change restock frequency of settlements.
 
-• Amount of other stock for any trader type.
+• Change the departure time of caravans, visitors and orbital traders.
 
-• Make traders have more items in stock if your colony is wealthy.
+• Adjust the amount of silver in stock for any trader category.
 
-• Slaver traders appear regardless of your colony population.
+• Modify the amount of other items in stock for any trader category.
+
+• Make the amount of items and silver that traders have in stock scale with the wealth of your colony.
+
+• Allow slaver traders to appear regardless of your colony population.
 
 You can safely add Trading Options to an existing save-game. You can modify any of the settings at any point during the game. The changes will apply immediately, but only new traders will be affected.
 
@@ -22,15 +26,33 @@ Trading Options is compatible with storytellers from all mods. Trading Options i
 
 [h2]Frequently Asked Questions[/h2]
 
-[b]Q:[/b] [i]How can I get the same amount of orbital traders provided by [url=https://steamcommunity.com/sharedfiles/filedetails/?id=725465444]More Trade Ships[/url]?[/i]
+[b]Q:[/b] [i]Can I add this mod to an existing game?[/i]
+
+[b]A:[/b] Yes.
+
+-
+
+[b]Q:[/b] [i]Can I modify any of the settings at any point during the game?[/i]
+
+[b]A:[/b] Yes. The changes will apply immediately, but only new traders will be affected.
+
+-
+
+[b]Q:[/b] [i]How can I get the same amount of orbital traders as by [url=https://steamcommunity.com/sharedfiles/filedetails/?id=725465444]More Trade Ships[/url]?[/i]
 
 [b]A:[/b] Set the "Orbital traders per period" slider to 1, and the "Period between orbital traders" slider to 4.
 
 -
 
-[b]Q:[/b] [i]Can I get the wealth same scaling as [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1511375007]Supply and Demand[/url]?[/i]
+[b]Q:[/b] [i]How can I get the wealth same scaling as [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1511375007]Supply and Demand[/url]?[/i]
 
-[b]A:[/b] Yes, set the "Wealth scaling" slider to "Loaded" for all trader categories.
+[b]A:[/b] Set the "Wealth scaling" slider to "Loaded" for all trader categories.
+
+-
+
+[b]Q:[/b] [i]Is this mod compatible with [url=https://steamcommunity.com/workshop/filedetails/?id=2785616901]Vanilla Trading Expanded[/url]?[/i]
+
+[b]A:[/b] Yes, both mods are fully compatible. Vanilla Trading Expanded can make stock prizes fluctuate, while Trading Options can change the amount of available stock. Both features can be together without any issues.
 
 -
 
@@ -40,13 +62,7 @@ Trading Options is compatible with storytellers from all mods. Trading Options i
 • [url=https://github.com/CombatExtended-Continued/CombatExtended/wiki/Frequently-Asked-Questions#does-mod-work-with-combat-extended-does-it-need-a-patch]Does (Mod) work with Combat Extended? Does it need a patch?[/url].
 • [url=https://github.com/CombatExtended-Continued/CombatExtended/blob/Development/SupportedThirdPartyMods.md]Supported Third-Party Mods[/url].
 
-I do not know enough about Combat Extended changes to guarantee if the mods are compatible or not. 
-
--
-
-[b]Q:[/b] [i]Is this mod compatible with [url=https://steamcommunity.com/workshop/filedetails/?id=2785616901]Vanilla Trading Expanded[/url]?[/i]
-
-[b]A:[/b] Yes, both mods are fully compatible. Vanilla Trading Expanded can make stock prizes fluctuate, while Trading Options can change the amount of available stock. Both features can be together without any issues.
+I do not know enough about Combat Extended changes to guarantee if the mods are compatible or not.
 
 -
 
