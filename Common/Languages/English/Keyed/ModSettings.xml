@@ -53,6 +53,16 @@
 	<TO_RestockFrequency>Settlements will restock every {0} days. Set the slider to the minimum to use the default value.</TO_RestockFrequency>
 	<!-- Restock slider label. -->
 	<TO_RestockFrequencySlider>Days until restock</TO_RestockFrequencySlider>
+	
+	<!-- Time until departure. -->
+	<TO_DepartureTitle>Time until departure</TO_DepartureTitle>
+	<TO_CaravanDeparture>Caravans will stay at the colony for {0}.</TO_CaravanDeparture>
+	<TO_CaravanDepartureDefault>Caravans will stay at the colony for a time between 11 hours and 18 hours.</TO_CaravanDepartureDefault>
+	<TO_OrbitalDeparture>Orbital traders will stay in range for {0}.</TO_OrbitalDeparture>
+	<TO_OrbitalDepartureDefault>By default, orbital traders will stay in range for 16 hours.</TO_OrbitalDepartureDefault>
+	<TO_VisitorDeparture>Visitors will stay at the colony for {0}.</TO_VisitorDeparture>
+	<TO_VisitorDepartureDefault>Visitors will stay at the colony for a time between 3 hours and 9 hours.</TO_VisitorDepartureDefault>
+	<TO_DepartureSlider>Time until departure</TO_DepartureSlider>
 
 	<!-- Stock features. -->
 	<TO_StockTitle>Stock amount</TO_StockTitle>

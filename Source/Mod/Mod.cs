@@ -220,6 +220,43 @@ namespace TO.Mod
 			Settings.SetFrequencyTime(cat, newRestockTime);
 		}
 
+		private static void DrawDepartureTime(Listing_Standard listing, TraderKindCategory cat, string catName)
+		{
+			if (cat == TraderKindCategory.Settlement || cat == TraderKindCategory.None)
+			{
+				return;
+			}
+
+			Text.Font = GameFont.Medium;
+			listing.Label("TO_DepartureTitle".Translate());
+			listing.Gap(6f);
+
+			var departureTime = Settings.GetDepartureTime(cat);
+			var departureTimeChanged = departureTime > 0;
+			var description =
+				departureTimeChanged
+					? $"TO_{catName}Departure".Translate(departureTime.ToStringTicksToPeriodVerbose())
+					: $"TO_{catName}DepartureDefault".Translate();
+
+			Text.Font = GameFont.Small;
+			listing.Label(description);
+
+			var labelRect = listing.GetRect(22.0f);
+			Text.Anchor = TextAnchor.MiddleCenter;
+			Text.Font = GameFont.Tiny;
+			GUI.color = Color.grey;
+			Widgets.Label(labelRect, "TO_DepartureSlider".Translate());
+			GUI.color = Color.white;
+			Text.Anchor = TextAnchor.UpperLeft;
+			Text.Font = GameFont.Small;
+
+			var slidersRect = listing.GetRect(22.0f);
+			var newDepartureTime =
+				(int) Widgets.HorizontalSlider_NewTemp(slidersRect, departureTime, SettingValues.DefaultDepartureTime,
+					GenDate.TicksPerDay * 3);
+			Settings.SetDepartureTime(cat, newDepartureTime);
+		}
+
 		private static void DrawStockAdjustments(Listing_Standard listing, TraderKindCategory cat, string catName)
 		{
 			var silver = Settings.GetSilverScaling(cat);
@@ -303,6 +340,8 @@ namespace TO.Mod
 
 				DrawTraderFrequency(listing, category, categoryName);
 				DrawRestockFrequency(listing, category, categoryName);
+				listing.Gap(9f);
+				DrawDepartureTime(listing, category, categoryName);
 				listing.Gap(9f);
 				DrawStockAdjustments(listing, category, categoryName);
 				if (Settings.GetWealthScalingOption(category) != WealthScalingOption.None)

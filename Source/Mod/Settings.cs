@@ -45,6 +45,19 @@ namespace TO.Mod
 			{TraderKindCategory.Caravan, DefaultFrequencyChanceFactor}
 		};
 
+		public static readonly int DefaultDepartureTime = 0;
+
+		/// <summary>
+		/// Number of ticks that the trader will stay available.
+		/// Zero always means "let the storyteller decide".
+		/// </summary>
+		public Dictionary<TraderKindCategory, int> DepartureTime = new Dictionary<TraderKindCategory, int>
+		{
+			{TraderKindCategory.Orbital, DefaultDepartureTime},
+			{TraderKindCategory.Caravan, DefaultDepartureTime},
+			{TraderKindCategory.Visitor, DefaultDepartureTime}
+		};
+
 		public const int MinScaling = 24;
 
 		/// <summary>
@@ -104,7 +117,7 @@ namespace TO.Mod
 
 		public static int GetFrequencyTime(TraderKindCategory category)
 		{
-			// Compatibility code: addition of restock frequency for settlements.
+			// ToDo clean up compatibility code: addition of restock frequency for settlements.
 			if (category == TraderKindCategory.Settlement && !_values.FrequencyTime.ContainsKey(category))
 			{
 				return SettingValues.DefaultFrequencyTime;
@@ -157,7 +170,22 @@ namespace TO.Mod
 				_values.FrequencyChanceFactor[category] = value;
 			}
 		}
+		public static int GetDepartureTime(TraderKindCategory category)
+		{
+			// ToDo clean up compatibility code: addition of time until departure.
+			if (_values.DepartureTime.NullOrEmpty())
+			{
+				var tempSettings = new SettingValues();
+				_values.DepartureTime = tempSettings.DepartureTime;
+			}
 
+			return _values.DepartureTime[category];
+		}
+
+		public static void SetDepartureTime(TraderKindCategory category, int value)
+		{
+			_values.DepartureTime[category] = value;
+		}
 		public static int GetSilverScaling(TraderKindCategory category)
 		{
 			return category == TraderKindCategory.None ? 100 : _values.SilverScaling[category];
@@ -257,6 +285,7 @@ namespace TO.Mod
 			Scribe_Collections.Look(ref _values.FrequencyTime, "FrequencyTime");
 			Scribe_Collections.Look(ref _values.FrequencyAmount, "FrequencyAmount");
 			Scribe_Collections.Look(ref _values.FrequencyChanceFactor, "FrequencyChanceFactor");
+			Scribe_Collections.Look(ref _values.DepartureTime, "DepartureTime");
 			Scribe_Collections.Look(ref _values.SilverScaling, "SilverScaling");
 			Scribe_Collections.Look(ref _values.StockScaling, "StockScaling");
 			Scribe_Collections.Look(ref _values.WealthScaling, "WealthScaling");

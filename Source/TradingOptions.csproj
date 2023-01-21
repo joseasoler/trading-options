@@ -19,9 +19,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Compile Include="Harmony\CaravanVisitorDepartureTime.cs" />
+		<Compile Include="Harmony\CaravanVisitorExtraFood.cs" />
 		<Compile Include="Harmony\SettlementRestock.cs" />
 		<Compile Include="Harmony\StockGeneratorCount.cs" />
 		<Compile Include="Harmony\TraderKindCommonality.cs" />
+		<Compile Include="Harmony\TradeShipDepartureTime.cs" />
 		<Compile Include="Mod\Settings.cs" />
 		<Compile Include="Mod\Mod.cs" />
 		<Compile Include="StockScaling.cs" />
