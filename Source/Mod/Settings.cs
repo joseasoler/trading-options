@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using TradingOptions;
 using Verse;
 
+// ToDo fix namespace for 1.5.
 namespace TO.Mod
 {
 	internal class SettingValues

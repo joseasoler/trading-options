@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using TO.Mod;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace TO.Mod
+namespace TradingOptions.Mod
 {
 	/// <summary>
 	/// Loads mod settings and displays the mod settings window.

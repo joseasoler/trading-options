@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Verse;
 
-namespace TO.Harmony
+namespace TradingOptions.Harmony
 {
 	/// <summary>
 	/// Initialization of the Harmony patching of the mod.

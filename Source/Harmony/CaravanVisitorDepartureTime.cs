@@ -5,7 +5,7 @@ using RimWorld;
 using TO.Mod;
 using Verse;
 
-namespace TO.Harmony
+namespace TradingOptions.Harmony
 {
 	[HarmonyPatch]
 	internal class CaravanVisitorDepartureTime

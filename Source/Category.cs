@@ -2,7 +2,7 @@
 using RimWorld;
 using Verse;
 
-namespace TO
+namespace TradingOptions
 {
 	/// <summary>
 	/// Helper functions.

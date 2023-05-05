@@ -3,7 +3,7 @@ using RimWorld;
 using TO.Mod;
 using Verse;
 
-namespace TO
+namespace TradingOptions
 {
 	/// <summary>
 	/// Orbital trader arrival properties for non-random storytellers: StorytellerCompProperties_OnOffCycle.

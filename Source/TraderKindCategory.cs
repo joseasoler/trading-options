@@ -1,4 +1,4 @@
-﻿namespace TO
+﻿namespace TradingOptions
 {
 	/// <summary>
 	/// Trader categories.

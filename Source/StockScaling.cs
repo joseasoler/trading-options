@@ -3,7 +3,7 @@ using RimWorld;
 using TO.Mod;
 using Verse;
 
-namespace TO
+namespace TradingOptions
 {
 	public static class StockScaling
 	{

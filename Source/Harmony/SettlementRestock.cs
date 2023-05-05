@@ -2,7 +2,7 @@ using HarmonyLib;
 using RimWorld.Planet;
 using TO.Mod;
 
-namespace TO.Harmony
+namespace TradingOptions.Harmony
 {
 	[HarmonyPatch]
 	internal static class SettlementRestock

@@ -2,7 +2,7 @@
 using RimWorld;
 using TO.Mod;
 
-namespace TO.Harmony
+namespace TradingOptions.Harmony
 {
 	[HarmonyPatch]
 	public static class TraderKind

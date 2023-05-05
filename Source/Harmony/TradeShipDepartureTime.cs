@@ -2,7 +2,7 @@ using HarmonyLib;
 using RimWorld;
 using TO.Mod;
 
-namespace TO.Harmony
+namespace TradingOptions.Harmony
 {
 	[HarmonyPatch]
 	internal class TradeShipDepartureTime

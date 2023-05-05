@@ -3,7 +3,7 @@ using RimWorld;
 using TO.Mod;
 using Verse;
 
-namespace TO.Harmony
+namespace TradingOptions.Harmony
 {
 	internal class CaravanVisitorExtraFood
 	{
