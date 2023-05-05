@@ -17,11 +17,13 @@ namespace TO
 			new Dictionary<string, TraderKindCategory>
 			{
 				// Rimatomics
-				{"Orbital_Rimatomics", TraderKindCategory.Orbital},
+				{ "Orbital_Rimatomics", TraderKindCategory.Orbital },
+				// RimCities
+				{ "Base_City", TraderKindCategory.Settlement },
 				// Udon.ExtendTheCat
-				{"ExC_NormalTrader", TraderKindCategory.Orbital}
+				{ "ExC_NormalTrader", TraderKindCategory.Orbital }
 			};
-		
+
 		/// <summary>
 		/// Lazily initialized cache of categories for each trader.
 		/// </summary>
@@ -57,7 +59,7 @@ namespace TO
 
 			return TraderKindCategory.None;
 		}
-		
+
 		/// <summary>
 		/// Finds out the trader kind category of a trader.
 		/// </summary>
@@ -65,6 +67,12 @@ namespace TO
 		/// <returns>Trader category.</returns>
 		public static TraderKindCategory Get(TraderKindDef def)
 		{
+			if (def == null)
+			{
+				// Null defs can happen with mods such as RimCities.
+				return TraderKindCategory.None;
+			}
+
 			if (CategoryByHash.ContainsKey(def.shortHash))
 			{
 				return CategoryByHash[def.shortHash];
