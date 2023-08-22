@@ -45,7 +45,7 @@ This project encourages community involvement and contributions. Check the [CONT
 
 • [Sir Van](https://steamcommunity.com/id/UnVan/myworkshopfiles/?appid=294100): Art
 
-Other contributors can be checked in the [contributors list](https://gitlab.com/joseasoler/trading-options/-/graphs/main).
+Other contributors can be checked in the [contributors list](https://github.com/joseasoler/trading-options/graphs/contributors).
 
 [![RimWorld Mod Market discord server](https://i.imgur.com/cfoFEMA.png)](url=https://discord.gg/7befJWr9xS)
 

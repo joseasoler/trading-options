@@ -1,8 +1,6 @@
 Customize your trading experience!
 
-[img]https://gitlab.com/joseasoler/trading-options/-/raw/main/Preview/ui.png[/img]
-
-You can easily change:
+With this mod you can easily change:
 
 • How frequently caravans, orbital traders or visitors will arrive at the colony.
 
@@ -72,7 +70,7 @@ I do not know enough about Combat Extended changes to guarantee if the mods are 
 
 [h2]Credits[/h2]
 
-[b]Project website:[/b] https://gitlab.com/joseasoler/trading-options
+[b]Project website:[/b] https://github.com/joseasoler/trading-options
 
 • [b]joseasoler[/b]: Programming
 
