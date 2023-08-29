@@ -1,15 +1,14 @@
-namespace TradingOptions
+namespace TradingOptions;
+
+/// <summary>
+/// Wealth scaling options.
+/// </summary>
+public enum WealthScalingOption
 {
-	/// <summary>
-	/// Wealth scaling options.
-	/// </summary>
-	public enum WealthScalingOption
-	{
-		None,
-		Poor,
-		Rich,
-		Opulent,
-		Loaded,
-		Excessive
-	}
+	None,
+	Poor,
+	Rich,
+	Opulent,
+	Loaded,
+	Excessive
 }

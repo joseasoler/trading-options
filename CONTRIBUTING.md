@@ -10,7 +10,7 @@ If you encounter a bug, please follow the [How to report bugs in mods](https://s
 
 All bug reports must provide a HugsLibs log. To obtain one, follow these steps:
 
-1) Subscribe to [HugsLib](https://steamcommunity.com/workshop/filedetails/?id=818773962) in the Steam Workshop.
+1) Subscribe to [Log Publisher](https://steamcommunity.com/workshop/filedetails/?id=2873415404) in the Steam Workshop.
 2) Inside of the game and after experiencing the issue, press Ctrl + F12. This will launch the log publisher.
 3) Click on the "Upload" button.
 4) Press on the "Copy" button to obtain the link to the log.

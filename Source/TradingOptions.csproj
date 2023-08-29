@@ -5,13 +5,14 @@
 		<RootNamespace>TradingOptions</RootNamespace>
 		<AssemblyName>TradingOptions</AssemblyName>
 		<OutputType>Library</OutputType>
-		<TargetFramework>net472</TargetFramework>
-		<TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+		<TargetFramework>net481</TargetFramework>
+		<TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+		<LangVersion>preview</LangVersion>
 		<PlatformTarget>x64</PlatformTarget>
 		<AppDesignerFolder>Properties</AppDesignerFolder>
 		<DebugSymbols>false</DebugSymbols>
 		<Optimize>true</Optimize>
-		<WarningLevel>4</WarningLevel>
+		<WarningLevel>5</WarningLevel>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<Deterministic>true</Deterministic>
@@ -19,19 +20,27 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Include="Harmony\CaravanVisitorDepartureTime.cs" />
-		<Compile Include="Harmony\CaravanVisitorExtraFood.cs" />
-		<Compile Include="Harmony\SettlementRestock.cs" />
-		<Compile Include="Harmony\StockGeneratorCount.cs" />
-		<Compile Include="Harmony\TraderKindCommonality.cs" />
-		<Compile Include="Harmony\TradeShipDepartureTime.cs" />
-		<Compile Include="Mod\Settings.cs" />
-		<Compile Include="Mod\Mod.cs" />
+		<Compile Include="Harmony.cs" />
+		<Compile Include="Mod.cs" />
+		<Compile Include="Patches\CaravanVisitorDepartureTime\Helper.cs" />
+		<Compile Include="Patches\CaravanVisitorDepartureTime\LordJob_TradeWithColony_CreateGraph_Patch.cs" />
+		<Compile Include="Patches\CaravanVisitorDepartureTime\LordJob_VisitColony_CreateGraph_Patch.cs" />
+		<Compile Include="Patches\ExtraCaravanVisitorFood\Helper.cs" />
+		<Compile Include="Patches\ExtraCaravanVisitorFood\IncidentWorker_TraderCaravanArrival_TryExecuteWorker.cs" />
+		<Compile Include="Patches\ExtraCaravanVisitorFood\IncidentWorker_VisitorGroup_TryExecuteWorker.cs" />
+		<Compile Include="Patches\ExtraCaravanVisitorFood\PawnInventoryGenerator_GiveRandomFood_Patch.cs" />
+		<Compile Include="Patches\Methods.cs" />
+		<Compile Include="Patches\SettlementRestock\Settlement_TraderTracker_RegenerateStockEveryDays_Patch.cs" />
+		<Compile Include="Patches\SlaverCommonality\TraderKindDef_CalculatedCommonality_Patch.cs" />
+		<Compile Include="Patches\StockScaling\StockGenerator_RandomCountOf_Patch.cs" />
+		<Compile Include="Patches\TradeShipDepartureTime\TradeShip_GenerateThings_Patch.cs" />
+		<Compile Include="Report.cs" />
+		<Compile Include="Settings.cs" />
+		<Compile Include="SettingsWindow.cs" />
 		<Compile Include="StockScaling.cs" />
 		<Compile Include="StorytellerCompPatcher.cs" />
 		<Compile Include="TraderKindCategory.cs" />
 		<Compile Include="WealthScalingOption.cs" />
-		<Compile Include="Harmony\HarmonyInitialization.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
 		<Compile Include="Category.cs" />
 		<Reference Include="System" />
