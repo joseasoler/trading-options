@@ -2,10 +2,10 @@ using HarmonyLib;
 using RimWorld;
 using TO.Mod;
 
-namespace TradingOptions.Harmony
+namespace TradingOptions.Patches
 {
 	[HarmonyPatch]
-	internal class TradeShipDepartureTime
+	internal class TradeShip_GenerateThings_Patch
 	{
 		[HarmonyPostfix]
 		[HarmonyPatch(typeof(TradeShip), nameof(TradeShip.GenerateThings))]

@@ -1,12 +1,12 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("TradingOptions")]
+[assembly: AssemblyTitle("Trading Options")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TradingOptions")]
-[assembly: AssemblyCopyright("Copyright ©  2023")]
+[assembly: AssemblyProduct("Trading Options")]
+[assembly: AssemblyCopyright("Copyright © 2023 Pathfinding Framework contributors")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -14,4 +14,4 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("164F8848-D88B-487A-BD40-001B98C74EE4")]
 
-[assembly: AssemblyVersion ("0.3.1")]
+[assembly: AssemblyVersion ("0.4.0")]
