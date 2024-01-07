@@ -17,9 +17,13 @@ namespace TradingOptions
 		private static readonly Dictionary<string, TraderKindCategory> HardcodedTraders =
 			new()
 			{
-				{ "Orbital_Rimatomics", TraderKindCategory.Orbital }, // Rimatomics
-				{ "Base_City", TraderKindCategory.Settlement }, // RimCities
-				{ "ExC_NormalTrader", TraderKindCategory.Orbital } // Udon.ExtendTheCat
+				{"Orbital_Rimatomics", TraderKindCategory.Orbital}, // Rimatomics
+				{"Base_City", TraderKindCategory.Settlement}, // RimCities
+				{"ExC_NormalTrader", TraderKindCategory.Orbital}, // Udon.ExtendTheCat
+				{"MFI_EmptyTrader_Apparel", TraderKindCategory.Caravan}, // Mlie.MoreFactionInteraction
+				{"MFI_EmptyTrader_PlantFoodRaw", TraderKindCategory.Caravan}, // Mlie.MoreFactionInteraction
+				{"MFI_EmptyTrader_Weapons", TraderKindCategory.Caravan}, // Mlie.MoreFactionInteraction
+				{"MFI_EmptyTrader_Medicine", TraderKindCategory.Caravan} // Mlie.MoreFactionInteraction
 			};
 
 		/// <summary>
