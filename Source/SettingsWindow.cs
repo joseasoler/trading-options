@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using RimWorld;
 using TO.Mod;
@@ -16,6 +17,7 @@ namespace TradingOptions
 
 		private static TraderKindCategory _selected = TraderKindCategory.Caravan;
 		private const float MinWealth = 10000f;
+		private static bool _wealthInitialized /* = false*/;
 		private static float _wealth = MinWealth;
 		private static string _wealthBuffer = ((int) MinWealth).ToString();
 
@@ -304,6 +306,14 @@ namespace TradingOptions
 
 			var anchor = Text.Anchor;
 			Text.Anchor = TextAnchor.MiddleCenter;
+
+			if (!_wealthInitialized && Current.ProgramState == ProgramState.Playing)
+			{
+				_wealth = WealthUtility.PlayerWealth;
+				_wealthBuffer = _wealth.ToString(CultureInfo.InvariantCulture);
+				_wealthInitialized = true;
+			}
+
 			Widgets.TextFieldNumeric(leftRect, ref _wealth, ref _wealthBuffer, MinWealth, float.MaxValue);
 
 			var silver = (int) (100.0 * StockScaling.Calculate(category, ThingDefOf.Silver, _wealth));
