@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Trading Options")]
-[assembly: AssemblyCopyright("Copyright © 2023 Pathfinding Framework contributors")]
+[assembly: AssemblyCopyright("Copyright © Trading Options contributors")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
