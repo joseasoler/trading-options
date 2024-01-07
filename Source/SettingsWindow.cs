@@ -11,14 +11,13 @@ namespace TradingOptions
 {
 	public static class SettingsWindow
 	{
-	
 		private const float MarginProportion = 0.02f;
 		private const float WidthProportion = (1.0f - MarginProportion * 2.0f) / 3.0f;
 
 		private static TraderKindCategory _selected = TraderKindCategory.Caravan;
 		private const float MinWealth = 10000f;
 		private static float _wealth = MinWealth;
-		private static string _wealthBuffer = ((int)MinWealth).ToString();
+		private static string _wealthBuffer = ((int) MinWealth).ToString();
 
 		/// <summary>
 		/// Name of the mod in the settings list.
@@ -129,6 +128,7 @@ namespace TradingOptions
 				? "TO_FrequencyChanged".Translate()
 				: "TO_FrequencyUnchanged".Translate());
 
+			const float randomStorytellerChanceMax = 800.0F;
 			var result = TripleSlider(listing, new TripleSliderData
 			{
 				Title = "TO_FrequencyTitle".Translate(),
@@ -144,11 +144,11 @@ namespace TradingOptions
 				CenterMax = 20.0f,
 				RightValue = chance,
 				RightMin = 0.0f,
-				RightMax = 500.0f
+				RightMax = randomStorytellerChanceMax
 			});
 
-			var newAmount = (int)result.Left;
-			var newTime = (int)result.Center;
+			var newAmount = (int) result.Left;
+			var newTime = (int) result.Center;
 			// For caravans and visitors, minSpacingDays must be small enough to fit all caravans in a year.
 			if (cat != TraderKindCategory.Orbital)
 			{
@@ -166,7 +166,7 @@ namespace TradingOptions
 
 			Settings.SetFrequencyAmount(cat, newAmount);
 			Settings.SetFrequencyTime(cat, newTime);
-			Settings.SetFrequencyChanceFactor(cat, (int)result.Right);
+			Settings.SetFrequencyChanceFactor(cat, (int) result.Right);
 		}
 
 		private static void DrawRestockFrequency(Listing_Standard listing, TraderKindCategory cat, string catName)
@@ -199,7 +199,7 @@ namespace TradingOptions
 
 			var slidersRect = listing.GetRect(22.0f);
 			var newRestockTime =
-				(int)Widgets.HorizontalSlider_NewTemp(slidersRect, restockTime, SettingValues.DefaultFrequencyTime, 60);
+				(int) Widgets.HorizontalSlider_NewTemp(slidersRect, restockTime, SettingValues.DefaultFrequencyTime, 60);
 			Settings.SetFrequencyTime(cat, newRestockTime);
 		}
 
@@ -235,7 +235,7 @@ namespace TradingOptions
 
 			var slidersRect = listing.GetRect(22.0f);
 			var newDepartureTime =
-				(int)Widgets.HorizontalSlider_NewTemp(slidersRect, departureTime, SettingValues.DefaultDepartureTime,
+				(int) Widgets.HorizontalSlider_NewTemp(slidersRect, departureTime, SettingValues.DefaultDepartureTime,
 					GenDate.TicksPerDay * 3);
 			Settings.SetDepartureTime(cat, newDepartureTime);
 		}
@@ -274,14 +274,14 @@ namespace TradingOptions
 				CenterValue = stock,
 				CenterMin = Settings.MinStockScaling,
 				CenterMax = Settings.MaxStockScaling,
-				RightValue = (float)wealth,
-				RightMin = (float)WealthScalingOption.None,
-				RightMax = (float)WealthScalingOption.Excessive
+				RightValue = (float) wealth,
+				RightMin = (float) WealthScalingOption.None,
+				RightMax = (float) WealthScalingOption.Excessive
 			});
 
-			Settings.SetSilverScaling(cat, (int)result.Left);
-			Settings.SetStockScaling(cat, (int)result.Center);
-			Settings.SetWealthScalingOption(cat, (WealthScalingOption)result.Right);
+			Settings.SetSilverScaling(cat, (int) result.Left);
+			Settings.SetStockScaling(cat, (int) result.Center);
+			Settings.SetWealthScalingOption(cat, (WealthScalingOption) result.Right);
 		}
 
 		private static void DrawStockInfo(Listing_Standard listing, TraderKindCategory category)
@@ -306,9 +306,9 @@ namespace TradingOptions
 			Text.Anchor = TextAnchor.MiddleCenter;
 			Widgets.TextFieldNumeric(leftRect, ref _wealth, ref _wealthBuffer, MinWealth, float.MaxValue);
 
-			var silver = (int)(100.0 * StockScaling.Calculate(category, ThingDefOf.Silver, _wealth));
+			var silver = (int) (100.0 * StockScaling.Calculate(category, ThingDefOf.Silver, _wealth));
 			Widgets.Label(centerRect, "TO_InfoSilver".Translate(silver));
-			var stock = (int)(100.0 * StockScaling.Calculate(category, null, _wealth));
+			var stock = (int) (100.0 * StockScaling.Calculate(category, null, _wealth));
 			Widgets.Label(rightRect, "TO_InfoStock".Translate(stock));
 			Text.Anchor = anchor;
 		}
@@ -386,7 +386,6 @@ namespace TradingOptions
 			Widgets.DrawMenuSection(settingsArea);
 			TabDrawer.DrawTabs(tabArea, Tabs(mod));
 			DrawSettings(_selected, settingsArea.ContractedBy(15.0f));
-
 		}
 	}
 }
