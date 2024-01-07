@@ -1,10 +1,10 @@
-﻿namespace TradingOptions.Patches.ExtraCaravanVisitorFood;
-
-public static class Helper
+﻿namespace TradingOptions.Patches.ExtraCaravanVisitorFood
 {
-	/// <summary>
-	/// Trader kind category that is being actively generated at this point.
-	/// </summary>
-	public static TraderKindCategory CategoryBeingGenerated = TraderKindCategory.None;
-
+	public static class Helper
+	{
+		/// <summary>
+		/// Trader kind category that is being actively generated at this point.
+		/// </summary>
+		public static TraderKindCategory CategoryBeingGenerated = TraderKindCategory.None;
+	}
 }

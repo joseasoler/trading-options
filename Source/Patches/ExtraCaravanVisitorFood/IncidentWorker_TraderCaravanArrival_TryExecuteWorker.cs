@@ -1,18 +1,19 @@
 ﻿using HarmonyLib;
 using RimWorld;
 
-namespace TradingOptions.Patches.ExtraCaravanVisitorFood;
-
-[HarmonyPatch(typeof(IncidentWorker_TraderCaravanArrival), "TryExecuteWorker")]
-public class IncidentWorker_TraderCaravanArrival_TryExecuteWorker
+namespace TradingOptions.Patches.ExtraCaravanVisitorFood
 {
-	private static void Prefix()
+	[HarmonyPatch(typeof(IncidentWorker_TraderCaravanArrival), "TryExecuteWorker")]
+	public class IncidentWorker_TraderCaravanArrival_TryExecuteWorker
 	{
-		Helper.CategoryBeingGenerated = TraderKindCategory.Caravan;
-	}
+		private static void Prefix()
+		{
+			Helper.CategoryBeingGenerated = TraderKindCategory.Caravan;
+		}
 
-	private static void Postfix()
-	{
-		Helper.CategoryBeingGenerated = TraderKindCategory.None;
+		private static void Postfix()
+		{
+			Helper.CategoryBeingGenerated = TraderKindCategory.None;
+		}
 	}
 }

@@ -5,10 +5,10 @@
 		<RootNamespace>TradingOptions</RootNamespace>
 		<AssemblyName>TradingOptions</AssemblyName>
 		<OutputType>Library</OutputType>
-		<TargetFramework>net481</TargetFramework>
-		<TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
-		<LangVersion>preview</LangVersion>
-		<PlatformTarget>x64</PlatformTarget>
+		<TargetFramework>net48</TargetFramework>
+		<TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+		<LangVersion>9</LangVersion>
+		<PlatformTarget>AnyCPU</PlatformTarget>
 		<AppDesignerFolder>Properties</AppDesignerFolder>
 		<DebugSymbols>false</DebugSymbols>
 		<Optimize>true</Optimize>

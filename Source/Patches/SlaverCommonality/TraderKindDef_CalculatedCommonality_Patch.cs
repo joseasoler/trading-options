@@ -2,7 +2,7 @@
 using RimWorld;
 using TO.Mod;
 
-namespace TradingOptions.Patches
+namespace TradingOptions.Patches.SlaverCommonality
 {
 	[HarmonyPatch(typeof(TraderKindDef), nameof(TraderKindDef.CalculatedCommonality), MethodType.Getter)]
 	public static class TraderKindDef_CalculatedCommonality_Patch

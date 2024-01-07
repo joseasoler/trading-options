@@ -3,18 +3,19 @@ using RimWorld.Planet;
 using TO.Mod;
 using TradingOptions;
 
-namespace TradingOptions.Patches.SettlementRestock;
-
-[HarmonyPatch]
-internal static class Settlement_TraderTracker_RegenerateStockEveryDays_Patch
+namespace TradingOptions.Patches.SettlementRestock
 {
-	[HarmonyPatch(typeof(Settlement_TraderTracker), "RegenerateStockEveryDays", MethodType.Getter)]
-	private static void Postfix(ref int __result)
+	[HarmonyPatch]
+	internal static class Settlement_TraderTracker_RegenerateStockEveryDays_Patch
 	{
-		var setting = Settings.GetFrequencyTime(TraderKindCategory.Settlement);
-		if (setting != 0)
+		[HarmonyPatch(typeof(Settlement_TraderTracker), "RegenerateStockEveryDays", MethodType.Getter)]
+		private static void Postfix(ref int __result)
 		{
-			__result = setting;
+			var setting = Settings.GetFrequencyTime(TraderKindCategory.Settlement);
+			if (setting != 0)
+			{
+				__result = setting;
+			}
 		}
 	}
 }

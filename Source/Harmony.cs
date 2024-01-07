@@ -1,26 +1,27 @@
 ﻿using System;
 
-namespace TradingOptions;
-
-/// <summary>
-/// Initialization of the Harmony patching of the mod.
-/// </summary>
-public static class Harmony
+namespace TradingOptions
 {
 	/// <summary>
 	/// Initialization of the Harmony patching of the mod.
 	/// </summary>
-	public static void Initialize()
+	public static class Harmony
 	{
-		try
+		/// <summary>
+		/// Initialization of the Harmony patching of the mod.
+		/// </summary>
+		public static void Initialize()
 		{
-			var harmonyInstance = new HarmonyLib.Harmony(Mod.PackageId);
-			harmonyInstance.PatchAll();
-		}
-		catch (Exception exception)
-		{
-			Report.Error("Harmony patching failed:");
-			Report.Error($"{exception}");
+			try
+			{
+				var harmonyInstance = new HarmonyLib.Harmony(Mod.PackageId);
+				harmonyInstance.PatchAll();
+			}
+			catch (Exception exception)
+			{
+				Report.Error("Harmony patching failed:");
+				Report.Error($"{exception}");
+			}
 		}
 	}
 }
