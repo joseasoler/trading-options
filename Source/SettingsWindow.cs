@@ -17,9 +17,9 @@ namespace TradingOptions
 
 		private static TraderKindCategory _selected = TraderKindCategory.Caravan;
 		private const float MinWealth = 10000f;
-		private static bool _wealthInitialized /* = false*/;
-		private static float _wealth = MinWealth;
-		private static string _wealthBuffer = ((int) MinWealth).ToString();
+		private static bool _useColonyWealth = true;
+		private static float _customWealthAmount = MinWealth;
+		private static string _customWealthBuffer = ((int) MinWealth).ToString();
 
 		/// <summary>
 		/// Name of the mod in the settings list.
@@ -307,20 +307,37 @@ namespace TradingOptions
 			var anchor = Text.Anchor;
 			Text.Anchor = TextAnchor.MiddleCenter;
 
-			if (!_wealthInitialized && Current.ProgramState == ProgramState.Playing)
+			float wealthAmount;
+			if (_useColonyWealth && Current.ProgramState == ProgramState.Playing)
 			{
-				_wealth = WealthUtility.PlayerWealth;
-				_wealthBuffer = _wealth.ToString(CultureInfo.InvariantCulture);
-				_wealthInitialized = true;
+				wealthAmount = WealthUtility.PlayerWealth;
+				Widgets.Label(leftRect, wealthAmount.ToString(CultureInfo.InvariantCulture));
+			}
+			else
+			{
+				wealthAmount = _customWealthAmount;
+				Widgets.TextFieldNumeric(leftRect, ref _customWealthAmount, ref _customWealthBuffer, MinWealth, float.MaxValue);
 			}
 
-			Widgets.TextFieldNumeric(leftRect, ref _wealth, ref _wealthBuffer, MinWealth, float.MaxValue);
-
-			var silver = (int) (100.0 * StockScaling.Calculate(category, ThingDefOf.Silver, _wealth));
+			var silver = (int) (100.0 * StockScaling.Calculate(category, ThingDefOf.Silver, wealthAmount));
 			Widgets.Label(centerRect, "TO_InfoSilver".Translate(silver));
-			var stock = (int) (100.0 * StockScaling.Calculate(category, null, _wealth));
+			var stock = (int) (100.0 * StockScaling.Calculate(category, null, wealthAmount));
 			Widgets.Label(rightRect, "TO_InfoStock".Translate(stock));
 			Text.Anchor = anchor;
+
+			if (Current.ProgramState != ProgramState.Playing)
+			{
+				return;
+			}
+
+			bool prevUseColonyWealth = _useColonyWealth;
+			listing.CheckboxLabeled("TO_UseCurrentColonyWealthLabel".Translate(), ref _useColonyWealth, null, 0.0f,
+				WidthProportion);
+			if (prevUseColonyWealth && !_useColonyWealth)
+			{
+				_customWealthAmount = wealthAmount;
+				_customWealthBuffer = wealthAmount.ToString(CultureInfo.InvariantCulture);
+			}
 		}
 
 		private static void DrawSettings(TraderKindCategory category, Rect settingsArea)
