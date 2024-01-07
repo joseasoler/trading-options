@@ -218,7 +218,7 @@ namespace TO.Mod
 		/// <summary>
 		/// Maximum allowed value for StockScaling and SilverScaling settings in %.
 		/// </summary>
-		public const int MaxStockScaling = 500;
+		public const int MaxStockScaling = 800;
 
 		public static WealthScalingOption GetWealthScalingOption(TraderKindCategory category)
 		{
