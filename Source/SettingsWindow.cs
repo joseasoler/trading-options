@@ -380,18 +380,32 @@ namespace TradingOptions
 		/// <param name="inRect">Available area for drawing the settings.</param>
 		private static void DrawBottomButtons(Rect inRect)
 		{
-			float resetX = inRect.width - Window.CloseButSize.x;
 			// Dialog_ModSettings leaves a margin of Window.CloseButSize.y at the bottom for the close button.
 			// Then, there are three pixels between the top border of the close button and the rest of this window.
 			float resetY = inRect.height + Window.CloseButSize.y + 3;
-			Rect resetButtonArea = new Rect(resetX, resetY, Window.CloseButSize.x, Window.CloseButSize.y);
 
-			if (Widgets.ButtonText(resetButtonArea, "TO_ResetSettings".Translate()))
+			float resetAllX = inRect.width - Window.CloseButSize.x;
+			Rect resetAllArea = new Rect(resetAllX, resetY, Window.CloseButSize.x, Window.CloseButSize.y);
+			if (Widgets.ButtonText(resetAllArea, "TO_ResetAllSettingsLabel".Translate()))
 			{
 				Settings.Reset();
 			}
 
-			TooltipHandler.TipRegion(resetButtonArea, "TO_ResetSettingsTooltip".Translate());
+			TooltipHandler.TipRegion(resetAllArea, "TO_ResetAllSettingsHover".Translate());
+
+			if (_selected == TraderKindCategory.None)
+			{
+				return;
+			}
+
+			float resetTabX = resetAllX - Window.CloseButSize.x - GenUI.Gap;
+			Rect resetTabArea = new Rect(resetTabX, resetY, Window.CloseButSize.x, Window.CloseButSize.y);
+			if (Widgets.ButtonText(resetTabArea, "TO_ResetCurrentSettingsLabel".Translate()))
+			{
+				Settings.ResetCategory(_selected);
+			}
+
+			TooltipHandler.TipRegion(resetTabArea, "TO_ResetCurrentSettingsHover".Translate());
 		}
 
 		private static List<TabRecord> Tabs(Mod mod)

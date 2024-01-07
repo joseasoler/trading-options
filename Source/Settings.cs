@@ -16,10 +16,10 @@ namespace TO.Mod
 		/// </summary>
 		public Dictionary<TraderKindCategory, int> FrequencyTime = new()
 		{
-			{ TraderKindCategory.Orbital, DefaultFrequencyTime },
-			{ TraderKindCategory.Caravan, DefaultFrequencyTime },
-			{ TraderKindCategory.Settlement, DefaultFrequencyTime },
-			{ TraderKindCategory.Visitor, DefaultFrequencyTime }
+			{TraderKindCategory.Orbital, DefaultFrequencyTime},
+			{TraderKindCategory.Caravan, DefaultFrequencyTime},
+			{TraderKindCategory.Settlement, DefaultFrequencyTime},
+			{TraderKindCategory.Visitor, DefaultFrequencyTime}
 		};
 
 		public const int DefaultFrequencyAmount = 0;
@@ -30,9 +30,9 @@ namespace TO.Mod
 		/// </summary>
 		public Dictionary<TraderKindCategory, int> FrequencyAmount = new()
 		{
-			{ TraderKindCategory.Orbital, DefaultFrequencyAmount },
-			{ TraderKindCategory.Caravan, DefaultFrequencyAmount },
-			{ TraderKindCategory.Visitor, DefaultFrequencyAmount }
+			{TraderKindCategory.Orbital, DefaultFrequencyAmount},
+			{TraderKindCategory.Caravan, DefaultFrequencyAmount},
+			{TraderKindCategory.Visitor, DefaultFrequencyAmount}
 		};
 
 		public const int DefaultFrequencyChanceFactor = 100;
@@ -43,8 +43,8 @@ namespace TO.Mod
 		/// </summary>
 		public Dictionary<TraderKindCategory, int> FrequencyChanceFactor = new()
 		{
-			{ TraderKindCategory.Orbital, DefaultFrequencyChanceFactor },
-			{ TraderKindCategory.Caravan, DefaultFrequencyChanceFactor }
+			{TraderKindCategory.Orbital, DefaultFrequencyChanceFactor},
+			{TraderKindCategory.Caravan, DefaultFrequencyChanceFactor}
 		};
 
 		public static readonly int DefaultDepartureTime = 0;
@@ -55,9 +55,9 @@ namespace TO.Mod
 		/// </summary>
 		public Dictionary<TraderKindCategory, int> DepartureTime = new()
 		{
-			{ TraderKindCategory.Orbital, DefaultDepartureTime },
-			{ TraderKindCategory.Caravan, DefaultDepartureTime },
-			{ TraderKindCategory.Visitor, DefaultDepartureTime }
+			{TraderKindCategory.Orbital, DefaultDepartureTime},
+			{TraderKindCategory.Caravan, DefaultDepartureTime},
+			{TraderKindCategory.Visitor, DefaultDepartureTime}
 		};
 
 		public const int MinScaling = 24;
@@ -67,10 +67,10 @@ namespace TO.Mod
 		/// </summary>
 		public Dictionary<TraderKindCategory, int> SilverScaling = new()
 		{
-			{ TraderKindCategory.Orbital, MinScaling },
-			{ TraderKindCategory.Settlement, MinScaling },
-			{ TraderKindCategory.Caravan, MinScaling },
-			{ TraderKindCategory.Visitor, MinScaling }
+			{TraderKindCategory.Orbital, MinScaling},
+			{TraderKindCategory.Settlement, MinScaling},
+			{TraderKindCategory.Caravan, MinScaling},
+			{TraderKindCategory.Visitor, MinScaling}
 		};
 
 		/// <summary>
@@ -78,10 +78,10 @@ namespace TO.Mod
 		/// </summary>
 		public Dictionary<TraderKindCategory, int> StockScaling = new()
 		{
-			{ TraderKindCategory.Orbital, MinScaling },
-			{ TraderKindCategory.Settlement, MinScaling },
-			{ TraderKindCategory.Caravan, MinScaling },
-			{ TraderKindCategory.Visitor, MinScaling }
+			{TraderKindCategory.Orbital, MinScaling},
+			{TraderKindCategory.Settlement, MinScaling},
+			{TraderKindCategory.Caravan, MinScaling},
+			{TraderKindCategory.Visitor, MinScaling}
 		};
 
 		/// <summary>
@@ -90,10 +90,10 @@ namespace TO.Mod
 		public Dictionary<TraderKindCategory, WealthScalingOption> WealthScaling =
 			new()
 			{
-				{ TraderKindCategory.Orbital, WealthScalingOption.None },
-				{ TraderKindCategory.Settlement, WealthScalingOption.None },
-				{ TraderKindCategory.Caravan, WealthScalingOption.None },
-				{ TraderKindCategory.Visitor, WealthScalingOption.None }
+				{TraderKindCategory.Orbital, WealthScalingOption.None},
+				{TraderKindCategory.Settlement, WealthScalingOption.None},
+				{TraderKindCategory.Caravan, WealthScalingOption.None},
+				{TraderKindCategory.Visitor, WealthScalingOption.None}
 			};
 
 		/// <summary>
@@ -279,6 +279,27 @@ namespace TO.Mod
 		public static void Reset()
 		{
 			_values = new SettingValues();
+		}
+
+		public static void ResetCategory(TraderKindCategory category)
+		{
+			SettingValues resetValues = new SettingValues();
+
+			_values.FrequencyTime[category] = resetValues.FrequencyTime[category];
+			_values.SilverScaling[category] = resetValues.SilverScaling[category];
+			_values.StockScaling[category] = resetValues.StockScaling[category];
+			_values.WealthScaling[category] = resetValues.WealthScaling[category];
+
+			if (category != TraderKindCategory.Settlement)
+			{
+				_values.FrequencyAmount[category] = resetValues.FrequencyAmount[category];
+				_values.DepartureTime[category] = resetValues.DepartureTime[category];
+			}
+
+			if (category == TraderKindCategory.Orbital || category == TraderKindCategory.Caravan)
+			{
+				_values.FrequencyChanceFactor[category] = resetValues.FrequencyChanceFactor[category];
+			}
 		}
 
 		/// <summary>

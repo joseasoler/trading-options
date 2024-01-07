@@ -8,8 +8,10 @@
 	<TO_CategoryNone>Other options</TO_CategoryNone>
 
 	<!-- Reset all settings -->
-	<TO_ResetSettings>Reset all</TO_ResetSettings>
-	<TO_ResetSettingsTooltip>Reset all Trading Options to their default values.</TO_ResetSettingsTooltip>
+	<TO_ResetAllSettingsLabel>Reset all</TO_ResetAllSettingsLabel>
+	<TO_ResetAllSettingsHover>Reset all Trading Options to their default values.</TO_ResetAllSettingsHover>
+	<TO_ResetCurrentSettingsLabel>Reset current</TO_ResetCurrentSettingsLabel>
+	<TO_ResetCurrentSettingsHover>Reset Trading Options of the current trader category to their default values.</TO_ResetCurrentSettingsHover>
 
 	<!-- Arrival frequency. -->
 	<TO_FrequencyTitle>Arrival frequency</TO_FrequencyTitle>
