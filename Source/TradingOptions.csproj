@@ -21,6 +21,7 @@
 
 	<ItemGroup>
 		<Compile Include="Harmony.cs" />
+		<Compile Include="IncidentCategoriesDefOf.cs" />
 		<Compile Include="Mod.cs" />
 		<Compile Include="Patches\CaravanVisitorDepartureTime\Helper.cs" />
 		<Compile Include="Patches\CaravanVisitorDepartureTime\LordJob_TradeWithColony_CreateGraph_Patch.cs" />

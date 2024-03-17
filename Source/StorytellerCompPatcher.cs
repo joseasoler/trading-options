@@ -156,8 +156,8 @@ namespace TradingOptions
 			}
 
 			var categoryDef = category == TraderKindCategory.Orbital
-				? IncidentCategoryDefOf.OrbitalVisitor
-				: IncidentCategoryDefOf.FactionArrival;
+				? IncidentCategoriesDefOf.OrbitalVisitor
+				: IncidentCategoriesDefOf.FactionArrival;
 
 			var incidentEntry = randomMainComp.categoryWeights.Find(cat => cat.category == categoryDef);
 			if (incidentEntry == null || incidentEntry.category != categoryDef)

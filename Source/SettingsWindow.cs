@@ -84,9 +84,9 @@ namespace TradingOptions
 			leftRect.y += slidersRect.height;
 			centerRect.y += slidersRect.height;
 			rightRect.y += slidersRect.height;
-			var leftNew = Widgets.HorizontalSlider_NewTemp(leftRect, data.LeftValue, data.LeftMin, data.LeftMax);
-			var centerNew = Widgets.HorizontalSlider_NewTemp(centerRect, data.CenterValue, data.CenterMin, data.CenterMax);
-			var rightNew = Widgets.HorizontalSlider_NewTemp(rightRect, data.RightValue, data.RightMin, data.RightMax);
+			var leftNew = Widgets.HorizontalSlider(leftRect, data.LeftValue, data.LeftMin, data.LeftMax);
+			var centerNew = Widgets.HorizontalSlider(centerRect, data.CenterValue, data.CenterMin, data.CenterMax);
+			var rightNew = Widgets.HorizontalSlider(rightRect, data.RightValue, data.RightMin, data.RightMax);
 
 			const double tolerance = 0.000001f;
 			if (Math.Abs(leftNew - data.LeftValue) > tolerance || Math.Abs(centerNew - data.CenterValue) > tolerance ||
@@ -201,7 +201,7 @@ namespace TradingOptions
 
 			var slidersRect = listing.GetRect(22.0f);
 			var newRestockTime =
-				(int) Widgets.HorizontalSlider_NewTemp(slidersRect, restockTime, SettingValues.DefaultFrequencyTime, 60);
+				(int) Widgets.HorizontalSlider(slidersRect, restockTime, SettingValues.DefaultFrequencyTime, 60);
 			Settings.SetFrequencyTime(cat, newRestockTime);
 		}
 
@@ -237,7 +237,7 @@ namespace TradingOptions
 
 			var slidersRect = listing.GetRect(22.0f);
 			var newDepartureTime =
-				(int) Widgets.HorizontalSlider_NewTemp(slidersRect, departureTime, SettingValues.DefaultDepartureTime,
+				(int) Widgets.HorizontalSlider(slidersRect, departureTime, SettingValues.DefaultDepartureTime,
 					GenDate.TicksPerDay * 3);
 			Settings.SetDepartureTime(cat, newDepartureTime);
 		}
