@@ -54,23 +54,11 @@ Trading Options is compatible with storytellers from all mods. Trading Options i
 
 -
 
-[b]Q:[/b] [i]Is this mod compatible with [url=https://steamcommunity.com/workshop/filedetails/?id=2890901044]Combat Extended[/url]?[/i]
-
-[b]A:[/b] Combat Extended has the following documentation:
-• [url=https://github.com/CombatExtended-Continued/CombatExtended/wiki/Frequently-Asked-Questions#does-mod-work-with-combat-extended-does-it-need-a-patch]Does (Mod) work with Combat Extended? Does it need a patch?[/url].
-• [url=https://github.com/CombatExtended-Continued/CombatExtended/blob/Development/SupportedThirdPartyMods.md]Supported Third-Party Mods[/url].
-
-I do not know enough about Combat Extended changes to guarantee if the mods are compatible or not.
-
--
-
 [b]Q:[/b] [i]Is this mod compatible with RimWorld 1.3?[/i]
 
 [b]A:[/b] Trading Options is only compatible with 1.4. In 1.3 you can use [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2813426619]Customizable Silver Stock[/url], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1511375007]Supply and Demand[/url] and [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1369828656]Adjustable Trade Ships[/url] to get almost the same feature set. 
 
 [h2]Credits[/h2]
-
-[b]Project website:[/b] https://github.com/joseasoler/trading-options
 
 • [b]joseasoler[/b]: Programming
 
