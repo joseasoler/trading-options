@@ -52,12 +52,6 @@ Trading Options is compatible with storytellers from all mods. Trading Options i
 
 [b]A:[/b] Yes, both mods are fully compatible. Vanilla Trading Expanded can make stock prizes fluctuate, while Trading Options can change the amount of available stock. Both features can be together without any issues.
 
--
-
-[b]Q:[/b] [i]Is this mod compatible with RimWorld 1.3?[/i]
-
-[b]A:[/b] Trading Options is only compatible with 1.4. In 1.3 you can use [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2813426619]Customizable Silver Stock[/url], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1511375007]Supply and Demand[/url] and [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1369828656]Adjustable Trade Ships[/url] to get almost the same feature set. 
-
 [h2]Credits[/h2]
 
 • [b]joseasoler[/b]: Programming
